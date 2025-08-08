@@ -39,8 +39,8 @@ export function LoginForm() {
         return
       }
 
-      router.push('/dashboard')
-      router.refresh()
+      // Force full page reload to clear any cached permissions
+      window.location.href = '/dash'
     } catch (err: any) {
       if (err.errors?.[0]?.message) {
         setError(err.errors[0].message)

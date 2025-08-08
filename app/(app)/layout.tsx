@@ -32,10 +32,12 @@ export default function AppLayout({
     
     // Listen for auth changes
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (!session?.user) {
-        redirect('/auth/login')
+      if (event === 'SIGNED_OUT') {
+        // Use window.location for logout to avoid NEXT_REDIRECT error
+        window.location.href = '/auth/login'
+      } else if (event === 'SIGNED_IN' && session?.user) {
+        setUser(session.user)
       }
-      setUser(session?.user || null)
     })
     
     return () => subscription.unsubscribe()

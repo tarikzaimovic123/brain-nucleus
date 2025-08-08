@@ -21,6 +21,7 @@ import type { Company } from "@/types/companies"
 import type { Contact } from "@/types/contacts"
 import type { Product } from "@/types/products"
 import { format } from "date-fns"
+import { usePermissionContext } from "@/lib/contexts/permission-context"
 
 const quoteItemSchema = z.object({
   id: z.string().optional(),
@@ -56,6 +57,7 @@ export function EditQuoteBlade({ quote, onClose, onSave }: EditQuoteBladeProps) 
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(false)
   const { toast } = useToast()
+  const { checkPermissionWithToast } = usePermissionContext()
 
   const isEditMode = quote !== null
   
@@ -155,7 +157,7 @@ export function EditQuoteBlade({ quote, onClose, onSave }: EditQuoteBladeProps) 
     const supabase = createClient()
     const { data, error } = await supabase
       .from('products')
-      .select('id, code, name, selling_price, vat_rate')
+      .select('*')
       .eq('is_active', true)
       .order('name')
 
@@ -226,6 +228,14 @@ export function EditQuoteBlade({ quote, onClose, onSave }: EditQuoteBladeProps) 
   }
 
   const onSubmit = async (data: QuoteFormData) => {
+    // Check permissions before proceeding
+    const requiredAction = isEditMode ? 'update' : 'create'
+    const actionName = isEditMode ? 'ažuriranje ponude' : 'kreiranje ponude'
+    
+    if (!checkPermissionWithToast('quotes', requiredAction, actionName)) {
+      return
+    }
+
     setLoading(true)
     const supabase = createClient()
 

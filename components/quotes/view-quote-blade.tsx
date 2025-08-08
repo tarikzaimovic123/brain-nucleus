@@ -25,6 +25,7 @@ import { Label } from "@/components/ui/label"
 import { format, isAfter, parseISO } from "date-fns"
 import { sr } from "date-fns/locale"
 import type { Quote } from "@/types/quotes"
+import { usePermissionContext, PermissionGuard } from "@/lib/contexts/permission-context"
 
 interface ViewQuoteBladeProps {
   quote: Quote
@@ -73,6 +74,7 @@ export function ViewQuoteBlade({ quote, onClose, onEdit, onDelete }: ViewQuoteBl
   const [newComment, setNewComment] = useState('')
   const [isInternalComment, setIsInternalComment] = useState(false)
   const [submittingComment, setSubmittingComment] = useState(false)
+  const { hasPermission } = usePermissionContext()
 
   const isExpired = quote.valid_until && isAfter(new Date(), parseISO(quote.valid_until)) && quote.status === 'pending'
 
@@ -359,12 +361,16 @@ export function ViewQuoteBlade({ quote, onClose, onEdit, onDelete }: ViewQuoteBl
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" onClick={onEdit}>
-            <Edit className="h-4 w-4" />
-          </Button>
-          <Button variant="ghost" size="icon" onClick={onDelete}>
-            <Trash2 className="h-4 w-4" />
-          </Button>
+          <PermissionGuard resource="quotes" action="update">
+            <Button variant="ghost" size="icon" onClick={onEdit}>
+              <Edit className="h-4 w-4" />
+            </Button>
+          </PermissionGuard>
+          <PermissionGuard resource="quotes" action="delete">
+            <Button variant="ghost" size="icon" onClick={onDelete}>
+              <Trash2 className="h-4 w-4" />
+            </Button>
+          </PermissionGuard>
           <Button variant="ghost" size="icon" onClick={onClose}>
             <X className="h-4 w-4" />
           </Button>
@@ -684,18 +690,18 @@ export function ViewQuoteBlade({ quote, onClose, onEdit, onDelete }: ViewQuoteBl
                     {/* Print Ready Status */}
                     <div className="flex items-center gap-3 p-3 bg-muted/50 rounded-lg">
                       <div className={`h-10 w-10 rounded-full flex items-center justify-center ${
-                        quote.status === 'accepted' && quote.quote_items?.length > 0 ? 'bg-green-100' :
+                        quote.status === 'accepted' && quote.quote_items && quote.quote_items.length > 0 ? 'bg-green-100' :
                         'bg-gray-100'
                       }`}>
                         <Printer className={`h-5 w-5 ${
-                          quote.status === 'accepted' && quote.quote_items?.length > 0 ? 'text-green-600' :
+                          quote.status === 'accepted' && quote.quote_items && quote.quote_items.length > 0 ? 'text-green-600' :
                           'text-gray-600'
                         }`} />
                       </div>
                       <div>
                         <p className="text-xs text-muted-foreground">Priprema za štampu</p>
                         <p className="font-medium">
-                          {quote.status === 'accepted' && quote.quote_items?.length > 0 ? 
+                          {quote.status === 'accepted' && quote.quote_items && quote.quote_items.length > 0 ? 
                             'Spremno' : 'Čeka odobrenje'}
                         </p>
                       </div>

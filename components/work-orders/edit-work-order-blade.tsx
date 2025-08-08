@@ -18,6 +18,7 @@ import { createClient } from '@/lib/supabase/client'
 import { useToast } from '@/hooks/use-toast'
 import type { WorkOrder } from '@/types/work-orders'
 import { format } from 'date-fns'
+import { usePermissionContext } from '@/lib/contexts/permission-context'
 
 const workOrderSchema = z.object({
   company_id: z.string().min(1, 'Firma je obavezna'),
@@ -46,6 +47,7 @@ export function EditWorkOrderBlade({ workOrder, onClose, onSave }: EditWorkOrder
   const [quotes, setQuotes] = useState<any[]>([])
   const [generatedOrderNumber, setGeneratedOrderNumber] = useState<string>('')
   const { toast } = useToast()
+  const { checkPermissionWithToast } = usePermissionContext()
   const supabase = createClient()
 
   const {
@@ -136,6 +138,14 @@ export function EditWorkOrderBlade({ workOrder, onClose, onSave }: EditWorkOrder
   }
 
   const onSubmit = async (data: WorkOrderFormData) => {
+    // Check permissions before proceeding
+    const requiredAction = workOrder ? 'update' : 'create'
+    const actionName = workOrder ? 'ažuriranje radnog naloga' : 'kreiranje radnog naloga'
+    
+    if (!checkPermissionWithToast('work_orders', requiredAction, actionName)) {
+      return
+    }
+
     setSaving(true)
     const { data: { user } } = await supabase.auth.getUser()
 

@@ -5,6 +5,7 @@ import { FileText, Plus, Euro, Clock, CheckCircle, AlertTriangle, Download, Send
 import { createClient } from "@/lib/supabase/client"
 import { useToast } from "@/hooks/use-toast"
 import { useBladeStack } from "@/lib/contexts/blade-stack-context"
+import { usePermissionContext, PermissionGuard } from "@/lib/contexts/permission-context"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card } from "@/components/ui/card"
@@ -85,6 +86,7 @@ export function InvoicesClient() {
 
   const { toast } = useToast()
   const { openBlade } = useBladeStack()
+  const { withPermissionCheck, hasPermission, checkPermissionWithToast } = usePermissionContext()
 
   useEffect(() => {
     fetchInvoices()
@@ -221,7 +223,7 @@ export function InvoicesClient() {
     }, { width: 'lg' })
   }
 
-  const handleEdit = (invoice: Invoice) => {
+  const handleEdit = withPermissionCheck('invoices', 'update', (invoice: Invoice) => {
     openBlade(EditInvoiceBlade, {
       invoice: invoice,
       onClose: () => {},
@@ -229,9 +231,9 @@ export function InvoicesClient() {
         fetchInvoices()
       }
     }, { width: 'lg' })
-  }
+  }, 'ažuriranje fakture')
 
-  const handleDelete = async (invoice: Invoice) => {
+  const handleDelete = withPermissionCheck('invoices', 'delete', async (invoice: Invoice) => {
     if (!confirm(`Da li ste sigurni da želite da obrišete fakturu ${invoice.invoice_number}?`)) {
       return
     }
@@ -259,7 +261,7 @@ export function InvoicesClient() {
         description: 'Greška pri brisanju fakture'
       })
     }
-  }
+  }, 'brisanje fakture')
 
   const handleBulkFiscalize = () => {
     toast({
@@ -275,7 +277,7 @@ export function InvoicesClient() {
     })
   }
 
-  const handleCreateInvoice = () => {
+  const handleCreateInvoice = withPermissionCheck('invoices', 'create', () => {
     console.log('➕ Opening create invoice blade')
     openBlade(EditInvoiceBlade, {
       invoice: null,
@@ -284,7 +286,7 @@ export function InvoicesClient() {
         fetchInvoices()
       }
     }, { width: 'lg' })
-  }
+  }, 'kreiranje fakture')
 
 
   const getStatusColor = (status: string) => {
@@ -371,7 +373,9 @@ export function InvoicesClient() {
             {invoice.status}
           </Badge>
           {invoice.fiscal_verified && (
-            <Shield className="h-4 w-4 text-green-600" title="Fiskalizovano" />
+            <span title="Fiskalizovano">
+              <Shield className="h-4 w-4 text-green-600" />
+            </span>
           )}
         </div>
       )
@@ -431,10 +435,12 @@ export function InvoicesClient() {
             <Send className="h-4 w-4 mr-2" />
             Grupno slanje
           </Button>
-          <Button onClick={handleCreateInvoice}>
-            <Plus className="h-4 w-4 mr-2" />
-            Nova faktura
-          </Button>
+          <PermissionGuard resource="invoices" action="create">
+            <Button onClick={handleCreateInvoice}>
+              <Plus className="h-4 w-4 mr-2" />
+              Nova faktura
+            </Button>
+          </PermissionGuard>
         </div>
       </div>
 
@@ -560,16 +566,11 @@ export function InvoicesClient() {
         <DataGrid
           data={filteredInvoices}
           columns={columns}
-          loading={loading}
-          onRowClick={handleView}
+          isLoading={loading}
           onView={handleView}
-          onEdit={handleEdit}
-          onDelete={handleDelete}
+          onEdit={hasPermission('invoices', 'update') ? handleEdit : undefined}
+          onDelete={hasPermission('invoices', 'delete') ? handleDelete : undefined}
           emptyMessage="Nema faktura za prikaz"
-          itemsPerPage={25}
-          totalCount={filteredInvoices.length}
-          currentPage={currentPage}
-          onPageChange={setCurrentPage}
         />
       </Card>
     </div>

@@ -14,6 +14,7 @@ import type { Quote } from '@/types/quotes'
 import { format, isAfter, parseISO } from 'date-fns'
 import { sr } from 'date-fns/locale'
 import { useBladeStack } from '@/lib/contexts/blade-stack-context'
+import { usePermissionContext, PermissionGuard } from '@/lib/contexts/permission-context'
 
 export function QuotesClient() {
   const [quotes, setQuotes] = useState<Quote[]>([])
@@ -21,6 +22,7 @@ export function QuotesClient() {
   const [currentPage, setCurrentPage] = useState(1)
   const searchParams = useSearchParams()
   const { openBlade } = useBladeStack()
+  const { withPermissionCheck, hasPermission, checkPermissionWithToast } = usePermissionContext()
 
   useEffect(() => {
     fetchQuotes()
@@ -78,7 +80,7 @@ export function QuotesClient() {
     setLoading(false)
   }
 
-  const handleEdit = (quote: Quote) => {
+  const handleEdit = withPermissionCheck('quotes', 'update', (quote: Quote) => {
     openBlade(EditQuoteBlade, {
       quote: quote,
       onClose: () => {},
@@ -86,9 +88,9 @@ export function QuotesClient() {
         fetchQuotes()
       }
     }, { width: 'lg' })
-  }
+  }, 'ažuriranje ponude')
 
-  const handleDelete = async (quote: Quote) => {
+  const handleDelete = withPermissionCheck('quotes', 'delete', async (quote: Quote) => {
     if (!confirm(`Da li ste sigurni da želite obrisati ponudu "${quote.quote_number}"?`)) return
 
     const supabase = createClient()
@@ -100,7 +102,7 @@ export function QuotesClient() {
     if (!error) {
       fetchQuotes()
     }
-  }
+  }, 'brisanje ponude')
 
   const handleView = (quote: Quote) => {
     openBlade(ViewQuoteBlade, {
@@ -121,7 +123,7 @@ export function QuotesClient() {
     }, { width: 'lg' })
   }
 
-  const handleCreateNew = () => {
+  const handleCreateNew = withPermissionCheck('quotes', 'create', () => {
     openBlade(EditQuoteBlade, {
       quote: null,
       onClose: () => {},
@@ -129,7 +131,7 @@ export function QuotesClient() {
         fetchQuotes()
       }
     }, { width: 'lg' })
-  }
+  }, 'kreiranje ponude')
 
   // Calculate statistics
   const activeQuotes = quotes.filter(q => q.status === 'sent' || q.status === 'draft')
@@ -274,10 +276,12 @@ export function QuotesClient() {
           <h1 className="text-3xl font-bold">Ponude</h1>
           <p className="text-muted-foreground">Upravljanje ponudama i oferima</p>
         </div>
-        <Button onClick={handleCreateNew}>
-          <Plus className="mr-2 h-4 w-4" />
-          Nova ponuda
-        </Button>
+        <PermissionGuard resource="quotes" action="create">
+          <Button onClick={handleCreateNew}>
+            <Plus className="mr-2 h-4 w-4" />
+            Nova ponuda
+          </Button>
+        </PermissionGuard>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -340,8 +344,8 @@ export function QuotesClient() {
           data={quotes}
           columns={columns}
           isLoading={loading}
-          onEdit={handleEdit}
-          onDelete={handleDelete}
+          onEdit={hasPermission('quotes', 'update') ? handleEdit : undefined}
+          onDelete={hasPermission('quotes', 'delete') ? handleDelete : undefined}
           onView={handleView}
           selectable={true}
           searchable={true}

@@ -15,6 +15,7 @@ import { Separator } from "@/components/ui/separator"
 import { useToast } from "@/components/ui/use-toast"
 import { createClient } from "@/lib/supabase/client"
 import type { Product, ProductFormData, ProductCategory } from "@/types/products"
+import { usePermissionContext } from "@/lib/contexts/permission-context"
 
 const productSchema = z.object({
   code: z.string()
@@ -61,6 +62,7 @@ export function EditProductBlade({ product, onClose, onSuccess }: EditProductBla
   const [loading, setLoading] = useState(false)
   const [categories, setCategories] = useState<ProductCategory[]>([])
   const { toast } = useToast()
+  const { checkPermissionWithToast } = usePermissionContext()
   const isEditMode = !!product
 
   const {
@@ -111,6 +113,14 @@ export function EditProductBlade({ product, onClose, onSuccess }: EditProductBla
   }
 
   const onSubmit = async (data: ProductFormData) => {
+    // Check permissions before proceeding
+    const requiredAction = isEditMode ? 'update' : 'create'
+    const actionName = isEditMode ? 'ažuriranje artikla' : 'kreiranje artikla'
+    
+    if (!checkPermissionWithToast('products', requiredAction, actionName)) {
+      return
+    }
+
     setLoading(true)
     const supabase = createClient()
 

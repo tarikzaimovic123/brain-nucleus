@@ -48,7 +48,7 @@ export function ProductDialog({ open, onOpenChange, product, categories, onSucce
     const validation = productSchema.safeParse(formData)
     if (!validation.success) {
       const fieldErrors: Record<string, string> = {}
-      validation.error.errors.forEach((error) => {
+      validation.error.issues.forEach((error) => {
         if (error.path[0]) {
           fieldErrors[error.path[0].toString()] = error.message
         }

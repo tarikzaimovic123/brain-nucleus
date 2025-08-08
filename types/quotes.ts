@@ -45,7 +45,7 @@ export interface QuoteItem {
 }
 
 export interface QuoteFormData {
-  company_id?: string
+  company_id: string
   contact_person_id?: string
   quote_date: string
   valid_until?: string

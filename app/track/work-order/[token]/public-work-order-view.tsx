@@ -97,6 +97,21 @@ export function PublicWorkOrderView({ token }: PublicWorkOrderViewProps) {
             // Ažuriraj samo osnovne podatke, ali zadrži postojeće faze
             setWorkOrder(prev => {
               if (!prev) return null
+              
+              // Proveri šta se promenilo pre ažuriranja
+              const oldStatus = prev.status
+              const newStatus = payload.new.status
+              const oldProgress = prev.progress_percentage
+              const newProgress = payload.new.progress_percentage
+              
+              if (oldStatus !== newStatus) {
+                addNotification(`📊 Status promenjen na: ${getStatusLabel(newStatus)}`)
+              } else if (oldProgress !== newProgress) {
+                addNotification(`📈 Progress ažuriran: ${newProgress}%`)
+              } else {
+                addNotification('📊 Radni nalog je ažuriran')
+              }
+              
               return {
                 ...prev,
                 ...payload.new,
@@ -107,20 +122,6 @@ export function PublicWorkOrderView({ token }: PublicWorkOrderViewProps) {
                 quote: prev.quote
               }
             })
-            
-            // Proveri šta se promenilo (koristi prev state, ne workOrder)
-            const oldStatus = prev?.status
-            const newStatus = payload.new.status
-            const oldProgress = prev?.progress_percentage
-            const newProgress = payload.new.progress_percentage
-            
-            if (oldStatus !== newStatus) {
-              addNotification(`📊 Status promenjen na: ${getStatusLabel(newStatus)}`)
-            } else if (oldProgress !== newProgress) {
-              addNotification(`📈 Progress ažuriran: ${newProgress}%`)
-            } else {
-              addNotification('📊 Radni nalog je ažuriran')
-            }
           }
         }
       )

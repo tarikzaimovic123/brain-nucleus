@@ -14,6 +14,7 @@ import type { WorkOrder } from '@/types/work-orders'
 import { format, parseISO, isAfter, differenceInDays } from 'date-fns'
 import { sr } from 'date-fns/locale'
 import { useBladeStack } from '@/lib/contexts/blade-stack-context'
+import { usePermissionContext, PermissionGuard } from '@/lib/contexts/permission-context'
 
 export function WorkOrdersClient() {
   const [workOrders, setWorkOrders] = useState<WorkOrder[]>([])
@@ -21,6 +22,7 @@ export function WorkOrdersClient() {
   const [currentPage, setCurrentPage] = useState(1)
   const searchParams = useSearchParams()
   const { openBlade } = useBladeStack()
+  const { withPermissionCheck, hasPermission, checkPermissionWithToast } = usePermissionContext()
 
   useEffect(() => {
     fetchWorkOrders()
@@ -99,7 +101,7 @@ export function WorkOrdersClient() {
     setLoading(false)
   }
 
-  const handleEdit = (workOrder: WorkOrder) => {
+  const handleEdit = withPermissionCheck('work_orders', 'update', (workOrder: WorkOrder) => {
     openBlade(EditWorkOrderBlade, {
       workOrder: workOrder,
       onClose: () => {},
@@ -107,9 +109,9 @@ export function WorkOrdersClient() {
         fetchWorkOrders()
       }
     }, { width: 'lg' })
-  }
+  }, 'ažuriranje radnog naloga')
 
-  const handleDelete = async (workOrder: WorkOrder) => {
+  const handleDelete = withPermissionCheck('work_orders', 'delete', async (workOrder: WorkOrder) => {
     if (!confirm(`Da li ste sigurni da želite obrisati radni nalog "${workOrder.order_number}"?`)) return
 
     const supabase = createClient()
@@ -121,7 +123,7 @@ export function WorkOrdersClient() {
     if (!error) {
       fetchWorkOrders()
     }
-  }
+  }, 'brisanje radnog naloga')
 
   const handleView = (workOrder: WorkOrder) => {
     openBlade(ViewWorkOrderBlade, {
@@ -142,7 +144,7 @@ export function WorkOrdersClient() {
     }, { width: 'lg' })
   }
 
-  const handleCreateNew = () => {
+  const handleCreateNew = withPermissionCheck('work_orders', 'create', () => {
     openBlade(EditWorkOrderBlade, {
       workOrder: null,
       onClose: () => {},
@@ -150,7 +152,7 @@ export function WorkOrdersClient() {
         fetchWorkOrders()
       }
     }, { width: 'lg' })
-  }
+  }, 'kreiranje radnog naloga')
 
   // Calculate statistics
   const pendingOrders = workOrders.filter(wo => wo.status === 'pending')
@@ -318,10 +320,12 @@ export function WorkOrdersClient() {
           <h1 className="text-3xl font-bold">Radni nalozi</h1>
           <p className="text-muted-foreground">Upravljanje proizvodnjom i praćenje napretka</p>
         </div>
-        <Button onClick={handleCreateNew}>
-          <Plus className="mr-2 h-4 w-4" />
-          Novi radni nalog
-        </Button>
+        <PermissionGuard resource="work_orders" action="create">
+          <Button onClick={handleCreateNew}>
+            <Plus className="mr-2 h-4 w-4" />
+            Novi radni nalog
+          </Button>
+        </PermissionGuard>
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
@@ -379,8 +383,8 @@ export function WorkOrdersClient() {
           data={workOrders}
           columns={columns}
           isLoading={loading}
-          onEdit={handleEdit}
-          onDelete={handleDelete}
+          onEdit={hasPermission('work_orders', 'update') ? handleEdit : undefined}
+          onDelete={hasPermission('work_orders', 'delete') ? handleDelete : undefined}
           onView={handleView}
           selectable={true}
           searchable={true}

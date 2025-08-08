@@ -1,5 +1,5 @@
 import './globals.css'
-import { BladeStackProvider } from '@/lib/contexts/blade-stack-context'
+import { Providers } from './providers'
 
 export const metadata = {
   title: 'Brain Nucleus',
@@ -14,9 +14,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <BladeStackProvider>
+        <Providers>
           {children}
-        </BladeStackProvider>
+        </Providers>
       </body>
     </html>
   )

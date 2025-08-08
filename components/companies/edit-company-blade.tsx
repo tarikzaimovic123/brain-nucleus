@@ -15,6 +15,7 @@ import { z } from "zod"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useToast } from "@/components/ui/use-toast"
+import { usePermissionContext } from "@/lib/contexts/permission-context"
 import {
   Form,
   FormControl,
@@ -119,6 +120,7 @@ export function EditCompanyBlade({ company, onClose, onSuccess }: EditCompanyBla
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const { toast } = useToast()
+  const { checkPermissionWithToast } = usePermissionContext()
   
   const form = useForm<CompanyFormValues>({
     resolver: zodResolver(companySchema),
@@ -162,6 +164,14 @@ export function EditCompanyBlade({ company, onClose, onSuccess }: EditCompanyBla
   }, [company, form])
 
   const onSubmit = async (values: CompanyFormValues) => {
+    // Check permission before processing
+    const action = company?.id ? 'update' : 'create'
+    const actionName = company?.id ? 'ažuriranje firme' : 'kreiranje firme'
+    
+    if (!checkPermissionWithToast('companies', action, actionName)) {
+      return
+    }
+
     setLoading(true)
     setError(null)
     const supabase = createClient()

@@ -38,14 +38,14 @@ export interface ProductFormData {
   name: string
   description?: string
   unit_of_measure: string
-  purchase_price?: number
-  selling_price?: number
+  purchase_price?: number | null
+  selling_price?: number | null
   vat_rate: number
   stock_quantity: number
   minimum_stock: number
   is_service: boolean
   is_active: boolean
   paper_type?: string
-  paper_weight?: number
+  paper_weight?: number | null
   paper_format?: string
 }

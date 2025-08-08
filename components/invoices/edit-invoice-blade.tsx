@@ -13,6 +13,7 @@ import { useToast } from "@/hooks/use-toast"
 import { createClient } from "@/lib/supabase/client"
 import { format } from "date-fns"
 import { Combobox } from "@/components/ui/combobox"
+import { usePermissionContext } from "@/lib/contexts/permission-context"
 
 interface Invoice {
   id: string
@@ -56,6 +57,7 @@ export function EditInvoiceBlade({ invoice, onClose, onSuccess }: EditInvoiceBla
   const [loading, setLoading] = useState(false)
   const [companies, setCompanies] = useState<Company[]>([])
   const { toast } = useToast()
+  const { checkPermissionWithToast } = usePermissionContext()
   
   const isEditMode = !!invoice
 
@@ -141,6 +143,14 @@ export function EditInvoiceBlade({ invoice, onClose, onSuccess }: EditInvoiceBla
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    
+    // Check permissions before proceeding
+    const requiredAction = isEditMode ? 'update' : 'create'
+    const actionName = isEditMode ? 'ažuriranje fakture' : 'kreiranje fakture'
+    
+    if (!checkPermissionWithToast('invoices', requiredAction, actionName)) {
+      return
+    }
     
     if (!formData.company_id) {
       toast({

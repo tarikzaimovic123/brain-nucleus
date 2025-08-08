@@ -9,6 +9,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card } from "@/components/ui/card"
 import { format } from "date-fns"
 import type { Product } from "@/types/products"
+import { usePermissionContext, PermissionGuard } from "@/lib/contexts/permission-context"
 
 interface ViewProductBladeProps {
   product: Product
@@ -19,6 +20,7 @@ interface ViewProductBladeProps {
 
 export function ViewProductBlade({ product, onClose, onEdit, onDelete }: ViewProductBladeProps) {
   const [activeTab, setActiveTab] = useState("overview")
+  const { hasPermission } = usePermissionContext()
 
   const isLowStock = !product.is_service && product.stock_quantity <= product.minimum_stock
 
@@ -38,12 +40,16 @@ export function ViewProductBlade({ product, onClose, onEdit, onDelete }: ViewPro
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" onClick={onEdit}>
-            <Edit className="h-4 w-4" />
-          </Button>
-          <Button variant="ghost" size="icon" onClick={onDelete}>
-            <Trash2 className="h-4 w-4" />
-          </Button>
+          <PermissionGuard resource="products" action="update">
+            <Button variant="ghost" size="icon" onClick={onEdit}>
+              <Edit className="h-4 w-4" />
+            </Button>
+          </PermissionGuard>
+          <PermissionGuard resource="products" action="delete">
+            <Button variant="ghost" size="icon" onClick={onDelete}>
+              <Trash2 className="h-4 w-4" />
+            </Button>
+          </PermissionGuard>
           <Button variant="ghost" size="icon" onClick={onClose}>
             <X className="h-4 w-4" />
           </Button>

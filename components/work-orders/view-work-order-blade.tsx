@@ -17,6 +17,7 @@ import { format, parseISO, differenceInDays } from 'date-fns'
 import { sr } from 'date-fns/locale'
 import type { WorkOrder, WorkOrderComment } from '@/types/work-orders'
 import { useToast } from '@/hooks/use-toast'
+import { usePermissionContext, PermissionGuard } from '@/lib/contexts/permission-context'
 
 interface ViewWorkOrderBladeProps {
   workOrder: WorkOrder
@@ -35,6 +36,7 @@ export function ViewWorkOrderBlade({ workOrder, onClose, onEdit, onDelete }: Vie
   const [generatingLink, setGeneratingLink] = useState(false)
   const [currentWorkOrder, setCurrentWorkOrder] = useState(workOrder)
   const { toast } = useToast()
+  const { hasPermission } = usePermissionContext()
   const supabase = createClient()
 
   useEffect(() => {
@@ -422,14 +424,18 @@ export function ViewWorkOrderBlade({ workOrder, onClose, onEdit, onDelete }: Vie
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="outline" size="sm" onClick={onEdit}>
-            <Edit2 className="mr-2 h-4 w-4" />
-            Izmeni
-          </Button>
-          <Button variant="outline" size="sm" onClick={onDelete}>
-            <Trash2 className="mr-2 h-4 w-4" />
-            Obriši
-          </Button>
+          <PermissionGuard resource="work_orders" action="update">
+            <Button variant="outline" size="sm" onClick={onEdit}>
+              <Edit2 className="mr-2 h-4 w-4" />
+              Izmeni
+            </Button>
+          </PermissionGuard>
+          <PermissionGuard resource="work_orders" action="delete">
+            <Button variant="outline" size="sm" onClick={onDelete}>
+              <Trash2 className="mr-2 h-4 w-4" />
+              Obriši
+            </Button>
+          </PermissionGuard>
           <Button variant="ghost" size="icon" onClick={onClose}>
             <X className="h-4 w-4" />
           </Button>

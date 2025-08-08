@@ -30,7 +30,8 @@ export default function AppHeader({ onMenuToggle, user }: HeaderProps) {
 
   const handleLogout = async () => {
     await supabase.auth.signOut()
-    router.push("/auth/login")
+    // Don't use router.push to avoid conflicts with auth state change
+    // The auth state change listener will handle the redirect
   }
 
   const handleSearch = (e: React.FormEvent) => {

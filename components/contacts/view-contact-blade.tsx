@@ -8,6 +8,7 @@ import { Separator } from "@/components/ui/separator"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Card } from "@/components/ui/card"
 import { format } from "date-fns"
+import { usePermissionContext, PermissionGuard } from "@/lib/contexts/permission-context"
 import type { ContactPerson } from "@/types/contacts"
 
 interface ViewContactBladeProps {
@@ -19,6 +20,7 @@ interface ViewContactBladeProps {
 
 export function ViewContactBlade({ contact, onClose, onEdit, onDelete }: ViewContactBladeProps) {
   const [activeTab, setActiveTab] = useState("overview")
+  const { withPermissionCheck } = usePermissionContext()
 
   return (
     <div className="flex h-full flex-col bg-background">
@@ -36,12 +38,24 @@ export function ViewContactBlade({ contact, onClose, onEdit, onDelete }: ViewCon
           </div>
         </div>
         <div className="flex items-center gap-2">
-          <Button variant="ghost" size="icon" onClick={onEdit}>
-            <Edit className="h-4 w-4" />
-          </Button>
-          <Button variant="ghost" size="icon" onClick={onDelete}>
-            <Trash2 className="h-4 w-4" />
-          </Button>
+          <PermissionGuard resource="contacts" action="update">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={withPermissionCheck('contacts', 'update', onEdit, 'ažuriranje kontakta')}
+            >
+              <Edit className="h-4 w-4" />
+            </Button>
+          </PermissionGuard>
+          <PermissionGuard resource="contacts" action="delete">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              onClick={withPermissionCheck('contacts', 'delete', onDelete, 'brisanje kontakta')}
+            >
+              <Trash2 className="h-4 w-4" />
+            </Button>
+          </PermissionGuard>
           <Button variant="ghost" size="icon" onClick={onClose}>
             <X className="h-4 w-4" />
           </Button>

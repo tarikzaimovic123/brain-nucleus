@@ -135,11 +135,14 @@ export function DataGrid<T extends { id: string | number }>({
             if (typeof element === 'string') return element
             if (typeof element === 'number') return String(element)
             if (!element) return ''
-            if (React.isValidElement(element) && element.props?.children) {
-              if (Array.isArray(element.props.children)) {
-                return element.props.children.map(extractText).join(' ')
+            if (React.isValidElement(element)) {
+              const props = element.props as any
+              if (props?.children) {
+                if (Array.isArray(props.children)) {
+                  return props.children.map(extractText).join(' ')
+                }
+                return extractText(props.children)
               }
-              return extractText(element.props.children)
             }
             return String(element)
           }

@@ -78,7 +78,7 @@ export function CreateTaskDialog({ open, onOpenChange }: CreateTaskDialogProps) 
             <div className="grid grid-cols-2 gap-4">
               <div className="grid gap-2">
                 <Label htmlFor="priority">Priority</Label>
-                <Select id="priority" name="priority" disabled={isLoading}>
+                <Select name="priority" disabled={isLoading}>
                   <option value="low">Low</option>
                   <option value="medium" selected>Medium</option>
                   <option value="high">High</option>
@@ -86,7 +86,7 @@ export function CreateTaskDialog({ open, onOpenChange }: CreateTaskDialogProps) 
               </div>
               <div className="grid gap-2">
                 <Label htmlFor="status">Status</Label>
-                <Select id="status" name="status" disabled={isLoading}>
+                <Select name="status" disabled={isLoading}>
                   <option value="pending" selected>Pending</option>
                   <option value="in_progress">In Progress</option>
                   <option value="completed">Completed</option>

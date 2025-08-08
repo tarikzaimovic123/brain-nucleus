@@ -12,12 +12,14 @@ import { createClient } from '@/lib/supabase/client'
 import type { ContactPerson } from '@/types/contacts'
 import { format } from 'date-fns'
 import { useBladeStack } from '@/lib/contexts/blade-stack-context'
+import { usePermissionContext, PermissionGuard } from '@/lib/contexts/permission-context'
 
 export function ContactsClient() {
   const [contacts, setContacts] = useState<ContactPerson[]>([])
   const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1)
   const { openBlade } = useBladeStack()
+  const { withPermissionCheck, loading: permissionsLoading } = usePermissionContext()
 
   useEffect(() => {
     fetchContacts()
@@ -43,7 +45,7 @@ export function ContactsClient() {
     setLoading(false)
   }
 
-  const handleEdit = (contact: ContactPerson) => {
+  const handleEdit = withPermissionCheck('contacts', 'update', (contact: ContactPerson) => {
     openBlade(EditContactBlade, {
       contact: contact,
       onClose: () => {},
@@ -51,9 +53,9 @@ export function ContactsClient() {
         fetchContacts()
       }
     }, { width: 'lg' })
-  }
+  }, 'ažuriranje kontakta')
 
-  const handleDelete = async (contact: ContactPerson) => {
+  const handleDelete = withPermissionCheck('contacts', 'delete', async (contact: ContactPerson) => {
     if (!confirm(`Da li ste sigurni da želite obrisati kontakt "${contact.first_name} ${contact.last_name}"?`)) return
 
     const supabase = createClient()
@@ -65,7 +67,7 @@ export function ContactsClient() {
     if (!error) {
       fetchContacts()
     }
-  }
+  }, 'brisanje kontakta')
 
   const handleView = (contact: ContactPerson) => {
     openBlade(ViewContactBlade, {
@@ -194,21 +196,23 @@ export function ContactsClient() {
             <Download className="mr-2 h-4 w-4" />
             Izvezi
           </Button>
-          <Button 
-            onClick={() => {
-              openBlade(EditContactBlade, {
-                contact: null,
-                onClose: () => {},
-                onSuccess: () => {
-                  fetchContacts()
-                }
-              }, { width: 'lg' })
-            }}
-            size="sm"
-          >
-            <Plus className="mr-2 h-4 w-4" />
-            Novi kontakt
-          </Button>
+          <PermissionGuard resource="contacts" action="create">
+            <Button 
+              onClick={withPermissionCheck('contacts', 'create', () => {
+                openBlade(EditContactBlade, {
+                  contact: null,
+                  onClose: () => {},
+                  onSuccess: () => {
+                    fetchContacts()
+                  }
+                }, { width: 'lg' })
+              }, 'kreiranje kontakta')}
+              size="sm"
+            >
+              <Plus className="mr-2 h-4 w-4" />
+              Novi kontakt
+            </Button>
+          </PermissionGuard>
         </div>
       </div>
 
@@ -279,7 +283,7 @@ export function ContactsClient() {
           pageSize={25}
           currentPage={currentPage}
           onPageChange={setCurrentPage}
-          isLoading={loading}
+          isLoading={loading || permissionsLoading}
           emptyMessage="Nema pronađenih kontakata"
         />
       </Card>

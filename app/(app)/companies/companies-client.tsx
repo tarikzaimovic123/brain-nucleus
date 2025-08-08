@@ -12,12 +12,14 @@ import { createClient } from '@/lib/supabase/client'
 import type { Company } from '@/types/database'
 import { format } from 'date-fns'
 import { useBladeStack } from '@/lib/contexts/blade-stack-context'
+import { usePermissionContext, PermissionGuard } from '@/lib/contexts/permission-context'
 
 export function CompaniesClient() {
   const [companies, setCompanies] = useState<Company[]>([])
   const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1)
   const { openBlade } = useBladeStack()
+  const { withPermissionCheck, loading: permissionsLoading } = usePermissionContext()
 
   useEffect(() => {
     fetchCompanies()
@@ -37,7 +39,7 @@ export function CompaniesClient() {
     setLoading(false)
   }
 
-  const handleEdit = (company: Company) => {
+  const handleEdit = withPermissionCheck('companies', 'update', (company: Company) => {
     openBlade(EditCompanyBlade, {
       company: company,
       onClose: () => {},
@@ -45,9 +47,9 @@ export function CompaniesClient() {
         fetchCompanies()
       }
     }, { width: 'lg' })
-  }
+  }, 'ažuriranje firme')
 
-  const handleDelete = async (company: Company) => {
+  const handleDelete = withPermissionCheck('companies', 'delete', async (company: Company) => {
     if (!confirm(`Da li ste sigurni da želite obrisati kompaniju "${company.name}"?`)) return
 
     const supabase = createClient()
@@ -59,7 +61,7 @@ export function CompaniesClient() {
     if (!error) {
       fetchCompanies()
     }
-  }
+  }, 'brisanje firme')
 
   const handleView = (company: Company) => {
     openBlade(ViewCompanyBlade, {
@@ -196,21 +198,23 @@ export function CompaniesClient() {
             <Download className="mr-2 h-4 w-4" />
             Izvezi
           </Button>
-          <Button 
-            onClick={() => {
-              openBlade(EditCompanyBlade, {
-                company: null,
-                onClose: () => {},
-                onSuccess: () => {
-                  fetchCompanies()
-                }
-              }, { width: 'lg' })
-            }}
-            size="sm"
-          >
-            <Plus className="mr-2 h-4 w-4" />
-            Nova firma
-          </Button>
+          <PermissionGuard resource="companies" action="create">
+            <Button 
+              onClick={withPermissionCheck('companies', 'create', () => {
+                openBlade(EditCompanyBlade, {
+                  company: null,
+                  onClose: () => {},
+                  onSuccess: () => {
+                    fetchCompanies()
+                  }
+                }, { width: 'lg' })
+              }, 'kreiranje firme')}
+              size="sm"
+            >
+              <Plus className="mr-2 h-4 w-4" />
+              Nova firma
+            </Button>
+          </PermissionGuard>
         </div>
       </div>
 
@@ -281,7 +285,7 @@ export function CompaniesClient() {
           pageSize={25}
           currentPage={currentPage}
           onPageChange={setCurrentPage}
-          isLoading={loading}
+          isLoading={loading || permissionsLoading}
           emptyMessage="Nema pronađenih firmi"
         />
       </Card>

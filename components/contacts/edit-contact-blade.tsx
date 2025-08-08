@@ -13,6 +13,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Separator } from "@/components/ui/separator"
 import { useToast } from "@/components/ui/use-toast"
 import { createClient } from "@/lib/supabase/client"
+import { usePermissionContext } from "@/lib/contexts/permission-context"
 import type { ContactPerson, ContactPersonFormData } from "@/types/contacts"
 
 const contactSchema = z.object({
@@ -64,6 +65,7 @@ export function EditContactBlade({ contact, onClose, onSuccess }: EditContactBla
   const [loading, setLoading] = useState(false)
   const [companies, setCompanies] = useState<Company[]>([])
   const { toast } = useToast()
+  const { checkPermissionWithToast } = usePermissionContext()
   const isEditMode = !!contact?.id // Check for id to determine if editing
 
   const {
@@ -106,6 +108,14 @@ export function EditContactBlade({ contact, onClose, onSuccess }: EditContactBla
   }
 
   const onSubmit = async (data: ContactPersonFormData) => {
+    // Check permission before processing
+    const action = isEditMode ? 'update' : 'create'
+    const actionName = isEditMode ? 'ažuriranje kontakta' : 'kreiranje kontakta'
+    
+    if (!checkPermissionWithToast('contacts', action, actionName)) {
+      return
+    }
+
     setLoading(true)
     const supabase = createClient()
 

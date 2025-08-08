@@ -18,7 +18,8 @@ import {
   LogOut,
   User,
   Users,
-  Zap
+  Zap,
+  Shield
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -54,6 +55,7 @@ const documentItems = [
 ]
 
 const systemItems = [
+  { href: "/users", icon: Shield, label: "Korisnici" },
   { href: "/settings", icon: Settings, label: "Podešavanja" },
 ]
 

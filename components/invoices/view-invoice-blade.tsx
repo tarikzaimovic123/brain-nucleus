@@ -11,6 +11,7 @@ import { format, parseISO, differenceInDays } from "date-fns"
 import { sr } from "date-fns/locale"
 import { useToast } from "@/hooks/use-toast"
 import { createClient } from "@/lib/supabase/client"
+import { usePermissionContext, PermissionGuard } from "@/lib/contexts/permission-context"
 
 interface Invoice {
   id: string
@@ -57,6 +58,7 @@ interface ViewInvoiceBladeProps {
 export function ViewInvoiceBlade({ invoice, onClose, onEdit, onDelete }: ViewInvoiceBladeProps) {
   const [activeTab, setActiveTab] = useState("overview")
   const { toast } = useToast()
+  const { hasPermission } = usePermissionContext()
 
   const getStatusBadge = (status: string) => {
     const variants: Record<string, { variant: "default" | "secondary" | "destructive" | "outline", className: string }> = {
@@ -164,12 +166,16 @@ export function ViewInvoiceBlade({ invoice, onClose, onEdit, onDelete }: ViewInv
           <Button variant="ghost" size="icon" onClick={handleSendEmail}>
             <Mail className="h-4 w-4" />
           </Button>
-          <Button variant="ghost" size="icon" onClick={onEdit}>
-            <Edit className="h-4 w-4" />
-          </Button>
-          <Button variant="ghost" size="icon" onClick={onDelete}>
-            <Trash2 className="h-4 w-4" />
-          </Button>
+          <PermissionGuard resource="invoices" action="update">
+            <Button variant="ghost" size="icon" onClick={onEdit}>
+              <Edit className="h-4 w-4" />
+            </Button>
+          </PermissionGuard>
+          <PermissionGuard resource="invoices" action="delete">
+            <Button variant="ghost" size="icon" onClick={onDelete}>
+              <Trash2 className="h-4 w-4" />
+            </Button>
+          </PermissionGuard>
           <Button variant="ghost" size="icon" onClick={onClose}>
             <X className="h-4 w-4" />
           </Button>

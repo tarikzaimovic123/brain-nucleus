@@ -123,8 +123,8 @@ export function AdvancedFilters({ filters, values, onChange }: AdvancedFiltersPr
       case "daterange":
         return (
           <DatePickerWithRange
-            date={filter.value as DateRange}
-            onDateChange={(date) => updateFilter(index, { value: date })}
+            value={filter.value as DateRange}
+            onChange={(date) => updateFilter(index, { value: date })}
           />
         )
       

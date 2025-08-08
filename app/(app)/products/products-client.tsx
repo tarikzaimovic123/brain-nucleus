@@ -12,12 +12,14 @@ import { createClient } from '@/lib/supabase/client'
 import type { Product } from '@/types/products'
 import { format } from 'date-fns'
 import { useBladeStack } from '@/lib/contexts/blade-stack-context'
+import { usePermissionContext, PermissionGuard } from '@/lib/contexts/permission-context'
 
 export function ProductsClient() {
   const [products, setProducts] = useState<Product[]>([])
   const [loading, setLoading] = useState(true)
   const [currentPage, setCurrentPage] = useState(1)
   const { openBlade } = useBladeStack()
+  const { withPermissionCheck, hasPermission, loading: permissionsLoading } = usePermissionContext()
 
   useEffect(() => {
     fetchProducts()
@@ -43,7 +45,7 @@ export function ProductsClient() {
     setLoading(false)
   }
 
-  const handleEdit = (product: Product) => {
+  const handleEdit = withPermissionCheck('products', 'update', (product: Product) => {
     openBlade(EditProductBlade, {
       product: product,
       onClose: () => {},
@@ -51,9 +53,9 @@ export function ProductsClient() {
         fetchProducts()
       }
     }, { width: 'lg' })
-  }
+  }, 'ažuriranje artikla')
 
-  const handleDelete = async (product: Product) => {
+  const handleDelete = withPermissionCheck('products', 'delete', async (product: Product) => {
     if (!confirm(`Da li ste sigurni da želite obrisati artikal "${product.name}"?`)) return
 
     const supabase = createClient()
@@ -65,7 +67,7 @@ export function ProductsClient() {
     if (!error) {
       fetchProducts()
     }
-  }
+  }, 'brisanje artikla')
 
   const handleView = (product: Product) => {
     openBlade(ViewProductBlade, {
@@ -239,21 +241,23 @@ export function ProductsClient() {
             <Download className="mr-2 h-4 w-4" />
             Izvezi
           </Button>
-          <Button 
-            onClick={() => {
-              openBlade(EditProductBlade, {
-                product: null,
-                onClose: () => {},
-                onSuccess: () => {
-                  fetchProducts()
-                }
-              }, { width: 'lg' })
-            }}
-            size="sm"
-          >
-            <Plus className="mr-2 h-4 w-4" />
-            Novi artikal
-          </Button>
+          <PermissionGuard resource="products" action="create">
+            <Button 
+              onClick={() => {
+                openBlade(EditProductBlade, {
+                  product: null,
+                  onClose: () => {},
+                  onSuccess: () => {
+                    fetchProducts()
+                  }
+                }, { width: 'lg' })
+              }}
+              size="sm"
+            >
+              <Plus className="mr-2 h-4 w-4" />
+              Novi artikal
+            </Button>
+          </PermissionGuard>
         </div>
       </div>
 
@@ -326,8 +330,8 @@ export function ProductsClient() {
         <DataGrid
           data={products}
           columns={columns}
-          onEdit={handleEdit}
-          onDelete={handleDelete}
+          onEdit={hasPermission('products', 'update') ? handleEdit : undefined}
+          onDelete={hasPermission('products', 'delete') ? handleDelete : undefined}
           onView={handleView}
           selectable={true}
           searchable={true}

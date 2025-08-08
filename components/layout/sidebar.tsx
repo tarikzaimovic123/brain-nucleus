@@ -28,7 +28,7 @@ const navigation = [
   { name: 'Fakture', href: '/invoices', icon: FileText },
   { name: 'Fiskalizacija', href: '/fiscal', icon: Receipt },
   { name: 'Izveštaji', href: '/reports', icon: FileBarChart },
-  { name: 'Zaposleni', href: '/employees', icon: Users },
+  { name: 'Korisnici', href: '/users', icon: Users },
   { name: 'Podešavanja', href: '/settings', icon: Settings },
 ]
 

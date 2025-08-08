@@ -12,6 +12,7 @@ import { DataGrid, type DataGridColumn } from "@/components/shared/data-grid"
 import { createClient } from "@/lib/supabase/client"
 import { useBladeStack } from "@/lib/contexts/blade-stack-context"
 import { EditContactBlade } from "@/components/contacts/edit-contact-blade"
+import { usePermissionContext, PermissionGuard } from "@/lib/contexts/permission-context"
 import type { Company } from "@/types/database"
 import type { ContactPerson } from "@/types/contacts"
 
@@ -27,6 +28,7 @@ export function ViewCompanyBlade({ company, onClose, onEdit, onDelete }: ViewCom
   const [contacts, setContacts] = useState<ContactPerson[]>([])
   const [loadingContacts, setLoadingContacts] = useState(false)
   const { openBlade } = useBladeStack()
+  const { withPermissionCheck } = usePermissionContext()
 
   useEffect(() => {
     if (activeTab === "contacts") {
@@ -373,7 +375,6 @@ export function ViewCompanyBlade({ company, onClose, onEdit, onDelete }: ViewCom
                     onPageChange={() => {}}
                     isLoading={loadingContacts}
                     emptyMessage="Nema kontakata za ovu firmu"
-                    compact={true}
                   />
                 </Card>
               ) : (
