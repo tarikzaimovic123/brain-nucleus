@@ -1,12 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createServerClient } from '@/lib/supabase/server'
+import { createClient } from '@/lib/supabase/server'
 import { requirePermission } from '@/lib/supabase/permissions'
 
 export async function GET(
   request: NextRequest,
   { params }: { params: { id: string } }
 ) {
-  const supabase = createServerClient()
+  const supabase = await createClient()
   
   const { data: company, error } = await supabase
     .from('companies')
@@ -29,7 +29,7 @@ export async function PUT(
   const permissionError = await requirePermission('companies', 'update')
   if (permissionError) return permissionError
 
-  const supabase = createServerClient()
+  const supabase = await createClient()
   const body = await request.json()
   
   const { data, error } = await supabase
@@ -54,7 +54,7 @@ export async function DELETE(
   const permissionError = await requirePermission('companies', 'delete')
   if (permissionError) return permissionError
 
-  const supabase = createServerClient()
+  const supabase = await createClient()
   
   const { error } = await supabase
     .from('companies')

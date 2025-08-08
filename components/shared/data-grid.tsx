@@ -590,7 +590,7 @@ export function DataGrid<T extends { id: string | number }>({
                           newSelection.delete(item.id)
                           setSelectedRows(newSelection)
                         } else {
-                          setSelectedRows(new Set([...selectedRows, item.id]))
+                          setSelectedRows(new Set(Array.from(selectedRows).concat([item.id])))
                         }
                       }}
                     >

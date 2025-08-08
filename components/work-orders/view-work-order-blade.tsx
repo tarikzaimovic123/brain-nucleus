@@ -362,8 +362,8 @@ export function ViewWorkOrderBlade({ workOrder, onClose, onEdit, onDelete }: Vie
         .from('work_order_phases')
         .update({ 
           status: 'pending',
-          started_at: null,
-          completed_at: null
+          started_at: undefined,
+          completed_at: undefined
         })
         .eq('id', phaseId)
         
@@ -378,7 +378,7 @@ export function ViewWorkOrderBlade({ workOrder, onClose, onEdit, onDelete }: Vie
       
       const updatedPhases = currentWorkOrder.work_order_phases?.map(p => 
         p.id === phaseId 
-          ? { ...p, status: 'pending' as const, started_at: null, completed_at: null }
+          ? { ...p, status: 'pending' as const, started_at: undefined, completed_at: undefined }
           : p
       )
       

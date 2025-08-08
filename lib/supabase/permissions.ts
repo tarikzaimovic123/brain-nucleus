@@ -1,4 +1,4 @@
-import { createServerClient } from '@/lib/supabase/server'
+import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 
 export interface ServerPermissionCheck {
@@ -14,7 +14,7 @@ export async function checkServerPermission(
   action: string
 ): Promise<ServerPermissionCheck> {
   try {
-    const supabase = createServerClient()
+    const supabase = await createClient()
     
     // Get current user
     const { data: { user } } = await supabase.auth.getUser()

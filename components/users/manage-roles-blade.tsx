@@ -102,7 +102,7 @@ export function ManageRolesBlade({ onClose, onUpdate }: ManageRolesBladeProps) {
 
   const handleEditRole = (role: Role) => {
     setEditingRole(role)
-    setSelectedPermissions(role.role_permissions?.map(rp => rp.permission.id) || [])
+    setSelectedPermissions(role.permissions?.map(rp => rp.permission.id) || [])
     setShowRoleDialog(true)
   }
 
@@ -359,7 +359,7 @@ export function ManageRolesBlade({ onClose, onUpdate }: ManageRolesBladeProps) {
                             {getRoleDisplayName(role.name)}
                           </Badge>
                           <span className="text-sm text-muted-foreground">
-                            ({role.role_permissions?.length || 0} dozvola)
+                            ({role.permissions?.length || 0} dozvola)
                           </span>
                         </div>
                         <p className="text-sm text-muted-foreground">

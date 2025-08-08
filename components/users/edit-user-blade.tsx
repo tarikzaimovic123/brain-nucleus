@@ -245,7 +245,7 @@ export function EditUserBlade({ user, onClose, onSave }: EditUserBladeProps) {
           // Assign roles
           if (data.roles.length > 0) {
             const roleInserts = data.roles.map(roleId => ({
-              user_id: authData.user.id,
+              user_id: authData.user!.id,
               role_id: roleId
             }))
 

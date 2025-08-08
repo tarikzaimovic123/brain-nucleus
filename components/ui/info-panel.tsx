@@ -41,7 +41,6 @@ const InfoPanelContent = React.forwardRef<
       ref={ref}
       {...props}
       aria-modal="false"
-      trapFocus
       className={cn(panelVariants({ side }), "rounded-lg p-4 overflow-y-auto", className)}
     >
       {children}
