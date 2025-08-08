@@ -1,0 +1,23 @@
+{
+  "KONFIG_APL_OBJ": {
+    "columns": [
+      "NAZIV",
+      "EXT",
+      "DIR",
+      "DATUM",
+      "SADRZAJ",
+      "DUZINA"
+    ],
+    "rowCount": 1,
+    "sampleData": [
+      {
+        "NAZIV": "PRINTPRICE",
+        "EXT": "EXE",
+        "DIR": "C:\\PRINTPRICE",
+        "DATUM": "2022-07-04T21:46:15.000Z",
+        "SADRZAJ": 91551563,
+        "DUZINA": "91529216"
+      }
+    ]
+  }
+}

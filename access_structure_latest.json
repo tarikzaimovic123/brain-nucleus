@@ -1,0 +1,3815 @@
+{
+  "ALARM": {
+    "columns": [
+      "ID_ALARM",
+      "NAZIV",
+      "ID_OPERATER",
+      "DATUM_SISTEMA",
+      "VR_VRIJEME_ALARM"
+    ],
+    "rowCount": 1,
+    "sampleData": [
+      {
+        "ID_ALARM": 10,
+        "NAZIV": "Dobro jutro",
+        "ID_OPERATER": 1,
+        "DATUM_SISTEMA": "2021-06-13T12:28:45.000Z",
+        "VR_VRIJEME_ALARM": 1
+      }
+    ]
+  },
+  "ALARM_STAVKE": {
+    "columns": [
+      "ID_ALARM",
+      "ID_OPERATER",
+      "DATUM",
+      "DATUM_KRAJ",
+      "DATUM_GASI",
+      "KORISNIK_GASI",
+      "GASI_ID_OPERATER",
+      "ST_ALARM"
+    ],
+    "rowCount": 1,
+    "sampleData": [
+      {
+        "ID_ALARM": 10,
+        "ID_OPERATER": 2,
+        "DATUM": "2021-06-14T08:00:00.000Z",
+        "DATUM_KRAJ": "2021-06-14T08:00:00.000Z",
+        "DATUM_GASI": null,
+        "KORISNIK_GASI": null,
+        "GASI_ID_OPERATER": null,
+        "ST_ALARM": "N"
+      }
+    ]
+  },
+  "ARTIKLI": {
+    "columns": [
+      "SF_ARTIKLA",
+      "NAZIV",
+      "VR_ART_PROIZ",
+      "KOMENTAR",
+      "VR_ARTIKLA",
+      "VR_JEDINICA",
+      "KOL_ULAZNA",
+      "KOl_IZLAZNA",
+      "KOL_KRITICNA",
+      "CIJ_NABAVNA",
+      "CIJ_PRODAJNA",
+      "CIJ_PROD_KOEF",
+      "VR_PROIZVODA",
+      "ID_OPERATER"
+    ],
+    "rowCount": 475,
+    "sampleData": [
+      {
+        "SF_ARTIKLA": 1,
+        "NAZIV": "Offset",
+        "VR_ART_PROIZ": 1,
+        "KOMENTAR": "Izmjena cijene 26. maj 2010. Bogdan",
+        "VR_ARTIKLA": 1,
+        "VR_JEDINICA": 6,
+        "KOL_ULAZNA": 0,
+        "KOl_IZLAZNA": 0,
+        "KOL_KRITICNA": 0,
+        "CIJ_NABAVNA": 0.0196,
+        "CIJ_PRODAJNA": 0.021,
+        "CIJ_PROD_KOEF": 1,
+        "VR_PROIZVODA": 1,
+        "ID_OPERATER": 5
+      },
+      {
+        "SF_ARTIKLA": 2,
+        "NAZIV": "Offset",
+        "VR_ART_PROIZ": 1,
+        "KOMENTAR": "0",
+        "VR_ARTIKLA": 1,
+        "VR_JEDINICA": 6,
+        "KOL_ULAZNA": 242000,
+        "KOl_IZLAZNA": 2630,
+        "KOL_KRITICNA": 0,
+        "CIJ_NABAVNA": 0.023,
+        "CIJ_PRODAJNA": 0.025,
+        "CIJ_PROD_KOEF": 1,
+        "VR_PROIZVODA": 1,
+        "ID_OPERATER": 2
+      }
+    ]
+  },
+  "ARTIKLI_PAPIR": {
+    "columns": [
+      "SF_ARTIKLA",
+      "VR_FORMAT",
+      "X",
+      "Y",
+      "TEZINA",
+      "TIP",
+      "TEZINA_PRAVA",
+      "VOLUM_PAIR",
+      "VULUMINIZNOST",
+      "VR_CIJENA_PAPIRA",
+      "ZA_DIGITALNU",
+      "LEPENKA",
+      "ZA_PAKIRANJE",
+      "BRZINA_SPORA",
+      "BRZINA_NORMALNA",
+      "BRZINA_BRZA",
+      "SAVIJANJE_POLA",
+      "SAVIJANJE_CETVRT",
+      "DEBLJINA_PAPIRA",
+      "KOMENTAR",
+      "RBR"
+    ],
+    "rowCount": 246,
+    "sampleData": [
+      {
+        "SF_ARTIKLA": 1,
+        "VR_FORMAT": 14,
+        "X": 430,
+        "Y": 610,
+        "TEZINA": 70,
+        "TIP": "Mat",
+        "TEZINA_PRAVA": 18.360999999999997,
+        "VOLUM_PAIR": false,
+        "VULUMINIZNOST": null,
+        "VR_CIJENA_PAPIRA": 2,
+        "ZA_DIGITALNU": false,
+        "LEPENKA": false,
+        "ZA_PAKIRANJE": false,
+        "BRZINA_SPORA": 50,
+        "BRZINA_NORMALNA": 60,
+        "BRZINA_BRZA": 80,
+        "SAVIJANJE_POLA": 5000,
+        "SAVIJANJE_CETVRT": 5000,
+        "DEBLJINA_PAPIRA": 0.09,
+        "KOMENTAR": null,
+        "RBR": 2
+      },
+      {
+        "SF_ARTIKLA": 2,
+        "VR_FORMAT": 14,
+        "X": 430,
+        "Y": 610,
+        "TEZINA": 80,
+        "TIP": "Mat",
+        "TEZINA_PRAVA": 20.983999999999998,
+        "VOLUM_PAIR": false,
+        "VULUMINIZNOST": null,
+        "VR_CIJENA_PAPIRA": 2,
+        "ZA_DIGITALNU": false,
+        "LEPENKA": false,
+        "ZA_PAKIRANJE": false,
+        "BRZINA_SPORA": 50,
+        "BRZINA_NORMALNA": 60,
+        "BRZINA_BRZA": 80,
+        "SAVIJANJE_POLA": 5000,
+        "SAVIJANJE_CETVRT": 5000,
+        "DEBLJINA_PAPIRA": 0.095,
+        "KOMENTAR": null,
+        "RBR": 5
+      }
+    ]
+  },
+  "DOKUM_STAVKE": {
+    "columns": [
+      "ID_DOKUMENTA",
+      "VR_DOKUMENTA",
+      "RBR_STAVKE",
+      "DATUM",
+      "SF_ARTIKLA",
+      "KOLICINA",
+      "CIJENA_NAB",
+      "RABAT",
+      "ZAVISNI_TROSKOVI",
+      "PDV"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "DOKUMENTI": {
+    "columns": [
+      "ID_DOKUMENTA",
+      "VR_DOKUMENTA",
+      "DATUM",
+      "ST_DOKUMENTA",
+      "FIRMA_ID",
+      "BR_FAKTURA",
+      "VR_TROSAK",
+      "FAKT_IZNOS",
+      "PDV",
+      "KOMENTAR",
+      "NA_FAKTURISANJE",
+      "FAKTURISANO",
+      "ID_OPERATER",
+      "GRUPA_RACUN",
+      "ID_PREDUZECE",
+      "VR_PERIOD",
+      "BROJ_DANA",
+      "DATUM_VALUTE",
+      "DATUM_PRIJEMA",
+      "P_FAKTURA",
+      "P_GODINA",
+      "P_VR_FAKTURA"
+    ],
+    "rowCount": 3146,
+    "sampleData": [
+      {
+        "ID_DOKUMENTA": 2,
+        "VR_DOKUMENTA": 2,
+        "DATUM": "2021-06-30T00:00:00.000Z",
+        "ST_DOKUMENTA": "P",
+        "FIRMA_ID": 4411,
+        "BR_FAKTURA": "91/2021",
+        "VR_TROSAK": 16,
+        "FAKT_IZNOS": 1149.5,
+        "PDV": 199.5,
+        "KOMENTAR": "Usluge grafičkog dizajna/kirija",
+        "NA_FAKTURISANJE": false,
+        "FAKTURISANO": false,
+        "ID_OPERATER": 0,
+        "GRUPA_RACUN": 1,
+        "ID_PREDUZECE": 1,
+        "VR_PERIOD": null,
+        "BROJ_DANA": 15,
+        "DATUM_VALUTE": "2021-07-15T00:00:00.000Z",
+        "DATUM_PRIJEMA": "2021-06-30T00:00:00.000Z",
+        "P_FAKTURA": null,
+        "P_GODINA": null,
+        "P_VR_FAKTURA": null
+      },
+      {
+        "ID_DOKUMENTA": 3,
+        "VR_DOKUMENTA": 2,
+        "DATUM": "2021-06-02T00:00:00.000Z",
+        "ST_DOKUMENTA": "P",
+        "FIRMA_ID": 4579,
+        "BR_FAKTURA": "7/477",
+        "VR_TROSAK": 1,
+        "FAKT_IZNOS": 109.5,
+        "PDV": 19,
+        "KOMENTAR": "Štampa na karticama",
+        "NA_FAKTURISANJE": false,
+        "FAKTURISANO": false,
+        "ID_OPERATER": 0,
+        "GRUPA_RACUN": 1,
+        "ID_PREDUZECE": 1,
+        "VR_PERIOD": null,
+        "BROJ_DANA": 0,
+        "DATUM_VALUTE": "2021-06-02T00:00:00.000Z",
+        "DATUM_PRIJEMA": "2021-06-02T00:00:00.000Z",
+        "P_FAKTURA": null,
+        "P_GODINA": null,
+        "P_VR_FAKTURA": null
+      }
+    ]
+  },
+  "FAKTURE": {
+    "columns": [
+      "ID_FAKTURA",
+      "GODINA",
+      "VR_FAKTURA",
+      "BROJ_FAK",
+      "ID_PREDUZECE",
+      "FIRMA_ID",
+      "KOMENTAR",
+      "DATUM",
+      "BROJ_DANA",
+      "DATUM_SISTEMA",
+      "VR_PDV",
+      "KOM_FAK",
+      "KORISNIK",
+      "RACUNAR",
+      "STATUS",
+      "P_FAKTURA",
+      "P_GODINA",
+      "P_BROJ_FAK",
+      "P_VR_FAKTURA",
+      "PRVA",
+      "IZNOS",
+      "PDV",
+      "RABAT",
+      "ID_OPERATER",
+      "ID_ZIRO_RACUNA",
+      "W_JIKR",
+      "W_IKOF",
+      "W_DATUM_FISKAl",
+      "W_DATUM_SISTEMA",
+      "W_QRCODE",
+      "W_BROJ",
+      "W_GODINA",
+      "W_STORNO",
+      "W_F_ID_FAKTURA",
+      "W_F_GODINA",
+      "W_F_VR_FAKTURA",
+      "W_F_IKOF_VEZA",
+      "W_BROJ_VEZA",
+      "W_DATUM_FISKAl_VEZA",
+      "W_IZNOS_VEZA",
+      "W_IZNOS_PRIJE_KOREKCIJE",
+      "W_TCRCODE",
+      "W_BUSIUNITCODE",
+      "W_SOFT_CODE",
+      "W_OPERATORCODE",
+      "W_ERROR",
+      "W_ST_FISKALIZACIJA"
+    ],
+    "rowCount": 4441,
+    "sampleData": [
+      {
+        "ID_FAKTURA": 1,
+        "GODINA": 2021,
+        "VR_FAKTURA": "A",
+        "BROJ_FAK": 1,
+        "ID_PREDUZECE": 1,
+        "FIRMA_ID": 4417,
+        "KOMENTAR": null,
+        "DATUM": "2021-12-01T00:00:00.000Z",
+        "BROJ_DANA": 30,
+        "DATUM_SISTEMA": "2021-12-01T14:39:55.000Z",
+        "VR_PDV": 0,
+        "KOM_FAK": null,
+        "KORISNIK": "Dražen Petrić",
+        "RACUNAR": "DESKTOP-NLN4J54",
+        "STATUS": "N",
+        "P_FAKTURA": null,
+        "P_GODINA": null,
+        "P_BROJ_FAK": null,
+        "P_VR_FAKTURA": null,
+        "PRVA": false,
+        "IZNOS": 14.52,
+        "PDV": 2.52,
+        "RABAT": 0,
+        "ID_OPERATER": 2,
+        "ID_ZIRO_RACUNA": null,
+        "W_JIKR": null,
+        "W_IKOF": null,
+        "W_DATUM_FISKAl": null,
+        "W_DATUM_SISTEMA": null,
+        "W_QRCODE": null,
+        "W_BROJ": null,
+        "W_GODINA": null,
+        "W_STORNO": 0,
+        "W_F_ID_FAKTURA": null,
+        "W_F_GODINA": null,
+        "W_F_VR_FAKTURA": null,
+        "W_F_IKOF_VEZA": null,
+        "W_BROJ_VEZA": null,
+        "W_DATUM_FISKAl_VEZA": null,
+        "W_IZNOS_VEZA": "0",
+        "W_IZNOS_PRIJE_KOREKCIJE": 14.52,
+        "W_TCRCODE": null,
+        "W_BUSIUNITCODE": null,
+        "W_SOFT_CODE": null,
+        "W_OPERATORCODE": null,
+        "W_ERROR": null,
+        "W_ST_FISKALIZACIJA": false
+      },
+      {
+        "ID_FAKTURA": 1,
+        "GODINA": 2021,
+        "VR_FAKTURA": "S",
+        "BROJ_FAK": 1,
+        "ID_PREDUZECE": 1,
+        "FIRMA_ID": 4662,
+        "KOMENTAR": null,
+        "DATUM": "2021-12-06T00:00:00.000Z",
+        "BROJ_DANA": 30,
+        "DATUM_SISTEMA": "2021-12-06T16:29:05.000Z",
+        "VR_PDV": 0,
+        "KOM_FAK": null,
+        "KORISNIK": "Dražen Petrić",
+        "RACUNAR": "DESKTOP-NLN4J54",
+        "STATUS": "N",
+        "P_FAKTURA": null,
+        "P_GODINA": null,
+        "P_BROJ_FAK": null,
+        "P_VR_FAKTURA": null,
+        "PRVA": false,
+        "IZNOS": 1292.28,
+        "PDV": 224.28,
+        "RABAT": 0,
+        "ID_OPERATER": 2,
+        "ID_ZIRO_RACUNA": 6,
+        "W_JIKR": "c579567a-c1eb-4b23-b0c1-89e860a9dfa6",
+        "W_IKOF": "FCAEEB253082554BA97788D1AB30267C",
+        "W_DATUM_FISKAl": "2021-12-06T16:29:11+01:00",
+        "W_DATUM_SISTEMA": "2021-12-06T16:29:11.000Z",
+        "W_QRCODE": "https://mapr.tax.gov.me/ic/#/verify?iic=FCAEEB253082554BA97788D1AB30267C&tin=03150321&crtd=2021-12-06T16:29:11+01:00&ord=264&bu=fx128he341&cr=jj382ot935&sw=xn121bl158&prc=1292.28",
+        "W_BROJ": 264,
+        "W_GODINA": 2021,
+        "W_STORNO": 0,
+        "W_F_ID_FAKTURA": null,
+        "W_F_GODINA": null,
+        "W_F_VR_FAKTURA": null,
+        "W_F_IKOF_VEZA": null,
+        "W_BROJ_VEZA": null,
+        "W_DATUM_FISKAl_VEZA": null,
+        "W_IZNOS_VEZA": "0",
+        "W_IZNOS_PRIJE_KOREKCIJE": 1292.28,
+        "W_TCRCODE": "jj382ot935",
+        "W_BUSIUNITCODE": "fx128he341",
+        "W_SOFT_CODE": "xn121bl158",
+        "W_OPERATORCODE": "el922sh247",
+        "W_ERROR": "Ok",
+        "W_ST_FISKALIZACIJA": true
+      }
+    ]
+  },
+  "FAKTURE_NALOG": {
+    "columns": [
+      "ID_FAKTURA",
+      "GODINA",
+      "VR_FAKTURA",
+      "ID_NALOGA",
+      "ID_NALOGA_STAVKE"
+    ],
+    "rowCount": 6736,
+    "sampleData": [
+      {
+        "ID_FAKTURA": 42,
+        "GODINA": 2021,
+        "VR_FAKTURA": "F",
+        "ID_NALOGA": 86,
+        "ID_NALOGA_STAVKE": 1
+      },
+      {
+        "ID_FAKTURA": 42,
+        "GODINA": 2021,
+        "VR_FAKTURA": "F",
+        "ID_NALOGA": 86,
+        "ID_NALOGA_STAVKE": 2
+      }
+    ]
+  },
+  "FAKTURE_OTPREM": {
+    "columns": [
+      "ID_FAKTURA",
+      "GODINA",
+      "VR_FAKTURA",
+      "ID_DOKUMENTA",
+      "VR_DOKUMENTA"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "FAKTURE_STAVKE": {
+    "columns": [
+      "ID_FAKTURA",
+      "GODINA",
+      "VR_FAKTURA",
+      "ID_FAKTURA_STAVKE",
+      "POGLAVLJE",
+      "TEKST",
+      "KOMADA",
+      "JEDINICA",
+      "CKOMADA",
+      "RABAT",
+      "PDV",
+      "CIJENA",
+      "CIJENA_PDV",
+      "CIJENA_PRODAJNA"
+    ],
+    "rowCount": 27180,
+    "sampleData": [
+      {
+        "ID_FAKTURA": 1,
+        "GODINA": 2021,
+        "VR_FAKTURA": "A",
+        "ID_FAKTURA_STAVKE": 3,
+        "POGLAVLJE": "1",
+        "TEKST": "Vizit kartice Mirko Radović i Milorad Bojović (RN: 332/1)",
+        "KOMADA": 100,
+        "JEDINICA": "kom",
+        "CKOMADA": 0.12,
+        "RABAT": 0,
+        "PDV": 21,
+        "CIJENA": 12,
+        "CIJENA_PDV": null,
+        "CIJENA_PRODAJNA": 14.52
+      },
+      {
+        "ID_FAKTURA": 1,
+        "GODINA": 2021,
+        "VR_FAKTURA": "A",
+        "ID_FAKTURA_STAVKE": 4,
+        "POGLAVLJE": null,
+        "TEKST": "Format: 88 x 50 / Obim: 1 strana / Štampa: 4/0 / Papir: Fabriano bianco 300g / Dorada: obrez na format / Tiraž 2 x 50 kom",
+        "KOMADA": null,
+        "JEDINICA": null,
+        "CKOMADA": null,
+        "RABAT": null,
+        "PDV": null,
+        "CIJENA": null,
+        "CIJENA_PDV": null,
+        "CIJENA_PRODAJNA": null
+      }
+    ]
+  },
+  "FIRME_KONTAKT": {
+    "columns": [
+      "FIRMA_ID",
+      "REDNI_BR",
+      "OSOBA_MJESTO",
+      "EMAIL",
+      "TEL",
+      "FAX",
+      "KOMENTAR"
+    ],
+    "rowCount": 85,
+    "sampleData": [
+      {
+        "FIRMA_ID": 1333,
+        "REDNI_BR": 9260,
+        "OSOBA_MJESTO": "Milena",
+        "EMAIL": null,
+        "TEL": null,
+        "FAX": null,
+        "KOMENTAR": null
+      },
+      {
+        "FIRMA_ID": 4407,
+        "REDNI_BR": 9261,
+        "OSOBA_MJESTO": "Marija",
+        "EMAIL": null,
+        "TEL": "067977608",
+        "FAX": null,
+        "KOMENTAR": null
+      }
+    ]
+  },
+  "GRUPA_RACUN": {
+    "columns": [
+      "GRUPA_RACUN",
+      "NAZIV"
+    ],
+    "rowCount": 3,
+    "sampleData": [
+      {
+        "GRUPA_RACUN": 1,
+        "NAZIV": "Žiro račun"
+      },
+      {
+        "GRUPA_RACUN": 2,
+        "NAZIV": "Gotovina"
+      }
+    ]
+  },
+  "ID_COLOR": {
+    "columns": [
+      "ID_COLOR",
+      "VR_COLOR",
+      "VERSION",
+      "BOOKID",
+      "PREFIX",
+      "POSTFIX",
+      "COLORSPACE",
+      "ENCODING",
+      "CHANNELS",
+      "ID",
+      "N",
+      "N2",
+      "CMKY",
+      "C",
+      "M",
+      "Y",
+      "K"
+    ],
+    "rowCount": 98,
+    "sampleData": [
+      {
+        "ID_COLOR": 1367,
+        "VR_COLOR": 3,
+        "VERSION": 0,
+        "BOOKID": 3009,
+        "PREFIX": "HKS",
+        "POSTFIX": "K",
+        "COLORSPACE": "CMYK",
+        "ENCODING": "Int8",
+        "CHANNELS": 4,
+        "ID": 0,
+        "N": "1",
+        "N2": "01",
+        "CMKY": "0 26 153 0",
+        "C": "0",
+        "M": "10,1960784313725",
+        "Y": "60",
+        "K": "0"
+      },
+      {
+        "ID_COLOR": 1368,
+        "VR_COLOR": 3,
+        "VERSION": 0,
+        "BOOKID": 3009,
+        "PREFIX": "HKS",
+        "POSTFIX": "K",
+        "COLORSPACE": "CMYK",
+        "ENCODING": "Int8",
+        "CHANNELS": 4,
+        "ID": 0,
+        "N": "2",
+        "N2": "02",
+        "CMKY": "13 0 255 0",
+        "C": "5,09803921568627",
+        "M": "0",
+        "Y": "100",
+        "K": "0"
+      }
+    ]
+  },
+  "ID_CONFIG_FISKAL": {
+    "columns": [
+      "ID",
+      "issuerTIN",
+      "issuerName",
+      "busiUnitCode",
+      "tcrCode",
+      "softCode",
+      "operatorCode",
+      "putanjaWeb",
+      "SOAPserviceWSLD",
+      "SOAPactionRegInvoice",
+      "WebQR"
+    ],
+    "rowCount": 1,
+    "sampleData": [
+      {
+        "ID": 1,
+        "issuerTIN": "03150321",
+        "issuerName": "BRAIN MEDIA - PODGORICA",
+        "busiUnitCode": "fx128he341",
+        "tcrCode": "jj382ot935",
+        "softCode": "xn121bl158",
+        "operatorCode": "el922sh247",
+        "putanjaWeb": "https://efi.tax.gov.me",
+        "SOAPserviceWSLD": "https://efi.tax.gov.me/fs-v1/FiscalizationService.wsdl",
+        "SOAPactionRegInvoice": "https://efi.tax.gov.me/fs/RegisterInvoice",
+        "WebQR": "https://mapr.tax.gov.me/ic/#/verify"
+      }
+    ]
+  },
+  "ID_ERROR": {
+    "columns": [
+      "ID_ERROR",
+      "ERR_BR",
+      "ERR_DESCRIPTION",
+      "OPIS",
+      "RACUNAR",
+      "KORISNIK",
+      "DATUM_SISTEMA",
+      "STATUS",
+      "GRESKA_FILE"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "ID_NALOG_MAIL_SPISAK": {
+    "columns": [
+      "ID",
+      "MAILOVI"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "ID_OPERATER": {
+    "columns": [
+      "ID_OPERATER",
+      "IME",
+      "TELEFON",
+      "KORISNIK",
+      "SIFRA",
+      "STATUS",
+      "ZA_FAKTURISANJE",
+      "ID_RADNIK"
+    ],
+    "rowCount": 2,
+    "sampleData": [
+      {
+        "ID_OPERATER": 1,
+        "IME": "ADMINISTRATOR",
+        "TELEFON": null,
+        "KORISNIK": "ADMINISTRATOR",
+        "SIFRA": "525183",
+        "STATUS": "A",
+        "ZA_FAKTURISANJE": false,
+        "ID_RADNIK": 1
+      },
+      {
+        "ID_OPERATER": 2,
+        "IME": "Dražen Petrić",
+        "TELEFON": null,
+        "KORISNIK": "DRAZEN",
+        "SIFRA": "12345",
+        "STATUS": "D",
+        "ZA_FAKTURISANJE": true,
+        "ID_RADNIK": 1
+      }
+    ]
+  },
+  "ID_OPERATER_PRISTUP": {
+    "columns": [
+      "BROJ",
+      "OPIS",
+      "FORMA",
+      "P1",
+      "P2",
+      "P3",
+      "P4",
+      "P5",
+      "P6",
+      "P7",
+      "P8",
+      "P9",
+      "P10",
+      "P11",
+      "P12",
+      "P13",
+      "P14",
+      "P15",
+      "P16",
+      "P17",
+      "P18",
+      "P19",
+      "P20",
+      "P21",
+      "P22",
+      "P23",
+      "P24",
+      "P25",
+      "P26",
+      "P27",
+      "P28",
+      "P29",
+      "P30",
+      "P31",
+      "P32",
+      "P33",
+      "P34",
+      "P35",
+      "P36",
+      "P37",
+      "P38",
+      "P39",
+      "P40",
+      "P41",
+      "P42",
+      "P43",
+      "P44",
+      "P45",
+      "P46",
+      "P47",
+      "P48",
+      "P49",
+      "P50",
+      "P51",
+      "P52",
+      "P53",
+      "P54",
+      "P56",
+      "P57",
+      "P58",
+      "P59",
+      "P60",
+      "P61",
+      "P62",
+      "P63",
+      "P64",
+      "P65",
+      "P66",
+      "P67",
+      "P68",
+      "P69",
+      "P70"
+    ],
+    "rowCount": 21,
+    "sampleData": [
+      {
+        "BROJ": 1,
+        "OPIS": "Kalkulacije            (samo prikaz forme)",
+        "FORMA": null,
+        "P1": true,
+        "P2": true,
+        "P3": false,
+        "P4": false,
+        "P5": true,
+        "P6": false,
+        "P7": false,
+        "P8": false,
+        "P9": false,
+        "P10": false,
+        "P11": false,
+        "P12": false,
+        "P13": false,
+        "P14": false,
+        "P15": false,
+        "P16": false,
+        "P17": false,
+        "P18": false,
+        "P19": false,
+        "P20": false,
+        "P21": false,
+        "P22": false,
+        "P23": false,
+        "P24": false,
+        "P25": false,
+        "P26": false,
+        "P27": false,
+        "P28": false,
+        "P29": false,
+        "P30": false,
+        "P31": false,
+        "P32": false,
+        "P33": false,
+        "P34": false,
+        "P35": false,
+        "P36": false,
+        "P37": false,
+        "P38": false,
+        "P39": false,
+        "P40": false,
+        "P41": false,
+        "P42": false,
+        "P43": false,
+        "P44": false,
+        "P45": false,
+        "P46": false,
+        "P47": false,
+        "P48": false,
+        "P49": false,
+        "P50": false,
+        "P51": false,
+        "P52": false,
+        "P53": false,
+        "P54": false,
+        "P56": false,
+        "P57": false,
+        "P58": false,
+        "P59": false,
+        "P60": false,
+        "P61": false,
+        "P62": false,
+        "P63": false,
+        "P64": false,
+        "P65": false,
+        "P66": false,
+        "P67": false,
+        "P68": false,
+        "P69": false,
+        "P70": false
+      },
+      {
+        "BROJ": 2,
+        "OPIS": "Kalkulacije                     (prikaz cijena)",
+        "FORMA": null,
+        "P1": true,
+        "P2": true,
+        "P3": false,
+        "P4": false,
+        "P5": true,
+        "P6": false,
+        "P7": false,
+        "P8": false,
+        "P9": false,
+        "P10": false,
+        "P11": false,
+        "P12": false,
+        "P13": false,
+        "P14": false,
+        "P15": false,
+        "P16": false,
+        "P17": false,
+        "P18": false,
+        "P19": false,
+        "P20": false,
+        "P21": false,
+        "P22": false,
+        "P23": false,
+        "P24": false,
+        "P25": false,
+        "P26": false,
+        "P27": false,
+        "P28": false,
+        "P29": false,
+        "P30": false,
+        "P31": false,
+        "P32": false,
+        "P33": false,
+        "P34": false,
+        "P35": false,
+        "P36": false,
+        "P37": false,
+        "P38": false,
+        "P39": false,
+        "P40": false,
+        "P41": false,
+        "P42": false,
+        "P43": false,
+        "P44": false,
+        "P45": false,
+        "P46": false,
+        "P47": false,
+        "P48": false,
+        "P49": false,
+        "P50": false,
+        "P51": false,
+        "P52": false,
+        "P53": false,
+        "P54": false,
+        "P56": false,
+        "P57": false,
+        "P58": false,
+        "P59": false,
+        "P60": false,
+        "P61": false,
+        "P62": false,
+        "P63": false,
+        "P64": false,
+        "P65": false,
+        "P66": false,
+        "P67": false,
+        "P68": false,
+        "P69": false,
+        "P70": false
+      }
+    ]
+  },
+  "ID_PREDUZECE": {
+    "columns": [
+      "ID_PREDUZECE",
+      "NAZIV",
+      "ZAGLAVLJE",
+      "POTPIS",
+      "MEMORANDUM"
+    ],
+    "rowCount": 1,
+    "sampleData": [
+      {
+        "ID_PREDUZECE": 1,
+        "NAZIV": "Brain Media",
+        "ZAGLAVLJE": "Brain Media d.o.o.                                                                                                                                        Ul. Romanovih 33, Podgorica, Crna Gora                                                \r\nGSM:   +382 67 605 706; +382 67 706 333                                                                                                                        E-mail: info@brain.co.me                                                                                                                         \r\nPIB: 03150321  |  PDV: 30/31-18257-2                                                                     Žiro račun:",
+        "POTPIS": " Dražen Petrić",
+        "MEMORANDUM": true
+      }
+    ]
+  },
+  "ID_RADNJE": {
+    "columns": [
+      "ID_RADNJE",
+      "NAZIV",
+      "VR_KALKULACIJE",
+      "POLJE",
+      "STATUS",
+      "ULAZI",
+      "LOGIKA",
+      "ID_RADNJE_GRUPE"
+    ],
+    "rowCount": 63,
+    "sampleData": [
+      {
+        "ID_RADNJE": 1,
+        "NAZIV": "Transport kilometara",
+        "VR_KALKULACIJE": 1,
+        "POLJE": "C_TRANSPORTA",
+        "STATUS": "P",
+        "ULAZI": true,
+        "LOGIKA": "<>0",
+        "ID_RADNJE_GRUPE": 1
+      },
+      {
+        "ID_RADNJE": 2,
+        "NAZIV": "Cijena papira",
+        "VR_KALKULACIJE": 1,
+        "POLJE": "C_PAPIR",
+        "STATUS": "S",
+        "ULAZI": false,
+        "LOGIKA": "<>0",
+        "ID_RADNJE_GRUPE": 2
+      }
+    ]
+  },
+  "ID_RADNJE_GRUPE": {
+    "columns": [
+      "ID_RADNJE_GRUPE",
+      "NAZIV"
+    ],
+    "rowCount": 90,
+    "sampleData": [
+      {
+        "ID_RADNJE_GRUPE": 1,
+        "NAZIV": "Transport kilometara"
+      },
+      {
+        "ID_RADNJE_GRUPE": 2,
+        "NAZIV": "Cijena papira"
+      }
+    ]
+  },
+  "NALOG": {
+    "columns": [
+      "ID_NALOGA",
+      "NAZIV",
+      "DATUM",
+      "DATUM_ROK",
+      "FIRMA_ID",
+      "REDNI_BR",
+      "ID_PROJEKTA",
+      "MJESTO_ISPORUKE",
+      "DATUM_SISTEMA",
+      "KOMENTAR",
+      "ST_NALOGA",
+      "ST_FAK_NALOG",
+      "ID_DOKUMENTA",
+      "VR_DOKUMENTA",
+      "ST_ZAVRSENO",
+      "RACUNAR",
+      "ID_OPERATER_ODGOVORNO",
+      "ID_OPERATER",
+      "NA_VRIJEME_DA",
+      "NA_VRIJEME_NE",
+      "ST_PREUZETO",
+      "ELEMENTI"
+    ],
+    "rowCount": 4874,
+    "sampleData": [
+      {
+        "ID_NALOGA": 0,
+        "NAZIV": "Ponuda",
+        "DATUM": "2021-06-16T00:00:00.000Z",
+        "DATUM_ROK": "2012-12-31T23:00:00.000Z",
+        "FIRMA_ID": 1333,
+        "REDNI_BR": null,
+        "ID_PROJEKTA": 1,
+        "MJESTO_ISPORUKE": null,
+        "DATUM_SISTEMA": "2007-10-01T13:33:06.000Z",
+        "KOMENTAR": null,
+        "ST_NALOGA": 3,
+        "ST_FAK_NALOG": 3,
+        "ID_DOKUMENTA": 0,
+        "VR_DOKUMENTA": 0,
+        "ST_ZAVRSENO": 1,
+        "RACUNAR": null,
+        "ID_OPERATER_ODGOVORNO": null,
+        "ID_OPERATER": 6,
+        "NA_VRIJEME_DA": false,
+        "NA_VRIJEME_NE": false,
+        "ST_PREUZETO": false,
+        "ELEMENTI": null
+      },
+      {
+        "ID_NALOGA": 3,
+        "NAZIV": "Održavanje web sajta",
+        "DATUM": "2021-06-19T13:27:00.000Z",
+        "DATUM_ROK": "2021-06-20T13:27:00.000Z",
+        "FIRMA_ID": 4484,
+        "REDNI_BR": 9275,
+        "ID_PROJEKTA": 1,
+        "MJESTO_ISPORUKE": null,
+        "DATUM_SISTEMA": "2021-06-19T13:29:12.000Z",
+        "KOMENTAR": null,
+        "ST_NALOGA": 3,
+        "ST_FAK_NALOG": 3,
+        "ID_DOKUMENTA": 0,
+        "VR_DOKUMENTA": 0,
+        "ST_ZAVRSENO": 1,
+        "RACUNAR": "DESKTOP-CVAPDP8",
+        "ID_OPERATER_ODGOVORNO": 1,
+        "ID_OPERATER": 1,
+        "NA_VRIJEME_DA": true,
+        "NA_VRIJEME_NE": false,
+        "ST_PREUZETO": false,
+        "ELEMENTI": "Održavanje web sajta;"
+      }
+    ]
+  },
+  "NALOG_ANGAZOVANJE": {
+    "columns": [
+      "ID_NALOGA",
+      "ID_NALOGA_STAVKE",
+      "RBR_STAVKE",
+      "ID_RADNJE",
+      "STAVKA",
+      "RADNJA",
+      "POCETAK",
+      "KRAJ",
+      "ID_RADNIK",
+      "KOMENTAR",
+      "STATUS"
+    ],
+    "rowCount": 1,
+    "sampleData": [
+      {
+        "ID_NALOGA": 4,
+        "ID_NALOGA_STAVKE": 1,
+        "RBR_STAVKE": 1,
+        "ID_RADNJE": 1,
+        "STAVKA": "Usluge izrade bedževa 36mm",
+        "RADNJA": null,
+        "POCETAK": "2021-06-21T07:00:00.000Z",
+        "KRAJ": "2021-06-21T07:30:00.000Z",
+        "ID_RADNIK": 1,
+        "KOMENTAR": null,
+        "STATUS": false
+      }
+    ]
+  },
+  "NALOG_ARTIKLI": {
+    "columns": [
+      "ID_NALOGA",
+      "ID_NALOGA_STAVKE",
+      "RBR",
+      "SF_ARTIKLA",
+      "KOLICINA"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "NALOG_ARTIKLI_GRESKE": {
+    "columns": [
+      "ID_NALOGA",
+      "ID_NALOGA_STAVKE",
+      "RBR",
+      "ID_RADNIK",
+      "SF_ARTIKLA",
+      "KOLICINA"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "NALOG_DIGITALNA": {
+    "columns": [
+      "ID_NALOGA",
+      "ID_NALOGA_STAVKE",
+      "RBR",
+      "NAZIV",
+      "X",
+      "Y",
+      "BR_LISTOVA",
+      "TIRAZ",
+      "TABAKA",
+      "VR_BOJA",
+      "SF_ARTIKLA",
+      "ZBIRNO_DA",
+      "ZBIRNO_NE",
+      "PLM_BEZ",
+      "PLM_1_0",
+      "PLM_1_1",
+      "PLM_MAT",
+      "PLM_SJAJNA",
+      "PLT_NE",
+      "PLT_DA",
+      "ZAB_NE",
+      "ZAB_2MM",
+      "ZAB_4MM",
+      "PREVM_NE",
+      "PREVM_1",
+      "PREVM_2",
+      "PREVM_3",
+      "PREVM_4",
+      "PREVM_5",
+      "PREVM_6",
+      "BIG_NE",
+      "BIG_1",
+      "BIG_2",
+      "BIG_3",
+      "BIG_4",
+      "BIG_5",
+      "BIG_6",
+      "PERF_NE",
+      "PERF_1",
+      "PERF_2",
+      "PERF_3",
+      "PERF_4",
+      "PERF_5",
+      "PERF_6",
+      "RUP_NE",
+      "RUP_1",
+      "RUP_2",
+      "RUP_3",
+      "RUP_4",
+      "RUP_5",
+      "RUP_6",
+      "POVS_NE",
+      "POVS_SIRINOM",
+      "POVS_VISINOM",
+      "POVS_1_4",
+      "POVS_7_16",
+      "VR_OBOJENO",
+      "POVB_NE",
+      "POVB_SIRINOM",
+      "POVB_VISINOM",
+      "POVK_NE",
+      "POVK_SIRINOM",
+      "POVK_VISINOM",
+      "LIJR_NE",
+      "LIJR_SIRINOM",
+      "LIJR_VISINOM",
+      "REZANJE",
+      "RICOVANJE",
+      "LAS_NE",
+      "LAS_DA",
+      "ZLAT_NE",
+      "ZLAT_STARI",
+      "ZLAT_NOVI",
+      "PRIP_NE",
+      "PRIP_OBICNA",
+      "PRIP_KOMPEKSNA",
+      "PRIP_ADRESIRANJE",
+      "NUME_NE",
+      "NUME_JEDNOSTRUKO",
+      "NUME_VISETRUKO",
+      "RAZ_IMENA",
+      "SITO_NE",
+      "SITO_JEDNA",
+      "SITO_DVIJE",
+      "KESI_NE",
+      "KESI_STIP",
+      "KESI_TRAKA",
+      "OSTALA_OBRADA",
+      "KOMENTAR",
+      "CD_CD",
+      "CD_DVD",
+      "CD_DVD_2",
+      "CDPLAS_NE",
+      "CDPLAS_CD",
+      "CDPLAS_DUPLI_CD",
+      "CDPLAS_DVD",
+      "CDSTA_NE",
+      "CDSTA_JENDNA",
+      "CDSTA_OBIJE",
+      "CDSTA_DVD",
+      "CDOMOT_NE",
+      "CDOMOT_SKLP",
+      "CDOMOT_LIJEP",
+      "CDOMOT_POSEBAN",
+      "CDNALJ_NE",
+      "CDNALJ_MALI",
+      "CDNALJ_VELIKI",
+      "OMOT_DIZAJN_NE",
+      "OMOT_DIZAJN_DA",
+      "OMOT_GORNJI_X",
+      "OMOT_GORNJI_Y",
+      "OMOT_DONJI_X",
+      "OMOT_DONJI_Y",
+      "ISJECAK_MALI",
+      "ISJECAK_VELIKI",
+      "KOV_AMERIC",
+      "KOV_AMERIC_PROZ",
+      "KOV_C5",
+      "KOV_A4",
+      "KOV_17_17",
+      "KOV_DONIJET",
+      "MAT_OBICNA",
+      "MAT_LUKS",
+      "C_STAMPA",
+      "C_PLM",
+      "C_PLT",
+      "C_ZAB",
+      "C_PREVM",
+      "C_BIG",
+      "C_PERF",
+      "C_RUP",
+      "C_RIC",
+      "C_LAS",
+      "C_ZLAT",
+      "C_POVS",
+      "C_POVB",
+      "C_POVK",
+      "C_LIJR",
+      "C_REZ",
+      "C_OSTAL",
+      "C_PRIP",
+      "C_NUME",
+      "C_RAZ",
+      "C_SITO",
+      "C_KESI",
+      "C_CD",
+      "C_PLAS",
+      "C_OMOT",
+      "C_NALJ",
+      "C_TIP",
+      "C_SJECAK",
+      "CIJENA"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "NALOG_KLIK": {
+    "columns": [
+      "ID_NALOGA",
+      "ID_NALOGA_STAVKE",
+      "VR_KLIK_GRUPA",
+      "NAZIV",
+      "SF_ARTIKLA",
+      "LISTOVA",
+      "KLIK",
+      "DONIJET_PAPIR",
+      "ID_MASINA",
+      "BR_BOJA_1",
+      "BR_BOJA_2",
+      "VR_PLASTIFIKACIJA",
+      "RICOVANJE",
+      "C_PAPIR",
+      "C_STAMPA",
+      "C_PLASTIFIKACIJA",
+      "C_OSTALA_OBRADA",
+      "C_RICOVANJE",
+      "OPIS",
+      "CIJENA"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "NALOG_OBRADA_CTP": {
+    "columns": [
+      "ID_NALOGA",
+      "ID_NALOGA_STAVKE",
+      "NAZIV",
+      "O_VR_DIZAJNA",
+      "O_CIJENA_DIZ",
+      "O_STRANA_PREL",
+      "O_INDX_PREL",
+      "O_CIJENA_PREL",
+      "O_STRANA_KORE",
+      "O_INDX_KORE",
+      "O_CIJENA_KORE",
+      "O_STRANA_PREV",
+      "O_INDX_PREV",
+      "O_CIJENA_PREV",
+      "O_SATI_GRAF",
+      "O_INDX_GRAF",
+      "O_CIJENA_GRAF",
+      "O_SEK_ZVU",
+      "O_INDX_ZVU",
+      "O_CIJENA_ZVU",
+      "O_SEK_ANI",
+      "O_INDX_ANI",
+      "O_CIJENA_ANI",
+      "O_STRANA_PREZ",
+      "O_INDX_PREZ",
+      "O_CIJENA_PREZ",
+      "O_STRANA_OST",
+      "O_INDX_OST",
+      "O_CIJENA_OST",
+      "O_KOMADA",
+      "O_MB",
+      "O_CIJENA_SKEN",
+      "O_KOMENTAR",
+      "O_CIJENA",
+      "T_VR_FROMAT_PLOCA",
+      "T_DONIJETE_PLOCE",
+      "T_BR_PLOCA",
+      "T_CIJENA_KOMADA",
+      "T_PLOCA_CIJENA",
+      "T_ROZETA",
+      "T_STACATTO",
+      "T_VR_LINIJATURA",
+      "T_LIN",
+      "T_BW",
+      "T_KOLOR",
+      "T_MON_DA",
+      "T_MONT_NE",
+      "T_POPUST_PLOCE",
+      "T_C_POPUST_PLOCE",
+      "T_DOPLATA_LIN",
+      "T_C_DOPLATA_LIN",
+      "T_POPUST_BOJE",
+      "T_C_POPUST_BOJE",
+      "T_DOPLATA_MONTAZA",
+      "T_C_DOPLATA_MONTAZA",
+      "T_PAPIR",
+      "T_GRAJFER",
+      "T_ULAGANJE",
+      "T_POZICIJA",
+      "T_KOTROLA_NE",
+      "T_KOTROLA_DA",
+      "T_DOPLATA_KONT",
+      "T_C_DOPLATA_KONTR",
+      "T_OBRADA_NE",
+      "T_OBRADA_DA",
+      "T_DOPLATA_OBRADA",
+      "T_C_DOPLATA_OBRADA",
+      "T_CIJENA",
+      "I_DIZAJN_NE",
+      "I_DIZAJN_DA",
+      "I_KODIR_SABLONA",
+      "I_HTML_STR",
+      "I_PDF_STR",
+      "I_LOGO_NE",
+      "I_LOGO_DA",
+      "I_VRSTA_STATICKI",
+      "I_VRSTA_DINAMICKI",
+      "I_BR_STRANA",
+      "I_CMS_NE",
+      "I_CMS_OSNOVNI",
+      "I_CMS_KOMPLETNA",
+      "I_ODR_NE",
+      "I_ODR_MJES",
+      "I_ODR_POTREBI",
+      "I_HOST_NE",
+      "I_HOST_OSNOVNI",
+      "I_HOST_SRED",
+      "I_HOST_VELIKI",
+      "I_URL_NE",
+      "I_URL_ME",
+      "I_URL_OPSTALI",
+      "I_OBUKA_NE",
+      "I_OBUKA_OSNOVNA",
+      "I_OBUKA_NAPREDNA",
+      "I_WEB_ADRESA",
+      "R_CIJENA",
+      "I_C_DIZAJN",
+      "I_C_KOD",
+      "I_C_KOD_SAB",
+      "I_C_PDF",
+      "I_C_LOGO",
+      "I_C_VRSTA",
+      "I_C_BR_STR",
+      "I_C_CMS",
+      "I_C_ODRZ",
+      "I_C_HOSTING",
+      "I_C_URL",
+      "I_C_OBUKA",
+      "I_CIJENA"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "NALOG_OFFSET": {
+    "columns": [
+      "ID_NALOGA",
+      "ID_NALOGA_STAVKE",
+      "VR_OFFSET_PROIZVODA",
+      "NAZIV",
+      "X",
+      "Y",
+      "VR_FORMAT",
+      "VR_POLOZAJ",
+      "OBIM",
+      "OBIM_STRANICI",
+      "OBIM_LISTU",
+      "TIRAZ",
+      "KILOMETARA",
+      "KILOGRAMA",
+      "C_TRANSPORTA",
+      "C_TIRAZA",
+      "C_KOMADA",
+      "PDV",
+      "C_POSLA",
+      "VR_POVEZA",
+      "SIVENJE_NE",
+      "SIVENJE_DA",
+      "NABAC_NE",
+      "NABAC_SVI",
+      "NABAC_ZADNJI",
+      "SAKUPLJ_NE",
+      "SAKUPLJ_RUCNO",
+      "SAKUPLJ_MULLER",
+      "SAKUPLJ_TABAKA",
+      "LIJEP_NE",
+      "LIJEP_RUCNO",
+      "LIJEP_BINDER",
+      "LIJEP_HRBAT",
+      "KASIR_NE",
+      "KASIR_RUCNO",
+      "SF_ARTIKLA_LP",
+      "VRSTHR_NE",
+      "VRSTHR_RAVNI",
+      "VRSTHR_OBLI",
+      "VRSTHR_HRBAT",
+      "VRPCE_NE",
+      "VRPCE_DA",
+      "VRPCE_VR_OBOJENO",
+      "KLAMER_NE",
+      "KLAMER_RUCNI",
+      "KLAMER_PANCER",
+      "KLAMER_ARAKA",
+      "SPIRAL_NE",
+      "SPIRAL_SIRINA",
+      "SPIRAL_VISINA",
+      "SPIRAL_1_4",
+      "SPIRAL_7_16",
+      "SPIRAL_3_4",
+      "SPIRAL_1_1",
+      "VR_OBOJENO",
+      "REZ_NE",
+      "REZ_DA",
+      "REZ_REZOVA",
+      "TROREZ_NE",
+      "TROREZ_DA",
+      "CELOF_NE",
+      "CELOF_DA",
+      "CELOF_SA_VAKUMOM",
+      "CELOF_BEZ_VAKUMA",
+      "PAKOV_NE",
+      "PAKOV_DA",
+      "PAKOV_KOMADA",
+      "PAKOV_PAKETA",
+      "OBRADA_SATI_1",
+      "OPIS_1",
+      "OBRADA_SATI_2",
+      "OPIS_2",
+      "KOMENTAR",
+      "C_POVEZIVANJA",
+      "C_SIVENJE",
+      "C_NABAC",
+      "C_LIJEP",
+      "C_KASIR",
+      "C_VRPCE",
+      "C_KLAMER",
+      "C_SPIRAL",
+      "C_REZ_REZOVA",
+      "C_TROREZ",
+      "C_CELOF",
+      "C_PAKOV",
+      "C_OBRADA_SATI_1",
+      "C_OBRADA_SATI_2"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "NALOG_OSALO": {
+    "columns": [
+      "ID_NALOGA",
+      "ID_NALOGA_STAVKE",
+      "RBR",
+      "R_KOMENTAR",
+      "R_CIJENA",
+      "KOLICINA",
+      "MJERA",
+      "OPIS"
+    ],
+    "rowCount": 9165,
+    "sampleData": [
+      {
+        "ID_NALOGA": 0,
+        "ID_NALOGA_STAVKE": 1,
+        "RBR": 1,
+        "R_KOMENTAR": "Mjesečno održavanje sajta",
+        "R_CIJENA": 40,
+        "KOLICINA": null,
+        "MJERA": null,
+        "OPIS": null
+      },
+      {
+        "ID_NALOGA": 0,
+        "ID_NALOGA_STAVKE": 2,
+        "RBR": 1,
+        "R_KOMENTAR": "Usluge izrade Bedževi 36mm ",
+        "R_CIJENA": 330,
+        "KOLICINA": "1000",
+        "MJERA": "kom",
+        "OPIS": ""
+      }
+    ]
+  },
+  "NALOG_PONUDA_KALKULACIJA": {
+    "columns": [
+      "ID_NALOGA",
+      "RBR",
+      "VRSTA",
+      "ID_KALKULACIJA",
+      "ID_PONUDA"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "NALOG_PUTANJA": {
+    "columns": [
+      "RB",
+      "ID_NALOGA",
+      "ID_NALOGA_STAVKE",
+      "PUTANJA"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "NALOG_STAVKE": {
+    "columns": [
+      "ID_NALOGA",
+      "ID_NALOGA_STAVKE",
+      "VR_KALKULACIJE",
+      "BROJ_PONUDE",
+      "NAZIV",
+      "FIRMA_ID",
+      "ELEMENTI",
+      "DATUM",
+      "DATUM_SISTEMA",
+      "C_POSLA",
+      "VEZA_ID_PONUDA",
+      "VEZA_ID_NALOGA",
+      "VEZA_NALOGA_STAVKE",
+      "KOMENTAR",
+      "ID_OPERATER",
+      "RACUNAR",
+      "AKTIVNA",
+      "NEPROMJENLJIVO",
+      "ST_STAVKE",
+      "ST_FAK",
+      "BROJ_FAKTURE",
+      "N_ID_FAKTURA",
+      "N_GODINA",
+      "N_VR_FAKTURA"
+    ],
+    "rowCount": 6593,
+    "sampleData": [
+      {
+        "ID_NALOGA": 0,
+        "ID_NALOGA_STAVKE": 1,
+        "VR_KALKULACIJE": 20,
+        "BROJ_PONUDE": null,
+        "NAZIV": "Mjesečno održavanje sajta",
+        "FIRMA_ID": 4484,
+        "ELEMENTI": "Mjesečno održavanje sajt",
+        "DATUM": "2021-06-19T00:00:00.000Z",
+        "DATUM_SISTEMA": "2021-06-19T13:25:16.000Z",
+        "C_POSLA": 40,
+        "VEZA_ID_PONUDA": null,
+        "VEZA_ID_NALOGA": null,
+        "VEZA_NALOGA_STAVKE": null,
+        "KOMENTAR": null,
+        "ID_OPERATER": 1,
+        "RACUNAR": null,
+        "AKTIVNA": true,
+        "NEPROMJENLJIVO": true,
+        "ST_STAVKE": "R",
+        "ST_FAK": null,
+        "BROJ_FAKTURE": null,
+        "N_ID_FAKTURA": null,
+        "N_GODINA": null,
+        "N_VR_FAKTURA": null
+      },
+      {
+        "ID_NALOGA": 0,
+        "ID_NALOGA_STAVKE": 2,
+        "VR_KALKULACIJE": 20,
+        "BROJ_PONUDE": null,
+        "NAZIV": " 2/2021",
+        "FIRMA_ID": 4544,
+        "ELEMENTI": "Usluge izrade Bedževi 36mm",
+        "DATUM": "2021-06-21T00:00:00.000Z",
+        "DATUM_SISTEMA": "2021-06-21T06:53:11.000Z",
+        "C_POSLA": 330,
+        "VEZA_ID_PONUDA": null,
+        "VEZA_ID_NALOGA": null,
+        "VEZA_NALOGA_STAVKE": null,
+        "KOMENTAR": null,
+        "ID_OPERATER": 1,
+        "RACUNAR": null,
+        "AKTIVNA": true,
+        "NEPROMJENLJIVO": true,
+        "ST_STAVKE": "R",
+        "ST_FAK": null,
+        "BROJ_FAKTURE": null,
+        "N_ID_FAKTURA": null,
+        "N_GODINA": null,
+        "N_VR_FAKTURA": null
+      }
+    ]
+  },
+  "NALOG_VELIKI_FORMATI": {
+    "columns": [
+      "ID_NALOGA",
+      "ID_NALOGA_STAVKE",
+      "RBR",
+      "VR_VELIKI_FORMATI",
+      "NAZIV",
+      "X",
+      "Y",
+      "POVRSINA",
+      "TIRAZ",
+      "PRIP_NE",
+      "PRIP_OBICNA",
+      "PRIP_KOMPEKSNA",
+      "DIZAJN_NE",
+      "DIZAJN_DA",
+      "STAMP_NORMAL",
+      "STAMP_HI_RES",
+      "DORADA_NE",
+      "DORADA_KASIRANJE",
+      "REZ_NE",
+      "REZ_REZANJE",
+      "REZ_RICOVANJE",
+      "OSTALA_OBRADA",
+      "KOMENTAR",
+      "C_VRSTA",
+      "C_DIZAJN",
+      "C_PRIP",
+      "C_STAMPA",
+      "C_DORADA",
+      "C_REZANJE",
+      "C_OSTAL",
+      "CIJENA"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "NALOG_WEB": {
+    "columns": [
+      "ID_NALOGA",
+      "ID_NALOGA_STAVKE",
+      "RBR",
+      "NAZIV_STAVKE",
+      "KOMENTAR_WEB",
+      "CIJENA_WEB"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "ODLASCI": {
+    "columns": [
+      "ID",
+      "ID_RADNIK",
+      "VR_DOLASCI",
+      "VR_DAN",
+      "VR_DOLASCI_KRAJ",
+      "VR_DOLASCI_VEZA",
+      "VR_SMJENA",
+      "DATUM",
+      "DATUM_KRAJ",
+      "DATUM_SISTEMA",
+      "DATUM_SISTEMA_KRAJ",
+      "PRISUSTVO",
+      "KASNJENJE",
+      "PRIJE_VREMENSKI_DOLAZAK",
+      "PRIJE_VREMENSKI_ODLAZAK",
+      "PREKOVREMENI",
+      "RACUNAR",
+      "RACUNAR_KRAJ",
+      "VR_ODSUSTVA",
+      "KOMENTAR",
+      "NOVI_DAN",
+      "STORNO"
+    ],
+    "rowCount": 322,
+    "sampleData": [
+      {
+        "ID": 1,
+        "ID_RADNIK": 1,
+        "VR_DOLASCI": 1,
+        "VR_DAN": 3,
+        "VR_DOLASCI_KRAJ": 4,
+        "VR_DOLASCI_VEZA": null,
+        "VR_SMJENA": 1,
+        "DATUM": "2021-06-09T22:05:02.000Z",
+        "DATUM_KRAJ": "2021-06-17T00:07:00.000Z",
+        "DATUM_SISTEMA": "2021-06-09T22:05:04.000Z",
+        "DATUM_SISTEMA_KRAJ": "2021-06-17T00:07:00.000Z",
+        "PRISUSTVO": 0,
+        "KASNJENJE": 0,
+        "PRIJE_VREMENSKI_DOLAZAK": 0,
+        "PRIJE_VREMENSKI_ODLAZAK": 953,
+        "PREKOVREMENI": 0,
+        "RACUNAR": "XP-EDCD1EC9F438",
+        "RACUNAR_KRAJ": "DESKTOP-CVAPDP8",
+        "VR_ODSUSTVA": null,
+        "KOMENTAR": null,
+        "NOVI_DAN": false,
+        "STORNO": false
+      },
+      {
+        "ID": 2,
+        "ID_RADNIK": 3,
+        "VR_DOLASCI": 1,
+        "VR_DAN": 4,
+        "VR_DOLASCI_KRAJ": 4,
+        "VR_DOLASCI_VEZA": null,
+        "VR_SMJENA": 1,
+        "DATUM": "2021-06-17T08:25:31.000Z",
+        "DATUM_KRAJ": "2023-06-15T09:50:03.000Z",
+        "DATUM_SISTEMA": "2021-06-17T08:25:48.000Z",
+        "DATUM_SISTEMA_KRAJ": "2023-06-15T09:50:07.000Z",
+        "PRISUSTVO": 0,
+        "KASNJENJE": 25,
+        "PRIJE_VREMENSKI_DOLAZAK": 0,
+        "PRIJE_VREMENSKI_ODLAZAK": 370,
+        "PREKOVREMENI": 0,
+        "RACUNAR": "DESKTOP-NLN4J54",
+        "RACUNAR_KRAJ": "DESKTOP-PV17FEF",
+        "VR_ODSUSTVA": null,
+        "KOMENTAR": null,
+        "NOVI_DAN": false,
+        "STORNO": false
+      }
+    ]
+  },
+  "ODLASCI_RADNIK": {
+    "columns": [
+      "ID_RADNIK",
+      "DATUM",
+      "DATUM_KRAJ",
+      "VR_DOLASCI_KRAJ",
+      "VR_ODSUSTVA",
+      "VR_SMJENA",
+      "PRISUSTVO",
+      "KASNJENJE",
+      "PRIJE_VREMENSKI_DOLAZAK",
+      "PRIJE_VREMENSKI_ODLAZAK",
+      "PREKOVREMENI"
+    ],
+    "rowCount": 33,
+    "sampleData": [
+      {
+        "ID_RADNIK": 1,
+        "DATUM": "2021-06-01T00:00:00.000Z",
+        "DATUM_KRAJ": null,
+        "VR_DOLASCI_KRAJ": null,
+        "VR_ODSUSTVA": null,
+        "VR_SMJENA": null,
+        "PRISUSTVO": 0,
+        "KASNJENJE": 0,
+        "PRIJE_VREMENSKI_DOLAZAK": 0,
+        "PRIJE_VREMENSKI_ODLAZAK": 0,
+        "PREKOVREMENI": 0
+      },
+      {
+        "ID_RADNIK": 1,
+        "DATUM": "2021-06-02T00:00:00.000Z",
+        "DATUM_KRAJ": null,
+        "VR_DOLASCI_KRAJ": null,
+        "VR_ODSUSTVA": null,
+        "VR_SMJENA": null,
+        "PRISUSTVO": 0,
+        "KASNJENJE": 0,
+        "PRIJE_VREMENSKI_DOLAZAK": 0,
+        "PRIJE_VREMENSKI_ODLAZAK": 0,
+        "PREKOVREMENI": 0
+      }
+    ]
+  },
+  "ODSUSTVA": {
+    "columns": [
+      "ID_RADNIK",
+      "VR_ODSUSTVA",
+      "DATUM"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "PDV_VRSTA": {
+    "columns": [
+      "PDV"
+    ],
+    "rowCount": 3,
+    "sampleData": [
+      {
+        "PDV": 0
+      },
+      {
+        "PDV": 7
+      }
+    ]
+  },
+  "PONUDA": {
+    "columns": [
+      "ID_PONUDA",
+      "FIRMA_ID",
+      "NAZIV",
+      "DATUM",
+      "ST_PONUDE",
+      "ZBIRNA",
+      "KOMENTAR",
+      "ID_OPERATER",
+      "ID_ZIRO_RACUNA"
+    ],
+    "rowCount": 2,
+    "sampleData": [
+      {
+        "ID_PONUDA": 1,
+        "FIRMA_ID": 4444,
+        "NAZIV": "Milena",
+        "DATUM": "2021-06-22T00:00:00.000Z",
+        "ST_PONUDE": 1,
+        "ZBIRNA": false,
+        "KOMENTAR": "",
+        "ID_OPERATER": 1,
+        "ID_ZIRO_RACUNA": 1
+      },
+      {
+        "ID_PONUDA": 2,
+        "FIRMA_ID": 4604,
+        "NAZIV": "Boris Vuksanović",
+        "DATUM": "2021-07-12T00:00:00.000Z",
+        "ST_PONUDE": 1,
+        "ZBIRNA": false,
+        "KOMENTAR": "",
+        "ID_OPERATER": 1,
+        "ID_ZIRO_RACUNA": 1
+      }
+    ]
+  },
+  "PONUDA_STAVKE": {
+    "columns": [
+      "ID_PONUDA",
+      "RBR",
+      "ID_NALOGA",
+      "ID_NALOGA_STAVKE",
+      "ST_PONUDE",
+      "RABAT"
+    ],
+    "rowCount": 4,
+    "sampleData": [
+      {
+        "ID_PONUDA": 1,
+        "RBR": 1,
+        "ID_NALOGA": 0,
+        "ID_NALOGA_STAVKE": 3,
+        "ST_PONUDE": 1,
+        "RABAT": null
+      },
+      {
+        "ID_PONUDA": 1,
+        "RBR": 2,
+        "ID_NALOGA": 0,
+        "ID_NALOGA_STAVKE": 1,
+        "ST_PONUDE": 1,
+        "RABAT": null
+      }
+    ]
+  },
+  "POSAO_FAKTURA": {
+    "columns": [
+      "ID",
+      "CIJENA_POSLA",
+      "VR_KALKULACIJE",
+      "ID_PREDUZECE",
+      "RADNJA"
+    ],
+    "rowCount": 115,
+    "sampleData": [
+      {
+        "ID": 1,
+        "CIJENA_POSLA": "C_PAPIR",
+        "VR_KALKULACIJE": 1,
+        "ID_PREDUZECE": 1,
+        "RADNJA": "SF_ARTIKLA"
+      },
+      {
+        "ID": 2,
+        "CIJENA_POSLA": "C_STAMPA",
+        "VR_KALKULACIJE": 1,
+        "ID_PREDUZECE": 1,
+        "RADNJA": "ID_MASINA"
+      }
+    ]
+  },
+  "PROJEKAT": {
+    "columns": [
+      "ID_PROJEKTA",
+      "NAZIV",
+      "KOMENTAR"
+    ],
+    "rowCount": 1,
+    "sampleData": [
+      {
+        "ID_PROJEKTA": 1,
+        "NAZIV": "Nalozi",
+        "KOMENTAR": null
+      }
+    ]
+  },
+  "RADNIK_PREKOVREMENI": {
+    "columns": [
+      "ID_PREKOVREMENI",
+      "ID_RADNIK",
+      "DATUM",
+      "VRIJEME_OD",
+      "VRIJEME_DO",
+      "MINUTA",
+      "KOMENTAR"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "ST_DOKUMENTA": {
+    "columns": [
+      "ST_DOKUMENTA",
+      "NAZIV"
+    ],
+    "rowCount": 2,
+    "sampleData": [
+      {
+        "ST_DOKUMENTA": "N",
+        "NAZIV": "Neproknjiženo"
+      },
+      {
+        "ST_DOKUMENTA": "P",
+        "NAZIV": "Proknjiženo"
+      }
+    ]
+  },
+  "ST_FAK": {
+    "columns": [
+      "ST_FAK",
+      "NAZIV"
+    ],
+    "rowCount": 2,
+    "sampleData": [
+      {
+        "ST_FAK": "F",
+        "NAZIV": "FAKTURISANO"
+      },
+      {
+        "ST_FAK": "P",
+        "NAZIV": "PROFAKTURA"
+      }
+    ]
+  },
+  "ST_FAK_NALOG": {
+    "columns": [
+      "ST_FAK_NALOG",
+      "SKR_NAZIV",
+      "PUNI_NAZIV"
+    ],
+    "rowCount": 3,
+    "sampleData": [
+      {
+        "ST_FAK_NALOG": 1,
+        "SKR_NAZIV": "Ne",
+        "PUNI_NAZIV": "Nije fakturisana"
+      },
+      {
+        "ST_FAK_NALOG": 2,
+        "SKR_NAZIV": "Djelimično",
+        "PUNI_NAZIV": "Djelimicno fakturisana"
+      }
+    ]
+  },
+  "ST_FAKTURE": {
+    "columns": [
+      "STATUS",
+      "NAZIV"
+    ],
+    "rowCount": 2,
+    "sampleData": [
+      {
+        "STATUS": "N",
+        "NAZIV": "Faktura OK"
+      },
+      {
+        "STATUS": "S",
+        "NAZIV": "Storno Fakutura"
+      }
+    ]
+  },
+  "ST_PONUDE": {
+    "columns": [
+      "ST_PONUDE",
+      "NAZIV"
+    ],
+    "rowCount": 2,
+    "sampleData": [
+      {
+        "ST_PONUDE": 1,
+        "NAZIV": null
+      },
+      {
+        "ST_PONUDE": 2,
+        "NAZIV": "Da"
+      }
+    ]
+  },
+  "ST_STAVKE": {
+    "columns": [
+      "ST_STAVKE",
+      "NAZIV"
+    ],
+    "rowCount": 2,
+    "sampleData": [
+      {
+        "ST_STAVKE": "R",
+        "NAZIV": "REALIZACIJA"
+      },
+      {
+        "ST_STAVKE": "Z",
+        "NAZIV": "ZAVRSENA"
+      }
+    ]
+  },
+  "ST_UPLATE": {
+    "columns": [
+      "ST_UPLATE",
+      "NAZIV"
+    ],
+    "rowCount": 3,
+    "sampleData": [
+      {
+        "ST_UPLATE": "G",
+        "NAZIV": "Gotovina"
+      },
+      {
+        "ST_UPLATE": "K",
+        "NAZIV": "Kompenzacija"
+      }
+    ]
+  },
+  "Table1": {
+    "columns": [
+      "ID",
+      "RBR",
+      "FIRMA_ID",
+      "FIRMA",
+      "DATUM",
+      "FORMAT_REDA",
+      "NASLOV",
+      "OPIS",
+      "TEKST",
+      "C_KOMADA",
+      "C_UKUPNA"
+    ],
+    "rowCount": 24,
+    "sampleData": [
+      {
+        "ID": 1,
+        "RBR": 1,
+        "FIRMA_ID": 1,
+        "FIRMA": "Cazas - Društvo za borbu protiv side",
+        "DATUM": "2009-01-21T00:00:00.000Z",
+        "FORMAT_REDA": null,
+        "NASLOV": "1) Brošura \"Pričajmo o HIV-u\"",
+        "OPIS": null,
+        "TEKST": null,
+        "C_KOMADA": null,
+        "C_UKUPNA": null
+      },
+      {
+        "ID": 2,
+        "RBR": null,
+        "FIRMA_ID": 1,
+        "FIRMA": "Cazas - Društvo za borbu protiv side",
+        "DATUM": "2009-01-21T00:00:00.000Z",
+        "FORMAT_REDA": null,
+        "NASLOV": null,
+        "OPIS": "Format:",
+        "TEKST": "105X145 mm (A6)",
+        "C_KOMADA": null,
+        "C_UKUPNA": null
+      }
+    ]
+  },
+  "Table2": {
+    "columns": [
+      "ID",
+      "NAZIV_STAVKE",
+      "VR_PAPIRA",
+      "FORMAT_ULAZNOG",
+      "FORMAT_IZLAZNOG",
+      "OBIM",
+      "NAMJENA_STAVKE",
+      "RAZLICITIH_ARAKA",
+      "BROJ_ARAKA",
+      "DODATAK_ARAKA",
+      "UKUPNO_ARAKA",
+      "MASINA",
+      "VR_STAMPE",
+      "BOJE",
+      "FORMAT_PLOCE",
+      "LINIJATURA",
+      "MONTAZA_PLOCE",
+      "KONTROLA_FAJLOVA",
+      "OBRADA_FAJLOVA",
+      "MUTACIJA",
+      "UKUPNO_PLOCA",
+      "NUMERACIJA",
+      "BROJ_NUMERATORA",
+      "LAKIRANJE_OFFSETNIM",
+      "LAKIRANJE_UV",
+      "PLASTIKA_TVRDA",
+      "PLASTIKA_MEKA",
+      "PREVOJ_LIJEPLJENJE",
+      "FALC_MAS",
+      "BIG_RUC",
+      "PERFORACIJA",
+      "STANC_RIC",
+      "ZAOBLJAVANJE_IVCA",
+      "RUPICE",
+      "ZLATOTISAK",
+      "INSERTOVANJE",
+      "OSTALA_OBRADA",
+      "PIKTOGRAM"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "UPLATE": {
+    "columns": [
+      "ID_UPLATE",
+      "ID_PREDUZECE",
+      "DATUM",
+      "FIRMA_ID",
+      "IZNOS",
+      "ST_UPLATE",
+      "ID_ZIRO_RACUNA",
+      "KOMENTAR",
+      "KOMENTAR2",
+      "VR_UPLATE",
+      "ID_OPERATER"
+    ],
+    "rowCount": 4409,
+    "sampleData": [
+      {
+        "ID_UPLATE": 1,
+        "ID_PREDUZECE": 1,
+        "DATUM": "2021-06-01T00:00:00.000Z",
+        "FIRMA_ID": 4554,
+        "IZNOS": 152.89,
+        "ST_UPLATE": "Z",
+        "ID_ZIRO_RACUNA": 1,
+        "KOMENTAR": "081",
+        "KOMENTAR2": null,
+        "VR_UPLATE": "D",
+        "ID_OPERATER": 2
+      },
+      {
+        "ID_UPLATE": 2,
+        "ID_PREDUZECE": 1,
+        "DATUM": "2021-06-01T00:00:00.000Z",
+        "FIRMA_ID": 4512,
+        "IZNOS": 1612.62,
+        "ST_UPLATE": "Z",
+        "ID_ZIRO_RACUNA": 1,
+        "KOMENTAR": "081",
+        "KOMENTAR2": null,
+        "VR_UPLATE": "D",
+        "ID_OPERATER": 2
+      }
+    ]
+  },
+  "UPLATE_RACUN": {
+    "columns": [
+      "ID_UPLATE",
+      "DATUM",
+      "ID_ZIRO_RACUNA_MINUS",
+      "ID_ZIRO_RACUNA_PLUS",
+      "IZNOS_MINUS",
+      "IZNOS_PLUS",
+      "KOMENTAR",
+      "ID_OPERATER"
+    ],
+    "rowCount": 53,
+    "sampleData": [
+      {
+        "ID_UPLATE": 1,
+        "DATUM": "2023-05-29T00:00:00.000Z",
+        "ID_ZIRO_RACUNA_MINUS": 1,
+        "ID_ZIRO_RACUNA_PLUS": 6,
+        "IZNOS_MINUS": -300,
+        "IZNOS_PLUS": 300,
+        "KOMENTAR": null,
+        "ID_OPERATER": 0
+      },
+      {
+        "ID_UPLATE": 2,
+        "DATUM": "2023-05-08T00:00:00.000Z",
+        "ID_ZIRO_RACUNA_MINUS": 1,
+        "ID_ZIRO_RACUNA_PLUS": 6,
+        "IZNOS_MINUS": -1300,
+        "IZNOS_PLUS": 1300,
+        "KOMENTAR": null,
+        "ID_OPERATER": 0
+      }
+    ]
+  },
+  "VR_ART_PROIZ": {
+    "columns": [
+      "VR_ART_PROIZ",
+      "NAZIV"
+    ],
+    "rowCount": 13,
+    "sampleData": [
+      {
+        "VR_ART_PROIZ": 0,
+        "NAZIV": "Osnovni"
+      },
+      {
+        "VR_ART_PROIZ": 1,
+        "NAZIV": "Troškovi"
+      }
+    ]
+  },
+  "VR_ARTIKLA": {
+    "columns": [
+      "VR_ARTIKLA",
+      "NAZIV"
+    ],
+    "rowCount": 11,
+    "sampleData": [
+      {
+        "VR_ARTIKLA": 1,
+        "NAZIV": "Papir"
+      },
+      {
+        "VR_ARTIKLA": 2,
+        "NAZIV": "CTP ploče"
+      }
+    ]
+  },
+  "VR_BOJA": {
+    "columns": [
+      "VR_BOJA",
+      "ID_MASINA",
+      "NAZIV",
+      "PRVA",
+      "DRUGA",
+      "PROLAZ",
+      "DIGITALNA"
+    ],
+    "rowCount": 40,
+    "sampleData": [
+      {
+        "VR_BOJA": 0,
+        "ID_MASINA": 1,
+        "NAZIV": "0/0",
+        "PRVA": 0,
+        "DRUGA": 0,
+        "PROLAZ": 0,
+        "DIGITALNA": true
+      },
+      {
+        "VR_BOJA": 1,
+        "ID_MASINA": 1,
+        "NAZIV": "1/0",
+        "PRVA": 1,
+        "DRUGA": 0,
+        "PROLAZ": 1,
+        "DIGITALNA": true
+      }
+    ]
+  },
+  "VR_COLOR": {
+    "columns": [
+      "VR_COLOR",
+      "NAZIV"
+    ],
+    "rowCount": 2,
+    "sampleData": [
+      {
+        "VR_COLOR": 0,
+        "NAZIV": "CMYK"
+      },
+      {
+        "VR_COLOR": 3,
+        "NAZIV": "HKS"
+      }
+    ]
+  },
+  "VR_DAN": {
+    "columns": [
+      "VR_DAN",
+      "NAZIV",
+      "STATUS"
+    ],
+    "rowCount": 7,
+    "sampleData": [
+      {
+        "VR_DAN": 1,
+        "NAZIV": "Poneđeljak",
+        "STATUS": "A"
+      },
+      {
+        "VR_DAN": 2,
+        "NAZIV": "Utorak",
+        "STATUS": "A"
+      }
+    ]
+  },
+  "VR_DOKUMENTA": {
+    "columns": [
+      "VR_DOKUMENTA",
+      "NAZIV"
+    ],
+    "rowCount": 6,
+    "sampleData": [
+      {
+        "VR_DOKUMENTA": 1,
+        "NAZIV": "Prijemnica"
+      },
+      {
+        "VR_DOKUMENTA": 2,
+        "NAZIV": "Ulazne fakture"
+      }
+    ]
+  },
+  "VR_DOLASCI": {
+    "columns": [
+      "VR_DOLASCI",
+      "STATUS_DOL",
+      "STATUS_DOL_NAZ",
+      "NAZIV",
+      "VEZA"
+    ],
+    "rowCount": 4,
+    "sampleData": [
+      {
+        "VR_DOLASCI": 1,
+        "STATUS_DOL": true,
+        "STATUS_DOL_NAZ": "Dolazak",
+        "NAZIV": "Na poslu",
+        "VEZA": 4
+      },
+      {
+        "VR_DOLASCI": 4,
+        "STATUS_DOL": false,
+        "STATUS_DOL_NAZ": "Izlazak",
+        "NAZIV": "Slobodan",
+        "VEZA": 1
+      }
+    ]
+  },
+  "VR_FAKTURE": {
+    "columns": [
+      "VR_FAKTURE",
+      "NAZIV"
+    ],
+    "rowCount": 6,
+    "sampleData": [
+      {
+        "VR_FAKTURE": "A",
+        "NAZIV": "Gratis"
+      },
+      {
+        "VR_FAKTURE": "F",
+        "NAZIV": "Fakture"
+      }
+    ]
+  },
+  "VR_FORMAT": {
+    "columns": [
+      "VR_FORMAT",
+      "NAZIV",
+      "X",
+      "Y",
+      "STATUS",
+      "RBR",
+      "RBR_P"
+    ],
+    "rowCount": 40,
+    "sampleData": [
+      {
+        "VR_FORMAT": 1,
+        "NAZIV": "B0",
+        "X": 1000,
+        "Y": 1414,
+        "STATUS": 1,
+        "RBR": 7,
+        "RBR_P": 14
+      },
+      {
+        "VR_FORMAT": 2,
+        "NAZIV": "B1",
+        "X": 700,
+        "Y": 1000,
+        "STATUS": 1,
+        "RBR": 8,
+        "RBR_P": 21
+      }
+    ]
+  },
+  "VR_GODINA": {
+    "columns": [
+      "GODINA"
+    ],
+    "rowCount": 5,
+    "sampleData": [
+      {
+        "GODINA": 2021
+      },
+      {
+        "GODINA": 2022
+      }
+    ]
+  },
+  "VR_JED_DIGITALNA": {
+    "columns": [
+      "VR_JED_DIGITALNA",
+      "NAZIV"
+    ],
+    "rowCount": 3,
+    "sampleData": [
+      {
+        "VR_JED_DIGITALNA": 1,
+        "NAZIV": "Tabak"
+      },
+      {
+        "VR_JED_DIGITALNA": 2,
+        "NAZIV": "Tiraz"
+      }
+    ]
+  },
+  "VR_JEDINICA": {
+    "columns": [
+      "VR_JEDINICA",
+      "SKR_NAZIV",
+      "PUNI_NAZIV"
+    ],
+    "rowCount": 11,
+    "sampleData": [
+      {
+        "VR_JEDINICA": 1,
+        "SKR_NAZIV": "m",
+        "PUNI_NAZIV": "Metar"
+      },
+      {
+        "VR_JEDINICA": 2,
+        "SKR_NAZIV": "kom",
+        "PUNI_NAZIV": "Komad"
+      }
+    ]
+  },
+  "VR_KALKULACIJE": {
+    "columns": [
+      "VR_KALKULACIJE",
+      "NAZIV",
+      "RBR"
+    ],
+    "rowCount": 8,
+    "sampleData": [
+      {
+        "VR_KALKULACIJE": 1,
+        "NAZIV": "Štampa",
+        "RBR": 1
+      },
+      {
+        "VR_KALKULACIJE": 2,
+        "NAZIV": "Digitalna štampa",
+        "RBR": 2
+      }
+    ]
+  },
+  "VR_KLIK_CIJENA": {
+    "columns": [
+      "VR_KLIK_CIJENA",
+      "VR_KLIK_GRUPA",
+      "ID_MASINA",
+      "VR_NACIN",
+      "CIJENA_NABAVNA",
+      "CIJENA",
+      "COLOR",
+      "BW"
+    ],
+    "rowCount": 35,
+    "sampleData": [
+      {
+        "VR_KLIK_CIJENA": 1,
+        "VR_KLIK_GRUPA": 1,
+        "ID_MASINA": 3,
+        "VR_NACIN": "4/0",
+        "CIJENA_NABAVNA": 0.063,
+        "CIJENA": 0.15,
+        "COLOR": true,
+        "BW": false
+      },
+      {
+        "VR_KLIK_CIJENA": 2,
+        "VR_KLIK_GRUPA": 1,
+        "ID_MASINA": 3,
+        "VR_NACIN": "4/1",
+        "CIJENA_NABAVNA": 0.088,
+        "CIJENA": 0.21,
+        "COLOR": true,
+        "BW": false
+      }
+    ]
+  },
+  "VR_KLIK_GRUPA": {
+    "columns": [
+      "VR_KLIK_GRUPA",
+      "NAZIV"
+    ],
+    "rowCount": 5,
+    "sampleData": [
+      {
+        "VR_KLIK_GRUPA": 1,
+        "NAZIV": "G1"
+      },
+      {
+        "VR_KLIK_GRUPA": 2,
+        "NAZIV": "G2"
+      }
+    ]
+  },
+  "VR_MASINA": {
+    "columns": [
+      "VR_MASINA",
+      "NAZIV"
+    ],
+    "rowCount": 2,
+    "sampleData": [
+      {
+        "VR_MASINA": 1,
+        "NAZIV": "Offest"
+      },
+      {
+        "VR_MASINA": 2,
+        "NAZIV": "Digitalna"
+      }
+    ]
+  },
+  "VR_NACIN_STAMPE": {
+    "columns": [
+      "VR_NACIN_STAMPE",
+      "NAZIV"
+    ],
+    "rowCount": 9,
+    "sampleData": [
+      {
+        "VR_NACIN_STAMPE": 0,
+        "NAZIV": "0"
+      },
+      {
+        "VR_NACIN_STAMPE": 1,
+        "NAZIV": "1"
+      }
+    ]
+  },
+  "VR_NAZIV_BOJE": {
+    "columns": [
+      "VR_NAZIV_BOJE",
+      "NAZIV"
+    ],
+    "rowCount": 6,
+    "sampleData": [
+      {
+        "VR_NAZIV_BOJE": 1,
+        "NAZIV": "CMYK"
+      },
+      {
+        "VR_NAZIV_BOJE": 2,
+        "NAZIV": "Cyan"
+      }
+    ]
+  },
+  "VR_OBOJENO": {
+    "columns": [
+      "VR_OBOJENO",
+      "NAZIV"
+    ],
+    "rowCount": 9,
+    "sampleData": [
+      {
+        "VR_OBOJENO": 1,
+        "NAZIV": "Bijela"
+      },
+      {
+        "VR_OBOJENO": 2,
+        "NAZIV": "Crna"
+      }
+    ]
+  },
+  "VR_ODSUSTVA": {
+    "columns": [
+      "VR_ODSUSTVA",
+      "NAZIV",
+      "BOJA"
+    ],
+    "rowCount": 7,
+    "sampleData": [
+      {
+        "VR_ODSUSTVA": 1,
+        "NAZIV": "Godišnji odmor",
+        "BOJA": null
+      },
+      {
+        "VR_ODSUSTVA": 2,
+        "NAZIV": "Bolovanja",
+        "BOJA": null
+      }
+    ]
+  },
+  "VR_OFFSET_PROIZVODA": {
+    "columns": [
+      "VR_OFFSET_PROIZVODA",
+      "NAZIV",
+      "DODATAK"
+    ],
+    "rowCount": 13,
+    "sampleData": [
+      {
+        "VR_OFFSET_PROIZVODA": 1,
+        "NAZIV": "Knjiga",
+        "DODATAK": 70
+      },
+      {
+        "VR_OFFSET_PROIZVODA": 2,
+        "NAZIV": "Časopis",
+        "DODATAK": 70
+      }
+    ]
+  },
+  "VR_PERIOD": {
+    "columns": [
+      "VR_PERIOD",
+      "NAZIV"
+    ],
+    "rowCount": 156,
+    "sampleData": [
+      {
+        "VR_PERIOD": 1,
+        "NAZIV": "01/2009"
+      },
+      {
+        "VR_PERIOD": 2,
+        "NAZIV": "02/2009"
+      }
+    ]
+  },
+  "VR_POLOZAJ": {
+    "columns": [
+      "VR_POLOZAJ",
+      "NAZIV"
+    ],
+    "rowCount": 2,
+    "sampleData": [
+      {
+        "VR_POLOZAJ": 1,
+        "NAZIV": "Uspravno"
+      },
+      {
+        "VR_POLOZAJ": 2,
+        "NAZIV": "Položeno"
+      }
+    ]
+  },
+  "VR_POSLA_DIGITALNA": {
+    "columns": [
+      "VR_POSLA_DIGITALNA",
+      "NAZIV",
+      "MENI"
+    ],
+    "rowCount": 22,
+    "sampleData": [
+      {
+        "VR_POSLA_DIGITALNA": 1,
+        "NAZIV": "Obična štampa",
+        "MENI": true
+      },
+      {
+        "VR_POSLA_DIGITALNA": 2,
+        "NAZIV": "Vizit karte",
+        "MENI": true
+      }
+    ]
+  },
+  "VR_POVEZA": {
+    "columns": [
+      "VR_POVEZA",
+      "NAZIV",
+      "STATUS"
+    ],
+    "rowCount": 8,
+    "sampleData": [
+      {
+        "VR_POVEZA": 0,
+        "NAZIV": "Bez poveza",
+        "STATUS": "A"
+      },
+      {
+        "VR_POVEZA": 1,
+        "NAZIV": "Meki povez",
+        "STATUS": "A"
+      }
+    ]
+  },
+  "VR_POVEZA_PODACI": {
+    "columns": [
+      "VR_POVEZA",
+      "SIVENJE_NE",
+      "SIVENJE_DA",
+      "NABAC_NE",
+      "NABAC_SVI",
+      "NABAC_ZADNJI",
+      "SAKUPLJ_NE",
+      "SAKUPLJ_RUCNO",
+      "SAKUPLJ_MULLER",
+      "SAKUPLJ_TABAKA",
+      "LIJEP_NE",
+      "LIJEP_RUCNO",
+      "LIJEP_BINDER",
+      "LIJEP_HRBAT",
+      "KASIR_NE",
+      "KASIR_RUCNO",
+      "SF_ARTIKLA_LP",
+      "VRSTHR_NE",
+      "VRSTHR_RAVNI",
+      "VRSTHR_OBLI",
+      "VRSTHR_HRBAT",
+      "VRPCE_NE",
+      "VRPCE_DA",
+      "VRPCE_VR_OBOJENO",
+      "KLAMER_NE",
+      "KLAMER_RUCNI",
+      "KLAMER_PANCER",
+      "KLAMER_ARAKA",
+      "SPIRAL_NE",
+      "SPIRAL_SIRINA",
+      "SPIRAL_VISINA",
+      "SPIRAL_1_4",
+      "SPIRAL_7_16",
+      "SPIRAL_3_4",
+      "SPIRAL_1_1",
+      "VR_OBOJENO",
+      "REZ_NE",
+      "REZ_DA",
+      "REZ_REZOVA",
+      "TROREZ_NE",
+      "TROREZ_DA",
+      "CELOF_NE",
+      "CELOF_DA",
+      "CELOF_SA_VAKUMOM",
+      "CELOF_BEZ_VAKUMA",
+      "PAKOV_NE",
+      "PAKOV_DA",
+      "PAKOV_KOMADA",
+      "PAKOV_PAKETA",
+      "OBRADA_SATI_1",
+      "OPIS_1",
+      "OBRADA_SATI_2",
+      "OPIS_2"
+    ],
+    "rowCount": 8,
+    "sampleData": [
+      {
+        "VR_POVEZA": 0,
+        "SIVENJE_NE": true,
+        "SIVENJE_DA": false,
+        "NABAC_NE": true,
+        "NABAC_SVI": false,
+        "NABAC_ZADNJI": false,
+        "SAKUPLJ_NE": true,
+        "SAKUPLJ_RUCNO": false,
+        "SAKUPLJ_MULLER": false,
+        "SAKUPLJ_TABAKA": 0,
+        "LIJEP_NE": true,
+        "LIJEP_RUCNO": false,
+        "LIJEP_BINDER": false,
+        "LIJEP_HRBAT": 0,
+        "KASIR_NE": true,
+        "KASIR_RUCNO": false,
+        "SF_ARTIKLA_LP": 0,
+        "VRSTHR_NE": false,
+        "VRSTHR_RAVNI": true,
+        "VRSTHR_OBLI": false,
+        "VRSTHR_HRBAT": 0,
+        "VRPCE_NE": true,
+        "VRPCE_DA": false,
+        "VRPCE_VR_OBOJENO": null,
+        "KLAMER_NE": true,
+        "KLAMER_RUCNI": false,
+        "KLAMER_PANCER": false,
+        "KLAMER_ARAKA": 0,
+        "SPIRAL_NE": true,
+        "SPIRAL_SIRINA": false,
+        "SPIRAL_VISINA": false,
+        "SPIRAL_1_4": false,
+        "SPIRAL_7_16": false,
+        "SPIRAL_3_4": false,
+        "SPIRAL_1_1": false,
+        "VR_OBOJENO": null,
+        "REZ_NE": true,
+        "REZ_DA": false,
+        "REZ_REZOVA": 0,
+        "TROREZ_NE": true,
+        "TROREZ_DA": false,
+        "CELOF_NE": true,
+        "CELOF_DA": false,
+        "CELOF_SA_VAKUMOM": false,
+        "CELOF_BEZ_VAKUMA": false,
+        "PAKOV_NE": true,
+        "PAKOV_DA": false,
+        "PAKOV_KOMADA": 0,
+        "PAKOV_PAKETA": 0,
+        "OBRADA_SATI_1": 0,
+        "OPIS_1": null,
+        "OBRADA_SATI_2": 0,
+        "OPIS_2": null
+      },
+      {
+        "VR_POVEZA": 1,
+        "SIVENJE_NE": true,
+        "SIVENJE_DA": false,
+        "NABAC_NE": false,
+        "NABAC_SVI": false,
+        "NABAC_ZADNJI": false,
+        "SAKUPLJ_NE": false,
+        "SAKUPLJ_RUCNO": false,
+        "SAKUPLJ_MULLER": true,
+        "SAKUPLJ_TABAKA": 0,
+        "LIJEP_NE": false,
+        "LIJEP_RUCNO": false,
+        "LIJEP_BINDER": true,
+        "LIJEP_HRBAT": 0,
+        "KASIR_NE": true,
+        "KASIR_RUCNO": false,
+        "SF_ARTIKLA_LP": 0,
+        "VRSTHR_NE": false,
+        "VRSTHR_RAVNI": true,
+        "VRSTHR_OBLI": false,
+        "VRSTHR_HRBAT": 0,
+        "VRPCE_NE": true,
+        "VRPCE_DA": false,
+        "VRPCE_VR_OBOJENO": null,
+        "KLAMER_NE": true,
+        "KLAMER_RUCNI": false,
+        "KLAMER_PANCER": false,
+        "KLAMER_ARAKA": 0,
+        "SPIRAL_NE": true,
+        "SPIRAL_SIRINA": false,
+        "SPIRAL_VISINA": false,
+        "SPIRAL_1_4": false,
+        "SPIRAL_7_16": false,
+        "SPIRAL_3_4": false,
+        "SPIRAL_1_1": false,
+        "VR_OBOJENO": null,
+        "REZ_NE": false,
+        "REZ_DA": true,
+        "REZ_REZOVA": 3,
+        "TROREZ_NE": true,
+        "TROREZ_DA": false,
+        "CELOF_NE": true,
+        "CELOF_DA": false,
+        "CELOF_SA_VAKUMOM": false,
+        "CELOF_BEZ_VAKUMA": false,
+        "PAKOV_NE": false,
+        "PAKOV_DA": true,
+        "PAKOV_KOMADA": 30,
+        "PAKOV_PAKETA": 0,
+        "OBRADA_SATI_1": 0,
+        "OPIS_1": null,
+        "OBRADA_SATI_2": 0,
+        "OPIS_2": null
+      }
+    ]
+  },
+  "VR_RADNIKA": {
+    "columns": [
+      "VR_RADNIKA",
+      "NAZIV"
+    ],
+    "rowCount": 2,
+    "sampleData": [
+      {
+        "VR_RADNIKA": 1,
+        "NAZIV": "Radnik"
+      },
+      {
+        "VR_RADNIKA": 2,
+        "NAZIV": "Ostalo"
+      }
+    ]
+  },
+  "VR_RADNO_MJESTO": {
+    "columns": [
+      "VR_RADNO_MJESTO",
+      "NAZIV"
+    ],
+    "rowCount": 29,
+    "sampleData": [
+      {
+        "VR_RADNO_MJESTO": 1,
+        "NAZIV": "Direktor"
+      },
+      {
+        "VR_RADNO_MJESTO": 2,
+        "NAZIV": "Art direktor"
+      }
+    ]
+  },
+  "VR_SMJENA": {
+    "columns": [
+      "VR_SMJENA",
+      "NAZIV",
+      "VRIJEME_OD",
+      "MEDJUVRIJEME",
+      "VRIJEME_DO",
+      "SATI"
+    ],
+    "rowCount": 4,
+    "sampleData": [
+      {
+        "VR_SMJENA": 1,
+        "NAZIV": "Prva     8:00 - 16:00",
+        "VRIJEME_OD": "1899-12-30T08:00:00.000Z",
+        "MEDJUVRIJEME": "1899-12-30T15:00:00.000Z",
+        "VRIJEME_DO": "1899-12-30T16:00:00.000Z",
+        "SATI": 7
+      },
+      {
+        "VR_SMJENA": 2,
+        "NAZIV": "Druga   12:00 - 20:00",
+        "VRIJEME_OD": "1899-12-30T12:00:00.000Z",
+        "MEDJUVRIJEME": "1899-12-30T20:00:00.000Z",
+        "VRIJEME_DO": "1899-12-30T22:00:00.000Z",
+        "SATI": 8
+      }
+    ]
+  },
+  "VR_TROSAK": {
+    "columns": [
+      "VR_TROSAK",
+      "NAZIV"
+    ],
+    "rowCount": 24,
+    "sampleData": [
+      {
+        "VR_TROSAK": 1,
+        "NAZIV": "01 Poluproizvod"
+      },
+      {
+        "VR_TROSAK": 2,
+        "NAZIV": "02 Repromaterijal"
+      }
+    ]
+  },
+  "VR_UPLATE": {
+    "columns": [
+      "VR_UPLATE",
+      "NAZIV"
+    ],
+    "rowCount": 2,
+    "sampleData": [
+      {
+        "VR_UPLATE": "D",
+        "NAZIV": "Dobavljač"
+      },
+      {
+        "VR_UPLATE": "K",
+        "NAZIV": "Kupac"
+      }
+    ]
+  },
+  "VR_VELIKI_FORMATI": {
+    "columns": [
+      "VR_VELIKI_FORMATI",
+      "NAZIV",
+      "CIJENA"
+    ],
+    "rowCount": 8,
+    "sampleData": [
+      {
+        "VR_VELIKI_FORMATI": 1,
+        "NAZIV": "Bilbordi",
+        "CIJENA": 3
+      },
+      {
+        "VR_VELIKI_FORMATI": 2,
+        "NAZIV": "Posteri",
+        "CIJENA": 6
+      }
+    ]
+  },
+  "VR_ZIRO_RACUNA": {
+    "columns": [
+      "VR_ZIRORACUNA",
+      "NAZIV",
+      "SKR_NAZIV"
+    ],
+    "rowCount": 10,
+    "sampleData": [
+      {
+        "VR_ZIRORACUNA": 0,
+        "NAZIV": "Gotovina",
+        "SKR_NAZIV": null
+      },
+      {
+        "VR_ZIRORACUNA": 1,
+        "NAZIV": "Atlasmont banka",
+        "SKR_NAZIV": "ATM"
+      }
+    ]
+  },
+  "VRIJEME": {
+    "columns": [
+      "ID",
+      "VRIJEME"
+    ],
+    "rowCount": 1,
+    "sampleData": [
+      {
+        "ID": 1,
+        "VRIJEME": "2009-06-10T22:06:57.000Z"
+      }
+    ]
+  },
+  "ZIRO_RACUN": {
+    "columns": [
+      "ID_ZIRO_RACUNA",
+      "NAZIV",
+      "VR_ZIRORACUNA",
+      "ID_PREDUZECE",
+      "DEVIZNI",
+      "GRUPA_RACUN",
+      "VEZA",
+      "OSNOVNI"
+    ],
+    "rowCount": 4,
+    "sampleData": [
+      {
+        "ID_ZIRO_RACUNA": 1,
+        "NAZIV": "520-13413-91",
+        "VR_ZIRORACUNA": 9,
+        "ID_PREDUZECE": 1,
+        "DEVIZNI": false,
+        "GRUPA_RACUN": 1,
+        "VEZA": 4,
+        "OSNOVNI": true
+      },
+      {
+        "ID_ZIRO_RACUNA": 6,
+        "NAZIV": "ME25520042000000805985",
+        "VR_ZIRORACUNA": 9,
+        "ID_PREDUZECE": 1,
+        "DEVIZNI": true,
+        "GRUPA_RACUN": 3,
+        "VEZA": 4,
+        "OSNOVNI": false
+      }
+    ]
+  },
+  "DIGITALNA_CIJENA": {
+    "columns": [
+      "ID",
+      "VR_STAMPE",
+      "OPIS",
+      "VR_NACIN",
+      "VR_JED_DIGITALNA",
+      "TIRAZ_OD",
+      "TIRAZ_DO",
+      "INDEX_TEZINE",
+      "NAD_VR_STAMPE",
+      "CIJENA",
+      "STATUS",
+      "START_CIJENA"
+    ],
+    "rowCount": 540,
+    "sampleData": [
+      {
+        "ID": 1,
+        "VR_STAMPE": 2,
+        "OPIS": "Vizit karte",
+        "VR_NACIN": "4/0",
+        "VR_JED_DIGITALNA": 2,
+        "TIRAZ_OD": 0,
+        "TIRAZ_DO": 50,
+        "INDEX_TEZINE": null,
+        "NAD_VR_STAMPE": null,
+        "CIJENA": 0.07,
+        "STATUS": "A",
+        "START_CIJENA": 0
+      },
+      {
+        "ID": 2,
+        "VR_STAMPE": 2,
+        "OPIS": "Vizit karte",
+        "VR_NACIN": "4/0",
+        "VR_JED_DIGITALNA": 2,
+        "TIRAZ_OD": 51,
+        "TIRAZ_DO": 100,
+        "INDEX_TEZINE": null,
+        "NAD_VR_STAMPE": null,
+        "CIJENA": 0.05,
+        "STATUS": "A",
+        "START_CIJENA": 0
+      }
+    ]
+  },
+  "FIRME": {
+    "columns": [
+      "FIRMA_ID",
+      "NAZIV",
+      "ADRESA",
+      "REG_BROJ",
+      "MATICNI",
+      "SIFRA_DJEL",
+      "MAIL",
+      "ZIRO_RACUN1",
+      "ZIRO_RACUN2",
+      "WEB",
+      "TEL1",
+      "TEL2",
+      "TEL3",
+      "TEL4",
+      "STATUS",
+      "NAPOMENA",
+      "KUPAC",
+      "DOBAVLJAC",
+      "DATUM",
+      "POT",
+      "DUG",
+      "ID_CIJENA",
+      "RADNIK",
+      "BLAG",
+      "ROK_PLACANJA",
+      "ID_OPERATER",
+      "POCETNO",
+      "DATUM_VALUTE_1",
+      "DATUM_VALUTE_2",
+      "DUG_1",
+      "DUG_2",
+      "DUG_GOT_1",
+      "DUG_GOT_2",
+      "POT_1",
+      "POT_2",
+      "POT_GOT_1",
+      "POT_GOT_2",
+      "SALDO_DOBAVLJAC_1",
+      "SALDO_DOBAVLJAC_2",
+      "SALDO_GOT_DOBAVLJAC_1",
+      "SALDO_GOT_DOBAVLJAC_2",
+      "SALDO_GOT_KUPAC_1",
+      "SALDO_GOT_KUPAC_2",
+      "SALDO_KUPAC_1",
+      "SALDO_KUPAC_2",
+      "ID_PREDUZECE",
+      "VR_KLIK_GRUPA"
+    ],
+    "rowCount": 842,
+    "sampleData": [
+      {
+        "FIRMA_ID": 1333,
+        "NAZIV": "Brain Media doo",
+        "ADRESA": "Romanovih 33, Podgorica",
+        "REG_BROJ": null,
+        "MATICNI": "03150321",
+        "SIFRA_DJEL": "30/31-000",
+        "MAIL": "info@brain.co.me",
+        "ZIRO_RACUN1": "520-13413-91",
+        "ZIRO_RACUN2": null,
+        "WEB": null,
+        "TEL1": null,
+        "TEL2": null,
+        "TEL3": null,
+        "TEL4": null,
+        "STATUS": "A",
+        "NAPOMENA": null,
+        "KUPAC": true,
+        "DOBAVLJAC": true,
+        "DATUM": "2012-01-01T00:00:00.000Z",
+        "POT": 0,
+        "DUG": 0,
+        "ID_CIJENA": 1,
+        "RADNIK": false,
+        "BLAG": true,
+        "ROK_PLACANJA": 30,
+        "ID_OPERATER": 2,
+        "POCETNO": true,
+        "DATUM_VALUTE_1": "2022-11-23T00:00:00.000Z",
+        "DATUM_VALUTE_2": "2011-08-22T00:00:00.000Z",
+        "DUG_1": 0,
+        "DUG_2": 0,
+        "DUG_GOT_1": 0,
+        "DUG_GOT_2": 0,
+        "POT_1": 0,
+        "POT_2": 0,
+        "POT_GOT_1": 0,
+        "POT_GOT_2": 0,
+        "SALDO_DOBAVLJAC_1": 0,
+        "SALDO_DOBAVLJAC_2": 0,
+        "SALDO_GOT_DOBAVLJAC_1": 0,
+        "SALDO_GOT_DOBAVLJAC_2": 0,
+        "SALDO_GOT_KUPAC_1": 0,
+        "SALDO_GOT_KUPAC_2": 0,
+        "SALDO_KUPAC_1": 0,
+        "SALDO_KUPAC_2": 0,
+        "ID_PREDUZECE": null,
+        "VR_KLIK_GRUPA": 3
+      },
+      {
+        "FIRMA_ID": 4406,
+        "NAZIV": "Dražen Petrić",
+        "ADRESA": null,
+        "REG_BROJ": null,
+        "MATICNI": null,
+        "SIFRA_DJEL": null,
+        "MAIL": null,
+        "ZIRO_RACUN1": null,
+        "ZIRO_RACUN2": null,
+        "WEB": null,
+        "TEL1": null,
+        "TEL2": null,
+        "TEL3": null,
+        "TEL4": null,
+        "STATUS": "A",
+        "NAPOMENA": null,
+        "KUPAC": true,
+        "DOBAVLJAC": true,
+        "DATUM": "2012-01-01T00:00:00.000Z",
+        "POT": 0,
+        "DUG": 0,
+        "ID_CIJENA": 0,
+        "RADNIK": true,
+        "BLAG": false,
+        "ROK_PLACANJA": 0,
+        "ID_OPERATER": 2,
+        "POCETNO": true,
+        "DATUM_VALUTE_1": "2021-05-05T00:00:00.000Z",
+        "DATUM_VALUTE_2": "2011-04-15T00:00:00.000Z",
+        "DUG_1": 0,
+        "DUG_2": 0,
+        "DUG_GOT_1": 0,
+        "DUG_GOT_2": 0,
+        "POT_1": 0,
+        "POT_2": 0,
+        "POT_GOT_1": 0,
+        "POT_GOT_2": 0,
+        "SALDO_DOBAVLJAC_1": 0,
+        "SALDO_DOBAVLJAC_2": 0,
+        "SALDO_GOT_DOBAVLJAC_1": 0,
+        "SALDO_GOT_DOBAVLJAC_2": 0,
+        "SALDO_GOT_KUPAC_1": 0,
+        "SALDO_GOT_KUPAC_2": 0,
+        "SALDO_KUPAC_1": 0,
+        "SALDO_KUPAC_2": 0,
+        "ID_PREDUZECE": null,
+        "VR_KLIK_GRUPA": 0
+      }
+    ]
+  },
+  "ID_NALOG_MAIL": {
+    "columns": [
+      "ID",
+      "ID_NALOGA",
+      "OPIS_NALOG",
+      "DATUM_OBRADA",
+      "DATUM_SISTEMA",
+      "OPERATER",
+      "STATUS",
+      "PROMJENA"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "MASINA": {
+    "columns": [
+      "ID_MASINA",
+      "NAZIV",
+      "VR_MASINA",
+      "VR_BOJA_MASINA",
+      "LAKIRNICA",
+      "EL_SNAGA",
+      "VERKA_GORE",
+      "VERKA_DOLJE",
+      "UKUPNO_VERKOVA",
+      "CIJENA_VERKA",
+      "CIJANA_OTISAK",
+      "CIJENA_PRIPREME",
+      "CIJENA_STRUJE",
+      "MINUTA_PRIPREME",
+      "VR_IZRACUN",
+      "STAMPA_IZ_ROLNE",
+      "VR_FORMAT",
+      "VR_FORMAT_MIN",
+      "MIN_X",
+      "MIN_Y",
+      "MAX_X",
+      "MAX_Y",
+      "MAX_STAMPE_X",
+      "MAX_STAMPE_Y",
+      "GREIFER",
+      "PLOCA_X",
+      "PLOCA_Y",
+      "PLOCA_Z",
+      "VR_FROMAT_PLOCA",
+      "MAX_STAMPA"
+    ],
+    "rowCount": 4,
+    "sampleData": [
+      {
+        "ID_MASINA": 1,
+        "NAZIV": "Komori Spica 429P",
+        "VR_MASINA": 1,
+        "VR_BOJA_MASINA": 4,
+        "LAKIRNICA": false,
+        "EL_SNAGA": 15,
+        "VERKA_GORE": 2,
+        "VERKA_DOLJE": 2,
+        "UKUPNO_VERKOVA": 4,
+        "CIJENA_VERKA": 25,
+        "CIJANA_OTISAK": 0,
+        "CIJENA_PRIPREME": 5,
+        "CIJENA_STRUJE": 0.07,
+        "MINUTA_PRIPREME": 15,
+        "VR_IZRACUN": 1,
+        "STAMPA_IZ_ROLNE": false,
+        "VR_FORMAT": 39,
+        "VR_FORMAT_MIN": null,
+        "MIN_X": 0,
+        "MIN_Y": 0,
+        "MAX_X": 0,
+        "MAX_Y": 0,
+        "MAX_STAMPE_X": 0,
+        "MAX_STAMPE_Y": 0,
+        "GREIFER": 10,
+        "PLOCA_X": 0,
+        "PLOCA_Y": 0,
+        "PLOCA_Z": 0,
+        "VR_FROMAT_PLOCA": 1950,
+        "MAX_STAMPA": 10000
+      },
+      {
+        "ID_MASINA": 2,
+        "NAZIV": "SpeedMaster CD 102",
+        "VR_MASINA": 1,
+        "VR_BOJA_MASINA": 5,
+        "LAKIRNICA": false,
+        "EL_SNAGA": 35,
+        "VERKA_GORE": 3,
+        "VERKA_DOLJE": 2,
+        "UKUPNO_VERKOVA": 5,
+        "CIJENA_VERKA": 40,
+        "CIJANA_OTISAK": 0,
+        "CIJENA_PRIPREME": 15,
+        "CIJENA_STRUJE": 0.07,
+        "MINUTA_PRIPREME": 45,
+        "VR_IZRACUN": 1,
+        "STAMPA_IZ_ROLNE": false,
+        "VR_FORMAT": 2,
+        "VR_FORMAT_MIN": null,
+        "MIN_X": 0,
+        "MIN_Y": 0,
+        "MAX_X": 0,
+        "MAX_Y": 0,
+        "MAX_STAMPE_X": 0,
+        "MAX_STAMPE_Y": 0,
+        "GREIFER": 0,
+        "PLOCA_X": 0,
+        "PLOCA_Y": 0,
+        "PLOCA_Z": 0,
+        "VR_FROMAT_PLOCA": 1953,
+        "MAX_STAMPA": 10000
+      }
+    ]
+  },
+  "NALOG_OFFSET_STAVKE": {
+    "columns": [
+      "ID_NALOGA",
+      "ID_NALOGA_STAVKE",
+      "RBR",
+      "NAZIV_STAVKE",
+      "SF_ARTIKLA",
+      "DEBLJINA_PAPIRA",
+      "DONIJET_PAPIR",
+      "X_ARKA",
+      "Y_ARKA",
+      "VR_FORMAT_ARKA",
+      "X_STAVKE",
+      "Y_STAVKE",
+      "MOBIM",
+      "MOBIM_STRANICI",
+      "MOBIM_LISTU",
+      "NAM_SLOBODAN_LIST",
+      "NAM_POVEZ",
+      "NAM_KORICA",
+      "NAM_HRBAT",
+      "RAZ_ARAKA",
+      "BROJ_ARAKA",
+      "DODATAK_ARAKA",
+      "UKUPNO_ARAKA",
+      "ID_MASINA",
+      "BR_BOJA_1",
+      "BR_BOJA_2",
+      "DONIJET_OTSTAMPAN",
+      "BOJA_JED_1",
+      "BOJA_JED_2",
+      "BOJA_JED_3",
+      "BOJA_JED_4",
+      "BOJA_JED_5",
+      "BOJA_JED_6",
+      "BOJA_JED_7",
+      "BOJA_JED_8",
+      "BOJA_DVA_1",
+      "BOJA_DVA_2",
+      "BOJA_DVA_3",
+      "BOJA_DVA_4",
+      "BOJA_DVA_5",
+      "BOJA_DVA_6",
+      "BOJA_DVA_7",
+      "BOJA_DVA_8",
+      "ZBIRNO_NE",
+      "ZBIRNO_DA",
+      "ZAHT_SPORO",
+      "ZAHT_NORMALNO",
+      "ZAHT_BRZO",
+      "DONIJETE_PLOCE",
+      "LINI_AM_SCREEN",
+      "LINI_FM_STACCATO",
+      "LINI_LPI",
+      "MONT_NE",
+      "MONT_DA",
+      "KONTR_NE",
+      "KONTR_DA",
+      "OBRADA_NE",
+      "OBRADA_DA",
+      "MUTACIJA_NE",
+      "MUTACIJA_DA",
+      "MUTACIJA_KOLIKO",
+      "UK_PLOCA",
+      "REZ_BROJ",
+      "REZ_MEDJUREZANJE",
+      "REZ_KONACNI_FORMAT",
+      "NUMER_NE",
+      "NUMER_DIGITALNA",
+      "NUMER_OFFSET",
+      "NUMER_NUMERATOR",
+      "LAKVODO_NE",
+      "LAKVODO_1_0",
+      "LAKVODO_1_1",
+      "LAKVODO_MAT",
+      "LAKVODO_SJAJNO",
+      "LAKUV_NE",
+      "LAKUV_1_0",
+      "LAKUV_1_1",
+      "LAKUV_MAT",
+      "LAKUV_SJAJNO",
+      "PLAM_NE",
+      "PLAM_1_0",
+      "PLAM_1_1",
+      "PLAM_MAT",
+      "PLAM_SJAJNA",
+      "PLAT_NE",
+      "PLAT_DA",
+      "ZAOB_NE",
+      "ZAOB_2MM",
+      "ZAOB_4MM",
+      "PREVOJ_NE",
+      "PREVOJ_DA",
+      "SAVIJ_NE",
+      "SAVIJ_1",
+      "SAVIJ_2",
+      "SAVIJ_3",
+      "SAVIJ_4",
+      "SAVIJ_5",
+      "SAVIJ_6",
+      "VR_PIKTOGRAM",
+      "BIG_NE",
+      "BIG_1",
+      "BIG_2",
+      "BIG_3",
+      "BIG_4",
+      "BIG_5",
+      "BIG_6",
+      "PERF_NE",
+      "PERF_1",
+      "PERF_2",
+      "PERF_3",
+      "PERF_4",
+      "PERF_5",
+      "PERF_6",
+      "STAC_NE",
+      "STAC_RUCNO",
+      "STAC_LASER",
+      "STAC_OFFSET",
+      "STAC_NOVI_ALAT",
+      "RUPICE_NE",
+      "RUPICE_1",
+      "RUPICE_2",
+      "RUPICE_3",
+      "RUPICE_4",
+      "RUPICE_5",
+      "RUPICE_6",
+      "ZALT_NE",
+      "ZALT_DA",
+      "ZALT_NOVI_ALAT",
+      "INSERT_NE",
+      "INSERT_DA",
+      "OSTALA_OBRADA_SATI",
+      "OPIS",
+      "C_STAVKE",
+      "VRIJEME_STAMPE_MASINE",
+      "CIJENA_STAMPE_MASINE",
+      "CIJENA_PAPIRA",
+      "C_PAPIR",
+      "C_STAMPA",
+      "C_LINI",
+      "C_MONT",
+      "C_KONTR",
+      "C_OBRADA",
+      "C_UK_PLOCA",
+      "C_REZ",
+      "C_NUMER",
+      "C_LAKVODO",
+      "C_LAKUV",
+      "C_PLAM",
+      "C_PLAT",
+      "C_PREVOJ",
+      "C_SAVIJ",
+      "C_BIG",
+      "C_PERF",
+      "C_STAC",
+      "C_ZAOB",
+      "C_RUPICE",
+      "C_ZALT",
+      "C_INSERT",
+      "C_OSTALA_OBRADA"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "ODLASCI_NERADNI": {
+    "columns": [
+      "DATUM"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "RADNIK": {
+    "columns": [
+      "ID_RADNIK",
+      "IME",
+      "ADRESA",
+      "MAIL",
+      "TELEFON",
+      "STATUS",
+      "KORISNIK",
+      "VR_RADNIKA",
+      "ID_PREDUZECE",
+      "DANA_ODMORA",
+      "DATUM_ROD",
+      "GODINA_STAZA",
+      "VR_RADNO_MJESTO",
+      "VR_SMJENA",
+      "DATUM_ZAP",
+      "DATUM_KRAJ",
+      "RACUN",
+      "GOTOVINA",
+      "FIRMA_ID"
+    ],
+    "rowCount": 7,
+    "sampleData": [
+      {
+        "ID_RADNIK": 1,
+        "IME": "Dražen Petrić",
+        "ADRESA": "Mila Radunovića S1, Podgorica",
+        "MAIL": "branko.gazdic@gmail.com",
+        "TELEFON": "067 224 029",
+        "STATUS": "A",
+        "KORISNIK": null,
+        "VR_RADNIKA": 1,
+        "ID_PREDUZECE": 1,
+        "DANA_ODMORA": 21,
+        "DATUM_ROD": "1968-07-24T00:00:00.000Z",
+        "GODINA_STAZA": 15,
+        "VR_RADNO_MJESTO": 1,
+        "VR_SMJENA": 1,
+        "DATUM_ZAP": "2003-03-04T00:00:00.000Z",
+        "DATUM_KRAJ": null,
+        "RACUN": 300.01,
+        "GOTOVINA": 0,
+        "FIRMA_ID": 2931
+      },
+      {
+        "ID_RADNIK": 2,
+        "IME": "Božidarka Sjekloća",
+        "ADRESA": null,
+        "MAIL": null,
+        "TELEFON": null,
+        "STATUS": "A",
+        "KORISNIK": null,
+        "VR_RADNIKA": 1,
+        "ID_PREDUZECE": 1,
+        "DANA_ODMORA": null,
+        "DATUM_ROD": null,
+        "GODINA_STAZA": null,
+        "VR_RADNO_MJESTO": 5,
+        "VR_SMJENA": 1,
+        "DATUM_ZAP": "2020-11-15T00:00:00.000Z",
+        "DATUM_KRAJ": null,
+        "RACUN": null,
+        "GOTOVINA": null,
+        "FIRMA_ID": 4406
+      }
+    ]
+  },
+  "ST_NALOGA": {
+    "columns": [
+      "ST_NALOGA",
+      "NAZIV",
+      "SKR_NAZIV"
+    ],
+    "rowCount": 3,
+    "sampleData": [
+      {
+        "ST_NALOGA": 1,
+        "NAZIV": "Radi se",
+        "SKR_NAZIV": "Ne"
+      },
+      {
+        "ST_NALOGA": 2,
+        "NAZIV": "Djelimično završen",
+        "SKR_NAZIV": "Djelimično"
+      }
+    ]
+  },
+  "TID_RADNJE": {
+    "columns": [
+      "ID_RADNJE",
+      "RADNJA",
+      "STAVKA",
+      "VAZI"
+    ],
+    "rowCount": 0,
+    "sampleData": []
+  },
+  "VR_FROMAT_PLOCA": {
+    "columns": [
+      "VR_FROMAT_PLOCA",
+      "NAZIV",
+      "X",
+      "Y",
+      "CIJENA_PLOCE",
+      "CIJENA_PLOCE_DONIJETE"
+    ],
+    "rowCount": 15,
+    "sampleData": [
+      {
+        "VR_FROMAT_PLOCA": 1942,
+        "NAZIV": "724x615",
+        "X": 724,
+        "Y": 615,
+        "CIJENA_PLOCE": 9.1,
+        "CIJENA_PLOCE_DONIJETE": 2
+      },
+      {
+        "VR_FROMAT_PLOCA": 1943,
+        "NAZIV": "450x370",
+        "X": 450,
+        "Y": 370,
+        "CIJENA_PLOCE": 3.5,
+        "CIJENA_PLOCE_DONIJETE": 1.5
+      }
+    ]
+  },
+  "VR_LINIJATURA": {
+    "columns": [
+      "VR_LINIJATURA",
+      "NAZIV",
+      "VRSTA_LINIJATURE"
+    ],
+    "rowCount": 14,
+    "sampleData": [
+      {
+        "VR_LINIJATURA": 1,
+        "NAZIV": "85",
+        "VRSTA_LINIJATURE": 1
+      },
+      {
+        "VR_LINIJATURA": 2,
+        "NAZIV": "100",
+        "VRSTA_LINIJATURE": 1
+      }
+    ]
+  },
+  "VR_PDV": {
+    "columns": [
+      "VR_PDV",
+      "IZNOS"
+    ],
+    "rowCount": 1,
+    "sampleData": [
+      {
+        "VR_PDV": 1,
+        "IZNOS": 21
+      }
+    ]
+  },
+  "VR_PROIZVODA": {
+    "columns": [
+      "VR_PROIZVODA",
+      "SKR_NAZIV",
+      "PUNI_NAZIV"
+    ],
+    "rowCount": 2,
+    "sampleData": [
+      {
+        "VR_PROIZVODA": 1,
+        "SKR_NAZIV": "Roba",
+        "PUNI_NAZIV": "Roba"
+      },
+      {
+        "VR_PROIZVODA": 2,
+        "SKR_NAZIV": "Repro Materijal",
+        "PUNI_NAZIV": "Repro Materjal"
+      }
+    ]
+  },
+  "VR_VRIJEME_ALARM": {
+    "columns": [
+      "VR_VRIJEME_ALARM",
+      "NAZIV",
+      "PERIOD",
+      "DA_MEJSEC"
+    ],
+    "rowCount": 8,
+    "sampleData": [
+      {
+        "VR_VRIJEME_ALARM": 1,
+        "NAZIV": "Svaki sat",
+        "PERIOD": 1,
+        "DA_MEJSEC": "S"
+      },
+      {
+        "VR_VRIJEME_ALARM": 2,
+        "NAZIV": "Svaki dan",
+        "PERIOD": 1,
+        "DA_MEJSEC": "D"
+      }
+    ]
+  }
+}

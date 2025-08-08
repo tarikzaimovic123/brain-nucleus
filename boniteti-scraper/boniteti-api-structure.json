@@ -1,0 +1,353 @@
+{
+  "totalCount": 148739,
+  "fields": [
+    "InsolvencyName",
+    "CompanyID",
+    "RegistryCode",
+    "VatNumber",
+    "Name",
+    "FullName",
+    "Country",
+    "CountryFlag",
+    "Place",
+    "Address",
+    "AprStatus",
+    "NbsStatus",
+    "Revenue",
+    "RevenueChange",
+    "NumberOfEmployees",
+    "NumberOfEmployeesChange",
+    "Profit",
+    "ProfitChange",
+    "RevenueText",
+    "RevenueChangeText",
+    "RevenueChangeTrendArrow",
+    "ProfitText",
+    "ProfitChangeText",
+    "ProfitChangeTrendArrow",
+    "NumberOfEmployeesText",
+    "NumberOfEmployeesChangeText",
+    "NumberOfEmployeesChangeTrendArrow",
+    "Assets",
+    "AssetsText",
+    "AssetsChange",
+    "AssetsChangeText",
+    "AssetsChangeTrendArrow",
+    "LastFinReportYear",
+    "LastFinReportYearText",
+    "PrimaryKey",
+    "PrimaryKeyCaption",
+    "AprStatusCaption",
+    "NbsStatusCaption",
+    "FoundingDate",
+    "CompanyUrl",
+    "PostalCode"
+  ],
+  "categorizedFields": {
+    "OSNOVNI PODACI": [
+      "CompanyID",
+      "Name",
+      "FullName",
+      "RegistryCode",
+      "VatNumber"
+    ],
+    "LOKACIJA": [
+      "Country",
+      "CountryFlag",
+      "Place",
+      "Address",
+      "PostalCode"
+    ],
+    "STATUS": [
+      "InsolvencyName",
+      "AprStatus",
+      "NbsStatus",
+      "AprStatusCaption",
+      "NbsStatusCaption"
+    ],
+    "FINANSIJSKI PODACI 2024": [
+      "Revenue",
+      "RevenueText",
+      "RevenueChange",
+      "RevenueChangeText",
+      "Profit",
+      "ProfitText",
+      "ProfitChange",
+      "ProfitChangeText",
+      "Assets",
+      "AssetsText",
+      "AssetsChange",
+      "AssetsChangeText"
+    ],
+    "ZAPOSLENI": [
+      "NumberOfEmployees",
+      "NumberOfEmployeesText",
+      "NumberOfEmployeesChange",
+      "NumberOfEmployeesChangeText"
+    ],
+    "TREND INDIKATORI": [
+      "RevenueChangeTrendArrow",
+      "ProfitChangeTrendArrow",
+      "NumberOfEmployeesChangeTrendArrow",
+      "AssetsChangeTrendArrow"
+    ],
+    "OSTALO": [
+      "LastFinReportYear",
+      "LastFinReportYearText",
+      "FoundingDate",
+      "CompanyUrl",
+      "PrimaryKey",
+      "PrimaryKeyCaption"
+    ]
+  },
+  "sampleCompany": {
+    "InsolvencyName": "Aktivan",
+    "CompanyID": 1009384,
+    "RegistryCode": "40000330",
+    "VatNumber": "02002230",
+    "Name": "ELEKTROPRIVREDA CRNE GORE AD",
+    "FullName": null,
+    "Country": "Crna Gora",
+    "CountryFlag": "ME.png",
+    "Place": null,
+    "Address": null,
+    "AprStatus": "Aktivan",
+    "NbsStatus": "Aktivan",
+    "Revenue": 424147106,
+    "RevenueChange": -14.25,
+    "NumberOfEmployees": 1216,
+    "NumberOfEmployeesChange": 0,
+    "Profit": 10959313,
+    "ProfitChange": -79.02,
+    "RevenueText": "424.147.106€",
+    "RevenueChangeText": "14%",
+    "RevenueChangeTrendArrow": "fa fa-arrow-circle-down arrow-red",
+    "ProfitText": "10.959.313€",
+    "ProfitChangeText": "79%",
+    "ProfitChangeTrendArrow": "fa fa-arrow-circle-down arrow-red",
+    "NumberOfEmployeesText": "1.216",
+    "NumberOfEmployeesChangeText": "",
+    "NumberOfEmployeesChangeTrendArrow": "fa fa-arrow-circle-right arrow-green",
+    "Assets": 1296758059,
+    "AssetsText": "1.296.758.059€",
+    "AssetsChange": 1.89,
+    "AssetsChangeText": "2%",
+    "AssetsChangeTrendArrow": "fa fa-arrow-circle-up arrow-green",
+    "LastFinReportYear": 2024,
+    "LastFinReportYearText": "(2024)",
+    "PrimaryKey": 2,
+    "PrimaryKeyCaption": "PIB",
+    "AprStatusCaption": "CRPS Status",
+    "NbsStatusCaption": "CBCG Status",
+    "FoundingDate": "2002-07-30",
+    "CompanyUrl": "/company/quick-view/elektroprivreda-crne-gore-ad-aaegslc",
+    "PostalCode": "81400"
+  },
+  "fieldCompleteness": [
+    {
+      "field": "InsolvencyName",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "CompanyID",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "RegistryCode",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "VatNumber",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "Name",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "Country",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "CountryFlag",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "AprStatus",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "NbsStatus",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "Revenue",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "RevenueChange",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "NumberOfEmployees",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "Profit",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "RevenueText",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "RevenueChangeText",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "RevenueChangeTrendArrow",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "ProfitText",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "NumberOfEmployeesText",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "Assets",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "AssetsText",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "AssetsChange",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "AssetsChangeText",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "AssetsChangeTrendArrow",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "LastFinReportYear",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "LastFinReportYearText",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "PrimaryKey",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "PrimaryKeyCaption",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "AprStatusCaption",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "NbsStatusCaption",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "FoundingDate",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "CompanyUrl",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "PostalCode",
+      "count": 50,
+      "percentage": "100.0"
+    },
+    {
+      "field": "ProfitChange",
+      "count": 47,
+      "percentage": "94.0"
+    },
+    {
+      "field": "ProfitChangeText",
+      "count": 47,
+      "percentage": "94.0"
+    },
+    {
+      "field": "ProfitChangeTrendArrow",
+      "count": 47,
+      "percentage": "94.0"
+    },
+    {
+      "field": "NumberOfEmployeesChange",
+      "count": 4,
+      "percentage": "8.0"
+    },
+    {
+      "field": "NumberOfEmployeesChangeTrendArrow",
+      "count": 4,
+      "percentage": "8.0"
+    },
+    {
+      "field": "FullName",
+      "count": 0,
+      "percentage": "0.0"
+    },
+    {
+      "field": "Place",
+      "count": 0,
+      "percentage": "0.0"
+    },
+    {
+      "field": "Address",
+      "count": 0,
+      "percentage": "0.0"
+    },
+    {
+      "field": "NumberOfEmployeesChangeText",
+      "count": 0,
+      "percentage": "0.0"
+    }
+  ]
+}
