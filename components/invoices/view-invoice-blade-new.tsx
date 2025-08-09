@@ -151,7 +151,7 @@ export function ViewInvoiceBladeNew({ invoice, onClose }: ViewInvoiceBladeProps)
 
   return (
     <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-xl shadow-2xl w-full max-w-6xl max-h-[95vh] overflow-hidden border">
+      <div className="bg-white rounded-xl shadow-2xl w-full max-w-6xl max-h-[95vh] border">
         {/* Header with gradient */}
         <div className="relative bg-gradient-to-r from-blue-600 to-blue-700 text-white p-6">
           <div className="absolute inset-0 bg-black/10"></div>
@@ -287,7 +287,7 @@ export function ViewInvoiceBladeNew({ invoice, onClose }: ViewInvoiceBladeProps)
         </div>
 
         {/* Content Tabs */}
-        <div className="flex-1 overflow-hidden">
+        <div className="flex-1">
           <Tabs value={activeTab} onValueChange={setActiveTab} className="h-full flex flex-col">
             <div className="border-b bg-white">
               <TabsList className="h-auto p-0 bg-transparent">
@@ -306,7 +306,7 @@ export function ViewInvoiceBladeNew({ invoice, onClose }: ViewInvoiceBladeProps)
               </TabsList>
             </div>
 
-            <div className="flex-1 overflow-y-auto">
+            <div className="flex-1">
               <TabsContent value="overview" className="p-6 space-y-6 mt-0">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
                   {/* Invoice Info */}

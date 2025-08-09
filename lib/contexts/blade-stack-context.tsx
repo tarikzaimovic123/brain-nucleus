@@ -167,6 +167,7 @@ export function BladeStackProvider({ children }: { children: React.ReactNode }) 
               />
               {/* Blade */}
               <motion.div
+                id={`blade-${blade.id}`}
                 initial={{ x: "100%", y: 0 }}
                 animate={{ x: offset, y: 0 }}
                 exit={{ x: "100%", y: 0 }}
@@ -175,16 +176,17 @@ export function BladeStackProvider({ children }: { children: React.ReactNode }) 
                   damping: 30,
                   stiffness: 300
                 }}
-                className="fixed right-0 h-screen bg-background shadow-2xl overflow-hidden"
+                className="fixed right-0 h-screen bg-background shadow-2xl"
                 style={{ 
                   zIndex,
                   top: 0,
                   paddingTop: 0,
                   marginTop: 0,
-                  width: bladeWidth
+                  width: bladeWidth,
+                  isolation: 'isolate'
                 }}
               >
-                <div className="h-full w-full [&>*]:!mt-0">
+                <div className="h-full w-full [&>*]:!mt-0 overflow-y-auto overflow-x-hidden">
                   <Comp 
                     {...blade.props} 
                     onClose={() => closeBlade(blade.id)}

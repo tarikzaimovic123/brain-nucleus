@@ -19,7 +19,8 @@ import {
   User,
   Users,
   Zap,
-  Shield
+  Shield,
+  ScrollText
 } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -56,6 +57,7 @@ const documentItems = [
 
 const systemItems = [
   { href: "/users", icon: Shield, label: "Korisnici" },
+  { href: "/audit-log", icon: ScrollText, label: "Audit Log" },
   { href: "/settings", icon: Settings, label: "Podešavanja" },
 ]
 

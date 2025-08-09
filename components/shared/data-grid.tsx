@@ -486,8 +486,9 @@ export function DataGrid<T extends { id: string | number }>({
                     <TableRow
                       className={cn(
                         selectedRows.has(item.id) && "bg-muted/50",
-                        "cursor-default"
+                        onView ? "cursor-pointer select-none hover:bg-muted/30" : "cursor-default"
                       )}
+                      onDoubleClick={() => onView && onView(item)}
                     >
                       {selectable && (
                         <TableCell>

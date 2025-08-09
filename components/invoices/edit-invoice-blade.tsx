@@ -12,7 +12,7 @@ import { Separator } from "@/components/ui/separator"
 import { useToast } from "@/hooks/use-toast"
 import { createClient } from "@/lib/supabase/client"
 import { format } from "date-fns"
-import { Combobox } from "@/components/ui/combobox"
+import { SimpleCombobox } from "@/components/ui/simple-combobox"
 import { usePermissionContext } from "@/lib/contexts/permission-context"
 
 interface Invoice {
@@ -241,7 +241,7 @@ export function EditInvoiceBlade({ invoice, onClose, onSuccess }: EditInvoiceBla
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto px-6 py-6">
+      <div className="flex-1 px-6 py-6">
         <form onSubmit={handleSubmit} className="space-y-6">
           {/* Basic Info */}
           <Card className="p-6">
@@ -267,7 +267,7 @@ export function EditInvoiceBlade({ invoice, onClose, onSuccess }: EditInvoiceBla
                 <Label htmlFor="company_id">
                   Firma <span className="text-red-500">*</span>
                 </Label>
-                <Combobox
+                <SimpleCombobox
                   options={companies.map((company) => ({
                     value: company.id,
                     label: company.name,

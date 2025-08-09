@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boniteti Scraper Dashboard</title>
+  <script src="https://cdn.socket.io/4.6.1/socket.io.min.js"></script>
+  <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      color: #333;
+    }
+    
+    .dashboard {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    .header {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    .header h1 {
+      font-size: 32px;
+      color: #333;
+      margin-bottom: 8px;
+    }
+    
+    .status-badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-left: 16px;
+    }
+    
+    .status-badge.running {
+      background: #10b981;
+      color: white;
+    }
+    
+    .status-badge.stopped {
+      background: #ef4444;
+      color: white;
+    }
+    
+    .controls {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    .control-row {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    
+    .control-row:last-child {
+      margin-bottom: 0;
+    }
+    
+    .control-row label {
+      min-width: 150px;
+      font-weight: 600;
+    }
+    
+    .control-row input {
+      padding: 8px 12px;
+      border: 2px solid #e5e7eb;
+      border-radius: 8px;
+      font-size: 16px;
+      width: 200px;
+    }
+    
+    .btn {
+      padding: 10px 24px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    
+    .btn-primary {
+      background: #667eea;
+      color: white;
+    }
+    
+    .btn-primary:hover {
+      background: #5a67d8;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+    
+    .btn-danger {
+      background: #ef4444;
+      color: white;
+    }
+    
+    .btn-danger:hover {
+      background: #dc2626;
+    }
+    
+    .btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    
+    .stat-card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .stat-label {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 8px;
+    }
+    
+    .stat-value {
+      font-size: 28px;
+      font-weight: bold;
+      color: #333;
+    }
+    
+    .stat-change {
+      font-size: 12px;
+      margin-top: 4px;
+    }
+    
+    .stat-change.positive {
+      color: #10b981;
+    }
+    
+    .stat-change.negative {
+      color: #ef4444;
+    }
+    
+    .progress-section {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    .progress-bar-container {
+      background: #f3f4f6;
+      border-radius: 12px;
+      height: 40px;
+      overflow: hidden;
+      position: relative;
+      margin: 16px 0;
+    }
+    
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      border-radius: 12px;
+      transition: width 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    
+    .current-company {
+      padding: 12px;
+      background: #f9fafb;
+      border-left: 4px solid #667eea;
+      border-radius: 8px;
+      margin-top: 16px;
+    }
+    
+    .logs-section {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      max-height: 500px;
+      overflow-y: auto;
+    }
+    
+    .logs-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+    
+    .log-filters {
+      display: flex;
+      gap: 8px;
+    }
+    
+    .filter-btn {
+      padding: 6px 12px;
+      border: 2px solid #e5e7eb;
+      border-radius: 6px;
+      background: white;
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.2s;
+    }
+    
+    .filter-btn.active {
+      background: #667eea;
+      color: white;
+      border-color: #667eea;
+    }
+    
+    .log-entry {
+      padding: 12px;
+      border-bottom: 1px solid #f3f4f6;
+      font-family: 'Monaco', 'Menlo', monospace;
+      font-size: 13px;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    
+    .log-entry:last-child {
+      border-bottom: none;
+    }
+    
+    .log-time {
+      color: #9ca3af;
+      min-width: 80px;
+      font-size: 12px;
+    }
+    
+    .log-level {
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 600;
+      min-width: 60px;
+      text-align: center;
+    }
+    
+    .log-level.info {
+      background: #dbeafe;
+      color: #1e40af;
+    }
+    
+    .log-level.success {
+      background: #d1fae5;
+      color: #065f46;
+    }
+    
+    .log-level.error {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+    
+    .log-level.warn {
+      background: #fed7aa;
+      color: #92400e;
+    }
+    
+    .log-message {
+      flex: 1;
+      word-break: break-word;
+    }
+    
+    .charts-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+    
+    .chart-card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    .chart-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+    
+    .connection-status {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      padding: 12px 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .connection-indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+    
+    .connection-indicator.connected {
+      background: #10b981;
+    }
+    
+    .connection-indicator.disconnected {
+      background: #ef4444;
+      animation: none;
+    }
+    
+    @keyframes pulse {
+      0% { opacity: 1; }
+      50% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+    
+    .eta-info {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 12px;
+      padding-top: 12px;
+      border-top: 1px solid #f3f4f6;
+      font-size: 14px;
+      color: #6b7280;
+    }
+    
+    .spinner {
+      display: inline-block;
+      width: 16px;
+      height: 16px;
+      border: 2px solid #f3f4f6;
+      border-top-color: #667eea;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-left: 8px;
+    }
+    
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  
+  <script type="text/babel">
+    const { useState, useEffect, useRef } = React;
+    
+    function Dashboard() {
+      const [isConnected, setIsConnected] = useState(false);
+      const [scrapingStatus, setScrapingStatus] = useState({
+        isRunning: false,
+        totalCompanies: 0,
+        processedCompanies: 0,
+        successCount: 0,
+        failedCount: 0,
+        skippedCount: 0,
+        currentCompany: null,
+        progress: 0,
+        companiesPerMinute: 0,
+        estimatedTimeRemaining: null
+      });
+      const [logs, setLogs] = useState([]);
+      const [logFilter, setLogFilter] = useState('all');
+      const [companies, setCompanies] = useState(100);
+      const [concurrent, setConcurrent] = useState(10);
+      const socketRef = useRef(null);
+      const logsEndRef = useRef(null);
+      
+      useEffect(() => {
+        // Connect to WebSocket
+        const socket = io('http://localhost:3456');
+        socketRef.current = socket;
+        
+        socket.on('connect', () => {
+          setIsConnected(true);
+          console.log('Connected to server');
+        });
+        
+        socket.on('disconnect', () => {
+          setIsConnected(false);
+          console.log('Disconnected from server');
+        });
+        
+        socket.on('status-update', (status) => {
+          setScrapingStatus(status);
+        });
+        
+        socket.on('progress-update', (data) => {
+          setScrapingStatus(prev => ({
+            ...prev,
+            progress: data.progress,
+            currentCompany: data.current,
+            processedCompanies: data.processed,
+            companiesPerMinute: data.companiesPerMinute,
+            estimatedTimeRemaining: data.eta
+          }));
+        });
+        
+        socket.on('company-scraped', (data) => {
+          if (data.status === 'success') {
+            setScrapingStatus(prev => ({ ...prev, successCount: prev.successCount + 1 }));
+          } else if (data.status === 'failed') {
+            setScrapingStatus(prev => ({ ...prev, failedCount: prev.failedCount + 1 }));
+          } else if (data.status === 'skipped') {
+            setScrapingStatus(prev => ({ ...prev, skippedCount: prev.skippedCount + 1 }));
+          }
+        });
+        
+        socket.on('log-entry', (log) => {
+          setLogs(prev => [...prev.slice(-99), log]);
+        });
+        
+        socket.on('scraping-complete', (data) => {
+          setScrapingStatus(prev => ({ ...prev, isRunning: false }));
+          if (data.success) {
+            alert('Scraping completed successfully!');
+          } else {
+            alert('Scraping failed: ' + data.error);
+          }
+        });
+        
+        return () => {
+          socket.disconnect();
+        };
+      }, []);
+      
+      useEffect(() => {
+        logsEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+      }, [logs]);
+      
+      const startScraping = () => {
+        socketRef.current.emit('start-scraping', {
+          companies: parseInt(companies),
+          concurrent: parseInt(concurrent),
+          testMode: false
+        });
+      };
+      
+      const stopScraping = () => {
+        if (confirm('Are you sure you want to stop scraping?')) {
+          socketRef.current.emit('stop-scraping');
+        }
+      };
+      
+      const formatTime = (ms) => {
+        if (!ms) return '--';
+        const seconds = Math.floor(ms / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        
+        if (hours > 0) {
+          return `${hours}h ${minutes % 60}m`;
+        } else if (minutes > 0) {
+          return `${minutes}m ${seconds % 60}s`;
+        } else {
+          return `${seconds}s`;
+        }
+      };
+      
+      const formatLogTime = (time) => {
+        const date = new Date(time);
+        return date.toLocaleTimeString('en-US', { 
+          hour12: false,
+          hour: '2-digit',
+          minute: '2-digit',
+          second: '2-digit'
+        });
+      };
+      
+      const filteredLogs = logs.filter(log => {
+        if (logFilter === 'all') return true;
+        return log.level === logFilter;
+      });
+      
+      return (
+        <div className="dashboard">
+          <div className="header">
+            <h1>
+              🚀 Boniteti Scraper Dashboard
+              <span className={`status-badge ${scrapingStatus.isRunning ? 'running' : 'stopped'}`}>
+                {scrapingStatus.isRunning ? 'RUNNING' : 'STOPPED'}
+              </span>
+            </h1>
+          </div>
+          
+          <div className="controls">
+            <div className="control-row">
+              <label>Number of Companies:</label>
+              <input 
+                type="number" 
+                value={companies}
+                onChange={(e) => setCompanies(e.target.value)}
+                disabled={scrapingStatus.isRunning}
+              />
+            </div>
+            <div className="control-row">
+              <label>Concurrent Requests:</label>
+              <input 
+                type="number" 
+                value={concurrent}
+                onChange={(e) => setConcurrent(e.target.value)}
+                disabled={scrapingStatus.isRunning}
+              />
+            </div>
+            <div className="control-row">
+              {!scrapingStatus.isRunning ? (
+                <button className="btn btn-primary" onClick={startScraping}>
+                  Start Scraping
+                </button>
+              ) : (
+                <button className="btn btn-danger" onClick={stopScraping}>
+                  Stop Scraping
+                </button>
+              )}
+            </div>
+          </div>
+          
+          <div className="stats-grid">
+            <div className="stat-card">
+              <div className="stat-label">Total Companies</div>
+              <div className="stat-value">{scrapingStatus.totalCompanies}</div>
+            </div>
+            <div className="stat-card">
+              <div className="stat-label">Processed</div>
+              <div className="stat-value">{scrapingStatus.processedCompanies}</div>
+              <div className="stat-change positive">
+                {scrapingStatus.companiesPerMinute} / min
+              </div>
+            </div>
+            <div className="stat-card">
+              <div className="stat-label">Success</div>
+              <div className="stat-value" style={{color: '#10b981'}}>
+                {scrapingStatus.successCount}
+              </div>
+            </div>
+            <div className="stat-card">
+              <div className="stat-label">Failed</div>
+              <div className="stat-value" style={{color: '#ef4444'}}>
+                {scrapingStatus.failedCount}
+              </div>
+            </div>
+            <div className="stat-card">
+              <div className="stat-label">Skipped</div>
+              <div className="stat-value" style={{color: '#f59e0b'}}>
+                {scrapingStatus.skippedCount}
+              </div>
+            </div>
+            <div className="stat-card">
+              <div className="stat-label">ETA</div>
+              <div className="stat-value" style={{fontSize: '20px'}}>
+                {formatTime(scrapingStatus.estimatedTimeRemaining)}
+              </div>
+            </div>
+          </div>
+          
+          {scrapingStatus.isRunning && (
+            <div className="progress-section">
+              <h3>Progress</h3>
+              <div className="progress-bar-container">
+                <div 
+                  className="progress-bar" 
+                  style={{width: `${scrapingStatus.progress}%`}}
+                >
+                  {scrapingStatus.progress.toFixed(1)}%
+                </div>
+              </div>
+              {scrapingStatus.currentCompany && (
+                <div className="current-company">
+                  <strong>Currently processing:</strong> {scrapingStatus.currentCompany}
+                  <span className="spinner"></span>
+                </div>
+              )}
+              <div className="eta-info">
+                <span>
+                  {scrapingStatus.processedCompanies} of {scrapingStatus.totalCompanies} companies
+                </span>
+                <span>
+                  Speed: {scrapingStatus.companiesPerMinute} companies/min
+                </span>
+              </div>
+            </div>
+          )}
+          
+          <div className="logs-section">
+            <div className="logs-header">
+              <h3>Live Logs</h3>
+              <div className="log-filters">
+                <button 
+                  className={`filter-btn ${logFilter === 'all' ? 'active' : ''}`}
+                  onClick={() => setLogFilter('all')}
+                >
+                  All
+                </button>
+                <button 
+                  className={`filter-btn ${logFilter === 'info' ? 'active' : ''}`}
+                  onClick={() => setLogFilter('info')}
+                >
+                  Info
+                </button>
+                <button 
+                  className={`filter-btn ${logFilter === 'success' ? 'active' : ''}`}
+                  onClick={() => setLogFilter('success')}
+                >
+                  Success
+                </button>
+                <button 
+                  className={`filter-btn ${logFilter === 'error' ? 'active' : ''}`}
+                  onClick={() => setLogFilter('error')}
+                >
+                  Errors
+                </button>
+              </div>
+            </div>
+            <div className="logs-container">
+              {filteredLogs.map((log, index) => (
+                <div key={index} className="log-entry">
+                  <span className="log-time">{formatLogTime(log.time)}</span>
+                  <span className={`log-level ${log.level}`}>
+                    {log.level.toUpperCase()}
+                  </span>
+                  <span className="log-message">{log.message}</span>
+                </div>
+              ))}
+              <div ref={logsEndRef} />
+            </div>
+          </div>
+          
+          <div className="connection-status">
+            <div className={`connection-indicator ${isConnected ? 'connected' : 'disconnected'}`}></div>
+            <span>{isConnected ? 'Connected' : 'Disconnected'}</span>
+          </div>
+        </div>
+      );
+    }
+    
+    ReactDOM.createRoot(document.getElementById('root')).render(<Dashboard />);
+  </script>
+</body>
+</html>

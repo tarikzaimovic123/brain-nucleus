@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Switch } from "@/components/ui/switch"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { SimpleCombobox } from "@/components/ui/simple-combobox"
 import { Separator } from "@/components/ui/separator"
 import { useToast } from "@/components/ui/use-toast"
 import { createClient } from "@/lib/supabase/client"
@@ -59,6 +59,7 @@ interface EditContactBladeProps {
 interface Company {
   id: string
   name: string
+  tax_number?: string
 }
 
 export function EditContactBlade({ contact, onClose, onSuccess }: EditContactBladeProps) {
@@ -217,38 +218,26 @@ export function EditContactBlade({ contact, onClose, onSuccess }: EditContactBla
 
       {/* Form */}
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-1 flex-col">
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1">
           <div className="space-y-6 p-6">
           {/* Company Selection */}
           <div>
             <Label htmlFor="company_id" className="text-sm font-medium">
               Firma *
             </Label>
-            <Select
+            <SimpleCombobox
+              options={companies.map((company) => ({
+                value: company.id,
+                label: company.name,
+                sublabel: company.tax_number ? `PIB: ${company.tax_number}` : undefined
+              }))}
               value={watchCompanyId}
               onValueChange={(value) => setValue("company_id", value)}
-            >
-              <SelectTrigger className="mt-1.5">
-                <SelectValue placeholder="Izaberite firmu">
-                  {watchCompanyId && (
-                    <div className="flex items-center gap-2">
-                      <Building2 className="h-4 w-4 text-muted-foreground" />
-                      {companies.find(c => c.id === watchCompanyId)?.name}
-                    </div>
-                  )}
-                </SelectValue>
-              </SelectTrigger>
-              <SelectContent>
-                {companies.map((company) => (
-                  <SelectItem key={company.id} value={company.id}>
-                    <div className="flex items-center gap-2">
-                      <Building2 className="h-4 w-4 text-muted-foreground" />
-                      {company.name}
-                    </div>
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
+              placeholder="Izaberite firmu"
+              searchPlaceholder="Pretražite firme..."
+              emptyText="Nema pronađenih firmi"
+              className="mt-1.5"
+            />
             {errors.company_id && (
               <p className="mt-1 text-xs text-red-500">{errors.company_id.message}</p>
             )}

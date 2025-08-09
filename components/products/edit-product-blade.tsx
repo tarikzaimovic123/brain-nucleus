@@ -220,7 +220,7 @@ export function EditProductBlade({ product, onClose, onSuccess }: EditProductBla
       </div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit(onSubmit)} className="flex-1 overflow-y-auto">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex-1">
         <div className="space-y-6 p-6">
           {/* Basic Information */}
           <div>

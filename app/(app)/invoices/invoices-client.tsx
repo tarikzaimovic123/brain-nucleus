@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { FileText, Plus, Euro, Clock, CheckCircle, AlertTriangle, Download, Send, Shield, Filter, Calendar, Building2, Search, MoreHorizontal, Eye, Edit, Trash2, Printer, CreditCard } from "lucide-react"
+import { FileText, Plus, Euro, Clock, CheckCircle, AlertTriangle, Download, Send, Shield, Filter, Calendar, Building2, Search, MoreHorizontal, Eye, Edit, Trash2, Printer, CreditCard, Factory, Settings } from "lucide-react"
 import { createClient } from "@/lib/supabase/client"
 import { useToast } from "@/hooks/use-toast"
 import { useBladeStack } from "@/lib/contexts/blade-stack-context"
@@ -15,8 +15,22 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu"
 import { ViewInvoiceBlade } from "@/components/invoices/view-invoice-blade"
 import { EditInvoiceBlade } from "@/components/invoices/edit-invoice-blade"
+import { InvoiceFromWorkOrderWizard } from "@/components/invoices/invoice-from-work-order-wizard"
+import { InvoiceSettingsBlade } from "@/components/invoices/invoice-settings-blade"
 import { format, parseISO, isAfter } from "date-fns"
 import { sr } from "date-fns/locale"
+
+interface InvoiceItem {
+  id: string
+  description: string
+  quantity: number
+  unit_price: number
+  vat_rate: number
+  line_total: number
+  vat_amount: number
+  total_with_vat: number
+  display_order?: number
+}
 
 interface Invoice {
   id: string
@@ -44,6 +58,7 @@ interface Invoice {
     id: string
     order_number: string
   }
+  invoice_items?: InvoiceItem[]
 }
 
 interface InvoiceStats {
@@ -111,6 +126,21 @@ export function InvoicesClient() {
             id,
             name,
             tax_number
+          ),
+          work_order:work_orders!work_order_id (
+            id,
+            order_number
+          ),
+          invoice_items (
+            id,
+            description,
+            quantity,
+            unit_price,
+            vat_rate,
+            line_total,
+            vat_amount,
+            total_with_vat,
+            display_order
           )
         `)
         .order('invoice_date', { ascending: false })  // Changed to invoice_date instead of created_at
@@ -288,6 +318,22 @@ export function InvoicesClient() {
     }, { width: 'lg' })
   }, 'kreiranje fakture')
 
+  const handleCreateFromWorkOrder = withPermissionCheck('invoices', 'create_from_work_order', () => {
+    console.log('🏭 Opening invoice from work order wizard')
+    openBlade(InvoiceFromWorkOrderWizard, {
+      onSuccess: () => {
+        fetchInvoices()
+      }
+    }, { width: 'xl' })
+  }, 'kreiranje fakture iz radnog naloga')
+
+  const handleOpenSettings = withPermissionCheck('invoice_settings', 'manage', () => {
+    console.log('⚙️ Opening invoice settings')
+    openBlade(InvoiceSettingsBlade, {
+      onClose: () => {}
+    }, { width: 'lg' })
+  }, 'upravljanje postavkama fakturisanja')
+
 
   const getStatusColor = (status: string) => {
     switch (status) {
@@ -319,6 +365,9 @@ export function InvoicesClient() {
           <div className="font-medium">{invoice.invoice_number}</div>
           {invoice.fiscal_number && (
             <div className="text-xs text-muted-foreground">FK: {invoice.fiscal_number}</div>
+          )}
+          {invoice.work_order && (
+            <div className="text-xs text-blue-600">RN: {invoice.work_order.order_number}</div>
           )}
         </div>
       )
@@ -377,6 +426,11 @@ export function InvoicesClient() {
               <Shield className="h-4 w-4 text-green-600" />
             </span>
           )}
+          {invoice.work_order_id && (
+            <span title="Iz radnog naloga">
+              <Factory className="h-4 w-4 text-blue-600" />
+            </span>
+          )}
         </div>
       )
     },
@@ -427,6 +481,11 @@ export function InvoicesClient() {
           </p>
         </div>
         <div className="flex items-center gap-2">
+          <PermissionGuard resource="invoice_settings" action="manage">
+            <Button variant="outline" size="icon" onClick={handleOpenSettings} title="Postavke">
+              <Settings className="h-4 w-4" />
+            </Button>
+          </PermissionGuard>
           <Button variant="outline" onClick={handleBulkFiscalize}>
             <Shield className="h-4 w-4 mr-2" />
             Grupna fiskalizacija
@@ -435,6 +494,12 @@ export function InvoicesClient() {
             <Send className="h-4 w-4 mr-2" />
             Grupno slanje
           </Button>
+          <PermissionGuard resource="invoices" action="create_from_work_order">
+            <Button variant="outline" onClick={handleCreateFromWorkOrder}>
+              <Factory className="h-4 w-4 mr-2" />
+              Iz radnog naloga
+            </Button>
+          </PermissionGuard>
           <PermissionGuard resource="invoices" action="create">
             <Button onClick={handleCreateInvoice}>
               <Plus className="h-4 w-4 mr-2" />

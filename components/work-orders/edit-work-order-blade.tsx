@@ -318,7 +318,7 @@ export function EditWorkOrderBlade({ workOrder, onClose, onSave }: EditWorkOrder
       </div>
 
       {/* Form */}
-      <form onSubmit={handleSubmit(onSubmit)} className="flex-1 overflow-y-auto">
+      <form onSubmit={handleSubmit(onSubmit)} className="flex-1">
         <div className="space-y-6 p-6">
           {/* Validation Errors Summary */}
           {Object.keys(errors).length > 0 && (

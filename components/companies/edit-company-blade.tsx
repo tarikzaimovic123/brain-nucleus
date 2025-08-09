@@ -284,7 +284,7 @@ export function EditCompanyBlade({ company, onClose, onSuccess }: EditCompanyBla
       </div>
 
       {/* Form */}
-      <div className="flex-1 overflow-y-auto px-6 py-6">
+      <div className="flex-1 px-6 py-6">
         {error && (
           <Alert variant="destructive" className="mb-4">
             <AlertCircle className="h-4 w-4" />

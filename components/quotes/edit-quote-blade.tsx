@@ -10,7 +10,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Combobox, type ComboboxOption } from "@/components/ui/combobox"
+import { SimpleCombobox, type ComboboxOption } from "@/components/ui/simple-combobox"
 import { Separator } from "@/components/ui/separator"
 import { Card } from "@/components/ui/card"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
@@ -366,7 +366,7 @@ export function EditQuoteBlade({ quote, onClose, onSave }: EditQuoteBladeProps) 
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto px-6 py-6">
+      <div className="flex-1 px-6 py-6">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           {/* Basic Info */}
           <Card className="p-6">
@@ -379,7 +379,7 @@ export function EditQuoteBlade({ quote, onClose, onSave }: EditQuoteBladeProps) 
                 <Label htmlFor="company_id">
                   Firma <span className="text-red-500">*</span>
                 </Label>
-                <Combobox
+                <SimpleCombobox
                   options={companies.map((company) => ({
                     value: company.id,
                     label: company.name,
@@ -401,7 +401,7 @@ export function EditQuoteBlade({ quote, onClose, onSave }: EditQuoteBladeProps) 
 
               <div className="space-y-2">
                 <Label htmlFor="contact_person_id">Kontakt osoba</Label>
-                <Combobox
+                <SimpleCombobox
                   options={[
                     { value: "", label: "Bez kontakta" },
                     ...contacts.map((contact) => ({
@@ -509,7 +509,7 @@ export function EditQuoteBlade({ quote, onClose, onSave }: EditQuoteBladeProps) 
                     return (
                       <TableRow key={field.id}>
                         <TableCell className="space-y-2">
-                          <Combobox
+                          <SimpleCombobox
                             options={[
                               { value: "", label: "Bez proizvoda" },
                               ...products.map((product) => ({

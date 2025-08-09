@@ -476,7 +476,7 @@ export function ViewWorkOrderBlade({ workOrder, onClose, onEdit, onDelete }: Vie
           <TabsTrigger value="history">Istorija</TabsTrigger>
         </TabsList>
 
-        <div className="flex-1 overflow-y-auto">
+        <div className="flex-1">
           <TabsContent value="overview" className="p-6 space-y-6">
             {/* Progress Overview */}
             <Card className="p-4">

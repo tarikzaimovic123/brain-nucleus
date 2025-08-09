@@ -1,0 +1,314 @@
+
+╔════════════════════════════════════════════╗
+║                                            ║
+║   🚀 Boniteti Scraper Dashboard           ║
+║                                            ║
+║   Server: http://localhost:3456         ║
+║   Dashboard: http://localhost:3456      ║
+║                                            ║
+║   WebSocket: Connected ✓                  ║
+║   API: Ready ✓                            ║
+║                                            ║
+╚════════════════════════════════════════════╝
+  
+Client connected: KGBzcCgH9quaSDlKAAAB
+[API] Starting activity-counts endpoint...
+[API] Count process closed with code: 0
+[API] Successfully got activity counts
+Client disconnected: KGBzcCgH9quaSDlKAAAB
+Client connected: IOp9zDyvEVu4kiPiAAAD
+[API] Starting compare-activities endpoint...
+[API] Spawning fetch-activities.js process...
+[API] Environment variables present: { SUPABASE_URL: true, SUPABASE_SERVICE_KEY: true }
+[FETCH-STDERR]: [INFO] Fetching activities from Boniteti API for Crna Gora...
+
+[FETCH-STDOUT]: Got 78 bytes
+[FETCH-STDOUT]: Got 57 bytes
+[FETCH-STDOUT]: Got 60 bytes
+[FETCH-STDOUT]: Got 94 bytes
+[FETCH-STDOUT]: Got 105 bytes
+[FETCH-STDERR]: [SUCCESS] Received 996 activities from API
+
+[FETCH-STDERR]: [INFO] Building activity tree structure...
+
+[FETCH-STDERR]: [INFO] Comparing with existing activities (no save)...
+
+[FETCH-STDERR]: [INFO] Skipping database save (comparison only mode)
+
+[FETCH-STDOUT]: Got 1848 bytes
+[API] Process closed with code: 0
+[API] Total output length: 2242
+[API] Error output: [INFO] Fetching activities from Boniteti API for Crna Gora...
+[SUCCESS] Received 996 activities from API
+[INFO] Building activity tree structure...
+[INFO] Comparing with existing activities (no save)...
+[INFO] Skipping database save (comparison only mode)
+
+[API] Failed to parse complete output as JSON: Expected ',' or ']' after array element in JSON at position 5 (line 1 column 6)
+[API] Found and parsed JSON from output
+[API] Sending JSON result with 996 activities
+[API] Starting activity-counts endpoint...
+[API] Count process closed with code: 0
+[API] Successfully got activity counts
+Client disconnected: IOp9zDyvEVu4kiPiAAAD
+Client connected: BTcrpMGo6ctgLOa9AAAF
+[API] Starting compare-activities endpoint...
+[API] Spawning fetch-activities.js process...
+[API] Environment variables present: { SUPABASE_URL: true, SUPABASE_SERVICE_KEY: true }
+[FETCH-STDERR]: [INFO] Fetching activities from Boniteti API for Crna Gora...
+
+[FETCH-STDOUT]: Got 78 bytes
+[FETCH-STDOUT]: Got 57 bytes
+[FETCH-STDOUT]: Got 60 bytes
+[FETCH-STDOUT]: Got 94 bytes
+[FETCH-STDOUT]: Got 105 bytes
+[FETCH-STDERR]: [SUCCESS] Received 996 activities from API
+
+[FETCH-STDERR]: [INFO] Building activity tree structure...
+
+[FETCH-STDERR]: [INFO] Comparing with existing activities (no save)...
+
+[FETCH-STDERR]: [INFO] Skipping database save (comparison only mode)
+
+[FETCH-STDOUT]: Got 1848 bytes
+[API] Process closed with code: 0
+[API] Total output length: 2242
+[API] Error output: [INFO] Fetching activities from Boniteti API for Crna Gora...
+[SUCCESS] Received 996 activities from API
+[INFO] Building activity tree structure...
+[INFO] Comparing with existing activities (no save)...
+[INFO] Skipping database save (comparison only mode)
+
+[API] Failed to parse complete output as JSON: Expected ',' or ']' after array element in JSON at position 5 (line 1 column 6)
+[API] Found and parsed JSON from output
+[API] Sending JSON result with 996 activities
+[API] Starting activity-counts endpoint...
+[API] Count process closed with code: 0
+[API] Successfully got activity counts
+Client disconnected: BTcrpMGo6ctgLOa9AAAF
+Client connected: k5geLMJabuCpXZorAAAH
+[API] Starting compare-activities endpoint...
+[API] Spawning fetch-activities.js process...
+[API] Environment variables present: { SUPABASE_URL: true, SUPABASE_SERVICE_KEY: true }
+[FETCH-STDERR]: [INFO] Fetching activities from Boniteti API for Crna Gora...
+
+[FETCH-STDOUT]: Got 78 bytes
+[FETCH-STDOUT]: Got 57 bytes
+[FETCH-STDOUT]: Got 60 bytes
+[FETCH-STDOUT]: Got 94 bytes
+[FETCH-STDOUT]: Got 105 bytes
+[FETCH-STDERR]: [SUCCESS] Received 996 activities from API
+
+[FETCH-STDERR]: [INFO] Building activity tree structure...
+
+[FETCH-STDERR]: [INFO] Comparing with existing activities (no save)...
+
+[FETCH-STDERR]: [INFO] Skipping database save (comparison only mode)
+
+[FETCH-STDOUT]: Got 1848 bytes
+[API] Process closed with code: 0
+[API] Total output length: 2242
+[API] Error output: [INFO] Fetching activities from Boniteti API for Crna Gora...
+[SUCCESS] Received 996 activities from API
+[INFO] Building activity tree structure...
+[INFO] Comparing with existing activities (no save)...
+[INFO] Skipping database save (comparison only mode)
+
+[API] Failed to parse complete output as JSON: Expected ',' or ']' after array element in JSON at position 5 (line 1 column 6)
+[API] Found and parsed JSON from output
+[API] Sending JSON result with 996 activities
+[API] Starting activity-counts endpoint...
+[API] Count process closed with code: 0
+[API] Successfully got activity counts
+Client disconnected: k5geLMJabuCpXZorAAAH
+Client connected: igYDoOocdZbbI205AAAJ
+Client disconnected: igYDoOocdZbbI205AAAJ
+Client connected: Qdj4UAxPYyYEJSlxAAAL
+[API] Starting compare-activities endpoint...
+[API] Spawning fetch-activities.js process...
+[API] Environment variables present: { SUPABASE_URL: true, SUPABASE_SERVICE_KEY: true }
+[FETCH-STDERR]: [INFO] Fetching activities from Boniteti API for Crna Gora...
+
+[FETCH-STDOUT]: Got 78 bytes
+[FETCH-STDOUT]: Got 117 bytes
+[FETCH-STDOUT]: Got 94 bytes
+[FETCH-STDOUT]: Got 105 bytes
+[FETCH-STDERR]: [SUCCESS] Received 996 activities from API
+
+[FETCH-STDERR]: [INFO] Building activity tree structure...
+
+[FETCH-STDERR]: [INFO] Comparing with existing activities (no save)...
+
+[FETCH-STDERR]: [INFO] Skipping database save (comparison only mode)
+
+[FETCH-STDOUT]: Got 1848 bytes
+[API] Process closed with code: 0
+[API] Total output length: 2242
+[API] Error output: [INFO] Fetching activities from Boniteti API for Crna Gora...
+[SUCCESS] Received 996 activities from API
+[INFO] Building activity tree structure...
+[INFO] Comparing with existing activities (no save)...
+[INFO] Skipping database save (comparison only mode)
+
+[API] Failed to parse complete output as JSON: Expected ',' or ']' after array element in JSON at position 5 (line 1 column 6)
+[API] Found and parsed JSON from output
+[API] Sending JSON result with 996 activities
+[API] Starting activity-counts endpoint...
+[API] Count process closed with code: 0
+[API] Successfully got activity counts
+Client disconnected: Qdj4UAxPYyYEJSlxAAAL
+Client connected: angibfwCClhC2XD4AAAN
+[API] Starting compare-activities endpoint...
+[API] Spawning fetch-activities.js process...
+[API] Environment variables present: { SUPABASE_URL: true, SUPABASE_SERVICE_KEY: true }
+[FETCH-STDERR]: [INFO] Fetching activities from Boniteti API for Crna Gora...
+
+[FETCH-STDOUT]: Got 78 bytes
+[FETCH-STDOUT]: Got 57 bytes
+[FETCH-STDOUT]: Got 60 bytes
+[FETCH-STDOUT]: Got 94 bytes
+[FETCH-STDOUT]: Got 105 bytes
+[FETCH-STDERR]: [SUCCESS] Received 996 activities from API
+
+[FETCH-STDERR]: [INFO] Building activity tree structure...
+
+[FETCH-STDERR]: [INFO] Comparing with existing activities (no save)...
+
+[FETCH-STDERR]: [INFO] Skipping database save (comparison only mode)
+
+[FETCH-STDOUT]: Got 1848 bytes
+[API] Process closed with code: 0
+[API] Total output length: 2242
+[API] Error output: [INFO] Fetching activities from Boniteti API for Crna Gora...
+[SUCCESS] Received 996 activities from API
+[INFO] Building activity tree structure...
+[INFO] Comparing with existing activities (no save)...
+[INFO] Skipping database save (comparison only mode)
+
+[API] Failed to parse complete output as JSON: Expected ',' or ']' after array element in JSON at position 5 (line 1 column 6)
+[API] Found and parsed JSON from output
+[API] Sending JSON result with 996 activities
+[API] Starting activity-counts endpoint...
+[API] Count process closed with code: 0
+[API] Successfully got activity counts
+Client disconnected: angibfwCClhC2XD4AAAN
+Client connected: CaJas_7HTAy-oGrQAAAP
+Client disconnected: CaJas_7HTAy-oGrQAAAP
+Client connected: SipL5DG7k-x1hfkjAAAR
+[API] Starting compare-activities endpoint...
+[API] Spawning fetch-activities.js process...
+[API] Environment variables present: { SUPABASE_URL: true, SUPABASE_SERVICE_KEY: true }
+[FETCH-STDERR]: [INFO] Fetching activities from Boniteti API for Crna Gora...
+
+[FETCH-STDOUT]: Got 78 bytes
+[FETCH-STDOUT]: Got 57 bytes
+[FETCH-STDOUT]: Got 60 bytes
+[FETCH-STDOUT]: Got 94 bytes
+[FETCH-STDOUT]: Got 105 bytes
+[FETCH-STDERR]: [SUCCESS] Received 996 activities from API
+
+[FETCH-STDERR]: [INFO] Building activity tree structure...
+
+[FETCH-STDERR]: [INFO] Comparing with existing activities (no save)...
+
+[FETCH-STDERR]: [INFO] Skipping database save (comparison only mode)
+
+[FETCH-STDOUT]: Got 1848 bytes
+[API] Process closed with code: 0
+[API] Total output length: 2242
+[API] Error output: [INFO] Fetching activities from Boniteti API for Crna Gora...
+[SUCCESS] Received 996 activities from API
+[INFO] Building activity tree structure...
+[INFO] Comparing with existing activities (no save)...
+[INFO] Skipping database save (comparison only mode)
+
+[API] Failed to parse complete output as JSON: Expected ',' or ']' after array element in JSON at position 5 (line 1 column 6)
+[API] Found and parsed JSON from output
+[API] Sending JSON result with 996 activities
+[API] Starting activity-counts endpoint...
+[API] Count process closed with code: 0
+[API] Successfully got activity counts
+Client disconnected: SipL5DG7k-x1hfkjAAAR
+Client connected: w95ggC2BtAJzb0OgAAAT
+[API] Starting compare-activities endpoint...
+[API] Spawning fetch-activities.js process...
+[API] Environment variables present: { SUPABASE_URL: true, SUPABASE_SERVICE_KEY: true }
+[FETCH-STDERR]: [INFO] Fetching activities from Boniteti API for Crna Gora...
+
+[FETCH-STDOUT]: Got 78 bytes
+[FETCH-STDOUT]: Got 57 bytes
+[FETCH-STDOUT]: Got 60 bytes
+[FETCH-STDOUT]: Got 94 bytes
+[FETCH-STDOUT]: Got 105 bytes
+[FETCH-STDERR]: [SUCCESS] Received 996 activities from API
+
+[FETCH-STDERR]: [INFO] Building activity tree structure...
+
+[FETCH-STDERR]: [INFO] Comparing with existing activities (no save)...
+
+[FETCH-STDERR]: [INFO] Skipping database save (comparison only mode)
+
+[FETCH-STDOUT]: Got 1848 bytes
+[API] Process closed with code: 0
+[API] Total output length: 2242
+[API] Error output: [INFO] Fetching activities from Boniteti API for Crna Gora...
+[SUCCESS] Received 996 activities from API
+[INFO] Building activity tree structure...
+[INFO] Comparing with existing activities (no save)...
+[INFO] Skipping database save (comparison only mode)
+
+[API] Failed to parse complete output as JSON: Expected ',' or ']' after array element in JSON at position 5 (line 1 column 6)
+[API] Found and parsed JSON from output
+[API] Sending JSON result with 996 activities
+[API] Starting activity-counts endpoint...
+[API] Count process closed with code: 0
+[API] Successfully got activity counts
+Client disconnected: w95ggC2BtAJzb0OgAAAT
+Client connected: fQmWB_vtE_MdVSNnAAAV
+Client disconnected: fQmWB_vtE_MdVSNnAAAV
+Client connected: fSANAA3qXQg0ze2XAAAX
+Client disconnected: fSANAA3qXQg0ze2XAAAX
+Client connected: OUNbbahyf6fcow_RAAAZ
+[API] Starting compare-activities endpoint...
+[API] Spawning fetch-activities.js process...
+[API] Environment variables present: { SUPABASE_URL: true, SUPABASE_SERVICE_KEY: true }
+[FETCH-STDERR]: [INFO] Fetching activities from Boniteti API for Crna Gora...
+
+[FETCH-STDOUT]: Got 78 bytes
+[FETCH-STDOUT]: Got 57 bytes
+[FETCH-STDOUT]: Got 60 bytes
+[FETCH-STDOUT]: Got 94 bytes
+[FETCH-STDOUT]: Got 105 bytes
+[FETCH-STDERR]: [SUCCESS] Received 996 activities from API
+
+[FETCH-STDERR]: [INFO] Building activity tree structure...
+
+[FETCH-STDERR]: [INFO] Comparing with existing activities (no save)...
+
+[FETCH-STDERR]: [INFO] Skipping database save (comparison only mode)
+
+[FETCH-STDOUT]: Got 1848 bytes
+[API] Process closed with code: 0
+[API] Total output length: 2242
+[API] Error output: [INFO] Fetching activities from Boniteti API for Crna Gora...
+[SUCCESS] Received 996 activities from API
+[INFO] Building activity tree structure...
+[INFO] Comparing with existing activities (no save)...
+[INFO] Skipping database save (comparison only mode)
+
+[API] Failed to parse complete output as JSON: Expected ',' or ']' after array element in JSON at position 5 (line 1 column 6)
+[API] Found and parsed JSON from output
+[API] Sending JSON result with 996 activities
+[API] Starting activity-counts endpoint...
+[API] Count process closed with code: 0
+[API] Successfully got activity counts
+Client disconnected: OUNbbahyf6fcow_RAAAZ
+Client connected: Zed6iDzugOx5cpAnAAAb
+Client disconnected: Zed6iDzugOx5cpAnAAAb
+Client connected: J6kij2IjAcUY-jMDAAAd
+Client disconnected: J6kij2IjAcUY-jMDAAAd
+Client connected: 7AU9OB8WFRt4lGuCAAAf
+Client disconnected: 7AU9OB8WFRt4lGuCAAAf
+Client connected: tenoCDFrwbBuzS0-AAAh
+Client disconnected: tenoCDFrwbBuzS0-AAAh
+Client connected: IYV31kUclOT6X5YMAAAj

@@ -96,6 +96,13 @@ export function Combobox({
                   onValueChange(currentValue === value ? "" : currentValue)
                   setOpen(false)
                 }}
+                onMouseDown={(e) => {
+                  e.preventDefault()
+                  e.stopPropagation()
+                  onValueChange(option.value === value ? "" : option.value)
+                  setOpen(false)
+                }}
+                className="cursor-pointer"
               >
                 <Check
                   className={cn(

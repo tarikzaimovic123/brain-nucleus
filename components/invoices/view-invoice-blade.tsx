@@ -13,6 +13,18 @@ import { useToast } from "@/hooks/use-toast"
 import { createClient } from "@/lib/supabase/client"
 import { usePermissionContext, PermissionGuard } from "@/lib/contexts/permission-context"
 
+interface InvoiceItem {
+  id: string
+  description: string
+  quantity: number
+  unit_price: number
+  vat_rate: number
+  line_total: number
+  vat_amount: number
+  total_with_vat: number
+  display_order?: number
+}
+
 interface Invoice {
   id: string
   invoice_number: string
@@ -46,6 +58,7 @@ interface Invoice {
     id: string
     order_number: string
   }
+  invoice_items?: InvoiceItem[]
 }
 
 interface ViewInvoiceBladeProps {
@@ -112,11 +125,42 @@ export function ViewInvoiceBlade({ invoice, onClose, onEdit, onDelete }: ViewInv
     )
   }
 
-  const handlePrint = () => {
-    toast({
-      title: "Info",
-      description: "Štampanje fakture je u izradi"
-    })
+  const handlePrint = async () => {
+    try {
+      const response = await fetch(`/api/invoices/${invoice.id}/pdf`)
+      
+      if (!response.ok) {
+        throw new Error('Failed to generate PDF')
+      }
+      
+      const blob = await response.blob()
+      const url = window.URL.createObjectURL(blob)
+      
+      // Open PDF in new window for printing
+      const printWindow = window.open(url, '_blank')
+      if (printWindow) {
+        printWindow.addEventListener('load', () => {
+          printWindow.print()
+        })
+      }
+      
+      // Clean up after a delay
+      setTimeout(() => {
+        window.URL.revokeObjectURL(url)
+      }, 60000) // Clean up after 1 minute
+      
+      toast({
+        title: "Info",
+        description: "PDF faktura je otvorena za štampanje"
+      })
+    } catch (error) {
+      console.error('PDF print error:', error)
+      toast({
+        variant: "destructive",
+        title: "Greška",
+        description: "Greška pri pripremi fakture za štampanje"
+      })
+    }
   }
 
   const handleSendEmail = () => {
@@ -126,11 +170,36 @@ export function ViewInvoiceBlade({ invoice, onClose, onEdit, onDelete }: ViewInv
     })
   }
 
-  const handleExport = () => {
-    toast({
-      title: "Info",
-      description: "Eksportovanje fakture je u izradi"
-    })
+  const handleExport = async () => {
+    try {
+      const response = await fetch(`/api/invoices/${invoice.id}/pdf`)
+      
+      if (!response.ok) {
+        throw new Error('Failed to generate PDF')
+      }
+      
+      const blob = await response.blob()
+      const url = window.URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = url
+      link.download = `faktura-${invoice.invoice_number}.pdf`
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      window.URL.revokeObjectURL(url)
+      
+      toast({
+        title: "Uspeh",
+        description: "PDF faktura je preuzeta"
+      })
+    } catch (error) {
+      console.error('PDF download error:', error)
+      toast({
+        variant: "destructive",
+        title: "Greška",
+        description: "Greška pri generisanju PDF fakture"
+      })
+    }
   }
 
   const handleVerifyFiscal = () => {
@@ -220,7 +289,7 @@ export function ViewInvoiceBlade({ invoice, onClose, onEdit, onDelete }: ViewInv
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <div className="px-6 pt-4">
             <TabsList className="grid w-full grid-cols-4">
@@ -375,8 +444,53 @@ export function ViewInvoiceBlade({ invoice, onClose, onEdit, onDelete }: ViewInv
 
             <TabsContent value="items" className="space-y-6 mt-0">
               <Card>
-                <div className="p-6">
-                  <p className="text-sm text-muted-foreground">Lista stavki fakture će biti prikazana ovde</p>
+                <div className="p-0">
+                  {invoice.invoice_items && invoice.invoice_items.length > 0 ? (
+                    <div className="overflow-x-auto">
+                      <table className="w-full">
+                        <thead className="bg-muted/50 border-b">
+                          <tr>
+                            <th className="text-left p-4 font-medium text-sm">#</th>
+                            <th className="text-left p-4 font-medium text-sm">Opis</th>
+                            <th className="text-right p-4 font-medium text-sm">Količina</th>
+                            <th className="text-right p-4 font-medium text-sm">Cena</th>
+                            <th className="text-right p-4 font-medium text-sm">PDV %</th>
+                            <th className="text-right p-4 font-medium text-sm">Osnovica</th>
+                            <th className="text-right p-4 font-medium text-sm">PDV</th>
+                            <th className="text-right p-4 font-medium text-sm">Ukupno</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          {invoice.invoice_items
+                            .sort((a, b) => (a.display_order || 0) - (b.display_order || 0))
+                            .map((item, index) => (
+                            <tr key={item.id} className="border-b hover:bg-muted/20">
+                              <td className="p-4 text-sm">{index + 1}</td>
+                              <td className="p-4 text-sm">{item.description}</td>
+                              <td className="p-4 text-sm text-right">{item.quantity}</td>
+                              <td className="p-4 text-sm text-right">€{item.unit_price.toFixed(2)}</td>
+                              <td className="p-4 text-sm text-right">{item.vat_rate}%</td>
+                              <td className="p-4 text-sm text-right">€{item.line_total.toFixed(2)}</td>
+                              <td className="p-4 text-sm text-right">€{item.vat_amount.toFixed(2)}</td>
+                              <td className="p-4 text-sm text-right font-medium">€{item.total_with_vat.toFixed(2)}</td>
+                            </tr>
+                          ))}
+                        </tbody>
+                        <tfoot className="bg-muted/30">
+                          <tr>
+                            <td colSpan={5} className="p-4 text-right font-medium">Ukupno osnovica:</td>
+                            <td className="p-4 text-right font-medium">€{invoice.subtotal.toFixed(2)}</td>
+                            <td className="p-4 text-right font-medium">€{invoice.vat_amount.toFixed(2)}</td>
+                            <td className="p-4 text-right font-bold text-lg">€{invoice.total_amount.toFixed(2)}</td>
+                          </tr>
+                        </tfoot>
+                      </table>
+                    </div>
+                  ) : (
+                    <div className="p-6">
+                      <p className="text-sm text-muted-foreground text-center">Nema stavki na ovoj fakturi</p>
+                    </div>
+                  )}
                 </div>
               </Card>
             </TabsContent>

@@ -104,7 +104,7 @@ export function ViewUserBlade({ user, onClose, onEdit, onDelete }: ViewUserBlade
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="h-full">
           <div className="border-b px-6">
             <TabsList className="h-12 bg-transparent p-0 rounded-none">

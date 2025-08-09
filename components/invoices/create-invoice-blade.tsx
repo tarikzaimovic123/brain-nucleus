@@ -292,7 +292,7 @@ export function CreateInvoiceBlade({ onSuccess }: CreateInvoiceBladeProps) {
         </div>
 
         {/* Content */}
-        <form onSubmit={handleSubmit} className="flex-1 overflow-y-auto">
+        <form onSubmit={handleSubmit} className="flex-1">
           <div className="p-6 space-y-6">
             {/* Basic Info */}
             <Card>

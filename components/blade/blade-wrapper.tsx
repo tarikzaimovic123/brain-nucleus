@@ -47,7 +47,7 @@ export function BladeWrapper({ isOpen, onClose, children, width = "lg" }: BladeW
       {/* Blade Panel */}
       <div
         className={cn(
-          "fixed right-0 top-0 h-full bg-background shadow-2xl z-50 transition-transform duration-300 ease-out overflow-hidden",
+          "fixed right-0 top-0 h-full bg-background shadow-2xl z-50 transition-transform duration-300 ease-out",
           widthClasses[width],
           "w-full",
           isVisible ? "translate-x-0" : "translate-x-full"

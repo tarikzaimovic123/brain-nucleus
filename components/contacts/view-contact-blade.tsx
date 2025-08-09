@@ -93,7 +93,7 @@ export function ViewContactBlade({ contact, onClose, onEdit, onDelete }: ViewCon
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
           <div className="px-6 pt-4">
             <TabsList className="grid w-full grid-cols-3">

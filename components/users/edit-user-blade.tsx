@@ -337,7 +337,7 @@ export function EditUserBlade({ user, onClose, onSave }: EditUserBladeProps) {
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-y-auto px-6 py-6">
+      <div className="flex-1 px-6 py-6">
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
           {/* Basic Info */}
           <Card className="p-6">

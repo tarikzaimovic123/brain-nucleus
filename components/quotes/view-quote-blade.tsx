@@ -421,7 +421,7 @@ export function ViewQuoteBlade({ quote, onClose, onEdit, onDelete }: ViewQuoteBl
       </div>
 
       {/* Content */}
-      <div className="flex-1 overflow-hidden">
+      <div className="flex-1">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="h-full flex flex-col">
           <TabsList className="grid w-full grid-cols-4 mx-6 mt-4">
             <TabsTrigger value="overview">Pregled</TabsTrigger>
@@ -430,7 +430,7 @@ export function ViewQuoteBlade({ quote, onClose, onEdit, onDelete }: ViewQuoteBl
             <TabsTrigger value="notes">Napomene</TabsTrigger>
           </TabsList>
           
-          <div className="flex-1 overflow-auto p-6">
+          <div className="flex-1 p-6">
             <TabsContent value="overview" className="space-y-6 mt-0">
               <div className="grid gap-6 md:grid-cols-2">
                 {/* Basic Info */}
